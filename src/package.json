@@ -1,0 +1,23 @@
+{
+  "name": "grupo_3_keep-learning",
+  "version": "1.0.0",
+  "description": "- Descripción del Sitio     - **Brindaremos:** Una tienda virtual de cursos y diplomados en línea     - **Audiencia objetivo:** Estudiantes, profesionales y cualquier persona con acceso a internet con ganas de aprender     - **Ajuste de la oferta a ese público:** Cursos de temas variados de interes, desde nivel basico, que no necesitan conocimiento previo, hasta avanzados. - Integrantes     - **David Alexys García Hernández**, estudiante de Ingeniería Industrial y de Sistemas, en el ITESM, 23 años, Culiacán, Sinaloa     - **Grecia Carolina Coronado García**, pasante de Ingenieria en Nanotecnología y Energía renovable de la UASLP, 22 años, de Saltillo, Coahuila. Correo: [coronadogrecia.15@gmail.com](mailto:coronadogrecia.15@gmail.com)     - **Juventino Aguilar Correa**, estudiante de Ingeniería de Software en la UAZ, 19 años, de Jerez, Zacatecas. - Sitios de Referencia",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AsuJuve/grupo_3_keep-learning.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AsuJuve/grupo_3_keep-learning/issues"
+  },
+  "homepage": "https://github.com/AsuJuve/grupo_3_keep-learning#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
