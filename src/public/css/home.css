@@ -1,0 +1,88 @@
+*{
+    box-sizing: border-box;
+}
+
+.header-not-logged-in{
+    width: 100%;
+    margin: 0;
+    display: flex;
+    background-color: #1A1D53;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+}
+
+.div-btn-menu{
+    display: block;
+    width: 40px;
+    height: 40px;
+    margin-left: 5.55%;
+    border-radius: 8px;
+    border: 1px solid #5156B5;
+    background-color: #363A84;
+}
+
+.menu-options{
+    margin: 0;
+    padding: 0;
+    display: none;
+}
+
+.menu-options > a{
+    color: white;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    display: block;
+}
+
+.menu-options > li:hover {
+    background-color: dimgray;
+}
+
+.menu-options > li a, .menu-options > li label {
+    text-decoration: none;
+    color: #fff;
+    width: 100%;
+    display: block;
+    min-height: inherit;
+    padding: 8px;
+}
+
+input[type="checkbox"]:checked + .menu-options{
+  display: block;
+}
+
+.logo-container{
+    margin-left: 21.11%;
+    margin-right: 5.55%;
+}
+
+.div-btn-search{
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    margin-right: 4.44%;
+    border: 1px solid #5156B5;
+    background-color: #363A84;
+}
+
+.btn-search{
+    width: 40px;
+    height: 40px;
+}
+
+.div-btn-cart{
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    margin-right: 5.55%;
+    border: 1px solid #5156B5;
+    background-color: #363A84;
+}
+
+.btn-cart{
+    width: 40px;
+    height: 40px;
+}
