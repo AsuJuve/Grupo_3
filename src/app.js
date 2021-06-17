@@ -13,10 +13,10 @@ app.post('/home', (req, res) => {
     res.sendFile('./home.html', { root: 'views' })
 });
 
-app.get("/Carrito",(req,res) => {
+app.get("/productCart",(req,res) => {
     res.sendFile(path.resolve(__dirname,"./views/productCart.html"));
 });
-app.get("/Registro",(req,res) => {
+app.get("/register",(req,res) => {
     res.sendFile(path.resolve(__dirname,"./views/register.html"));
 });
 app.get("/login",(req,res) => {

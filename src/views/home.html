@@ -29,7 +29,7 @@
 
         <!--Logo-->
         <div class="logo-container">
-            <a href="/views/home.html">
+            <a href="/">
                 <img src="images/icons/Logo-KeepLearning.svg" alt="logo-kl" class="logo">
             </a>
         </div>
@@ -43,9 +43,12 @@
         <input type="checkbox" id="show-search" hidden>
 
         <!--Botón carrito-->
+        
         <div class="div-btn-cart">
             <label for="show-cart">
+                <a href="/productCart">
                 <img src="images/icons/Carrito.svg" alt="Botón carrito de compras" class="btn-cart">
+            </a>
             </label>
         </div>
         <input type="checkbox" id="show-cart" hidden>
@@ -65,8 +68,12 @@
                     Bienvenido a Keep Learning, una de las plataformas de educación en línea más eficacez actualmente.
                 </p>
                 <div class="btns-principal">
+                    <a href="/login">
                     <button class="btn-log-in">Iniciar Sesion</button>
-                    <button class="btn-register">Registrate</button>
+                    </a>
+                    <a href="/register">
+                        <button class="btn-register">Registrate</button>
+                    </a>
                 </div>
         </article>
     </section>
@@ -89,6 +96,7 @@
         <!--Programacion-->
         <section class="CarouselContainer" >
             <section class="Carousel">
+                <a href="/productDetail">
                 <article class="CourseCard">
                     <img class="CourseCardImage" src="/images/courses/course1.jpg" alt="Thumbnail de curso de Redes Neuronales">
                     <h4 class="CourseCardTitle">Introducción a Redes Neuronales</h4>
@@ -104,7 +112,7 @@
                     </section>
                     <h4 class="CourseCardPrice">$ 199 MXN</h4>
                 </article>
-
+                </a>
                 <article class="CourseCard">
                     <img class="CourseCardImage" src="/images/courses/course2.jpg" alt="Thumbnail de curso de Python">
                     <h4 class="CourseCardTitle">Curso Python Completo</h4>
