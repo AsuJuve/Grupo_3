@@ -1,8 +1,9 @@
 const express = require("express");
 const app = express();
 const path = require("path");
+const PORT = process.env.PORT || 80;
 
-app.listen(3000,function(){
+app.listen(PORT,function(){
     console.log("Servidor listo");
 });
 
