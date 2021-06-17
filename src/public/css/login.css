@@ -1,0 +1,414 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;    
+    font-family: 'Roboto';    
+   }
+:root{
+    /*FUENTE*/
+    --font:"Roboto";
+    /*COLORES*/
+    --brandColor: #25C998;
+    --BrandPurple:#5157B5;
+    --BrandPurpleDark:#363A84;
+    --darkBlueLogo:#1A1D53;
+    --darkBlue100:#030634;
+    --secondaryColor:#C4C4C4;
+    --White:#FFFFFF;
+    --Black:#000000;
+}
+main{
+    background-color: #030634;    
+    color: white;
+    font-weight: 500;
+    display: flex;
+    flex-direction: column;
+    padding-top: 15vh;
+}
+.header-not-logged-in{
+    width: 100vw;
+    margin: 0;
+    display: flex;
+    background-color: #1A1D53;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    z-index: 10;
+}
+.div-btn-menu{
+    display: block;
+    width: 40px;
+    height: 40px;
+    margin-left: 5.55%;
+    border-radius: 8px;
+    border: 1px solid #5156B5;
+    background-color: #363A84;
+}
+.menu-options{
+    display: none;
+    margin: 0;
+    padding: 0;
+}
+.menu-options > a{
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    display: block;
+    position: relative;
+}
+.menu-options > li:hover {
+    background-color: dimgray;
+    position: relative;
+}
+.menu-options > li a, .menu-options > li label {
+    text-decoration: none;
+    color: #fff;
+    width: 100%;
+    display: block;
+    min-height: inherit;
+    padding: 8px;
+}
+input[type="checkbox"]:checked + .menu-options{
+    display: block;
+}
+.logo-container{
+    margin-left: 21.11%;
+    margin-right: 5.55%;
+}
+.div-btn-search{
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    margin-right: 4.44%;
+    border: 1px solid #5156B5;
+    background-color: #363A84;
+}
+.btn-search{
+    width: 40px;
+    height: 40px;
+}
+.div-btn-cart{
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    margin-right: 5.55%;
+    border: 1px solid #5156B5;
+    background-color: #363A84;
+}
+.btn-cart{
+    width: 40px;
+    height: 40px;
+}
+h1{
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 28px;
+}
+input[type=email], [type=password]{
+    background-color: #030634; 
+    border-radius: 8px;
+    border: 1px #5157B5 solid;
+    height: 40px;
+    color: white;
+    padding:20px;
+}
+label{
+    font-size: 20px;
+    line-height: 23.5px;
+}
+form{
+    padding: 16px;     
+    display: flex;
+    flex-direction: column;
+}
+.recordar{
+    display: flex;
+    justify-content: space-between;
+}
+.recordarme{
+    font-size: 14px;
+    line-height: 16.5px;
+    padding-top: 4px;
+    padding-bottom: 8px;
+}
+input[type=checkbox] {
+    transform: scale(1.5);
+    margin: 0 8px;
+  }
+#enviar{
+    background-color: #25C998;
+    color: black;
+    font-size: 20px;
+    border-radius: 8px;
+    height: 36px;
+    font-weight: 900;
+    border: 1px solid #25C998;
+    padding:0px;
+}
+a{
+    color: white;
+}
+.registrarse{
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    padding-top: 12px;
+}
+footer{
+    background-color:var(--darkBlueLogo);
+}
+.FooterContainer{
+    padding-top: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: 16px;
+    margin-left: 16px;
+    justify-content: center;
+}
+.FooterTitle{
+    font-size: 16px;
+    color:var(--White);
+}
+.FooterItem{
+    font-size: 14px;
+    color:var(--White);
+    font-weight: 400;
+}
+.Empresa{
+    min-width: 136px;
+    padding-bottom: 12px;
+}
+.Legal{
+    width:140px;
+    order:2;
+}
+.Contactanos{
+    order:1;
+    margin-left:36px;
+    min-width: 116px;
+    padding-bottom: 32px;
+}
+.Social{
+    order:4;
+    display: flex;
+    margin-left: 32px;
+    justify-content: center;
+}
+.InstagramLogo{
+    margin-left: 8px;
+    margin-right: 8px;
+}
+.Logo{
+    order:5;
+    margin-top:4px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+small{
+    color:var(--secondaryColor);
+    font-weight: 400;
+    display: flex;
+    margin-right: 16px;
+    margin-left: 16px;
+    justify-content: center;
+    padding-bottom: 16px;
+}
+@media (max-width:359px) {
+    .Contactanos{
+        margin-left: 0;
+    }
+    .Legal{
+        padding-bottom: 12px;
+    }
+    .Social{
+        width: 100%;
+        margin-left: 0;
+        justify-self: center;
+    }
+}
+@media (max-width:283px) {
+    .Contactanos{
+        width:136px;
+    }
+}
+@media (max-width:324px) {
+    .Contactanos{
+        padding-bottom: 12px;
+    }
+}
+@media (min-width:460px) {
+    form{
+        width: 60%;
+        align-self: center;
+    }
+    .Contactanos{
+        margin-right: 36px;
+    }
+    .Legal{
+        margin-right:32px;
+    }
+    .Social{
+        margin-left:0;
+        margin-right:36px;
+    }
+}
+@media (min-width:532px) {
+    .Social{
+        margin:0;
+        justify-self: center;
+    }
+    .Legal{
+        margin-right: 0;
+    }
+}
+@media (min-width:608px) {
+    .Social{
+        align-self: center;
+    }
+    .Legal{
+        margin-right: 36px;
+    }
+    .Empresa{
+        padding-bottom: 0;
+    }
+    .Logo{
+        margin-top:0;
+    }
+}
+/*DESKTOP*/
+@media (min-width:950px){
+    .FooterContainer{
+        padding-top: 52px;
+        padding-left: 4%;
+        padding-right: 4%;
+        justify-content: flex-start;
+        margin:0;
+    }
+    .Logo{
+        order: 0;
+        width: 124px;
+        height: 92px;
+    }
+    .Empresa{
+        order:1;
+        margin-right: 4%;
+        margin-left: 4%;
+        width: 180px !important;
+    }
+    .Legal{
+        order:2;
+        min-width: 180px !important;
+        margin-right: 0;
+    }
+    .Contactanos{
+        order: 3;
+        padding:0;
+        margin:0 4% 0 4%;
+    }
+    .Social{
+        order:4;
+        flex-direction: column;
+        margin:auto;
+    }
+    .InstagramLogo{
+        margin:0;
+    }
+    .FooterContainer > div > h5.FooterTitle{
+        font-size: 24px;
+    }
+    .FooterContainer > div > h6.FooterItem{
+        font-size: 20px;
+    }
+    .Social > img{
+        width:48px;
+        height: 48px;
+        margin-bottom: 16px;
+    }
+    small{
+        padding-top:40px;
+        font-size: 16px;
+        justify-content: flex-end;
+        padding-right: 72px;
+        padding-bottom: 32px;
+        margin:0;
+    }
+    .recordarme{
+        font-size: 20px;
+        line-height: 19px;
+        font-weight: 500;
+        margin-bottom: 20px;
+    }
+    input[type=checkbox] {
+        transform: scale(2.5);
+        margin: 0 10px;
+      }
+}
+@media (min-width:1236px) {
+    .FooterContainer{
+        padding-left: 5%;
+        padding-right: 5%;
+        justify-content: center;
+    }
+    .Empresa{
+        margin-right: 5%;
+        margin-left: 5%;
+        width: 192px;
+    }
+    .Legal{
+        min-width: 180px !important;
+    }
+    .Contactanos{
+        order: 3;
+        padding:0;
+        margin:0 5% 0 5%;
+    }
+    .Social{
+        flex-direction: row;
+        align-self:flex-start;
+        margin:0;
+    }
+    .Social > img{
+        width:48px;
+        height: 48px;
+        margin: 0 16px 0 16px;
+    }
+}
+@media (min-width:769px){
+    form{
+        width: 40%
+    }
+    h1{
+        font-size: 35px;
+        font-weight: 400;
+        line-height: 48px;
+    }
+
+}
+@media (min-width:1280px){
+    form{
+        width: 48%;
+    }
+    h1{
+        font-size: 48px;
+        font-weight: 400;
+        line-height: 48px;
+    }
+    label{
+        font-size: 34px;
+        line-height: 40px;
+        font-weight: 400;
+        margin-bottom: 12px;
+    }
+    input[type=email],[type=password], #enviar{
+        height: 56px;
+        margin-bottom: 12px;
+        font-size: 24px;
+    }
+    .registrarse{
+        font-size: 20px;
+        line-height: 24px;
+        margin-bottom: 64px;
+    }
+}
