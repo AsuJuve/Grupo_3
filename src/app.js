@@ -3,7 +3,7 @@ const app = express();
 const path = require("path");
 
 app.listen(3000,function(){
-    console.log("Servidor montado en el puerto 3000");
+    console.log("Servidor listo");
 });
 
 app.use(express.static(path.resolve(__dirname,"./public")));
@@ -14,8 +14,4 @@ app.get("/",(req,res) => {
 
 app.get("/productDetail",(req,res) => {
     res.sendFile(path.resolve(__dirname,"./views/productDetail.html"));
-});
-
-app.get("/productCart",(req,res) => {
-    res.sendFile(path.resolve(__dirname,"./views/productCart.html"));
 });
