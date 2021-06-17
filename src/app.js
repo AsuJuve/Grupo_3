@@ -3,7 +3,7 @@ const app = express();
 const path = require("path");
 
 app.listen(3000,function(){
-    console.log("Servidor listo");
+    console.log("Servidor montado en el puerto 3000");
 });
 
 app.use(express.static(path.resolve(__dirname,"./public")));

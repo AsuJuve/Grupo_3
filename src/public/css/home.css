@@ -1,0 +1,460 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    font-family: 'Roboto';
+    color: white;
+}
+
+.header-not-logged-in{
+    width: 100vw;
+    margin: 0;
+    display: flex;
+    background-color: #1A1D53;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    z-index: 10;
+}
+
+.div-btn-menu{
+    display: block;
+    width: 40px;
+    height: 40px;
+    margin-left: 5.55%;
+    border-radius: 8px;
+    border: 1px solid #5156B5;
+    background-color: #363A84;
+}
+
+.menu-options{
+    display: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu-options > a{
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    display: block;
+    position: relative;
+}
+
+.menu-options > li:hover {
+    background-color: dimgray;
+    position: relative;
+}
+
+.menu-options > li a, .menu-options > li label {
+    text-decoration: none;
+    color: #fff;
+    width: 100%;
+    display: block;
+    min-height: inherit;
+    padding: 8px;
+}
+
+input[type="checkbox"]:checked + .menu-options{
+    display: block;
+}
+
+.logo-container{
+    margin-left: 21.11%;
+    margin-right: 5.55%;
+}
+
+.div-btn-search{
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    margin-right: 4.44%;
+    border: 1px solid #5156B5;
+    background-color: #363A84;
+}
+
+.btn-search{
+    width: 40px;
+    height: 40px;
+}
+
+.div-btn-cart{
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    margin-right: 5.55%;
+    border: 1px solid #5156B5;
+    background-color: #363A84;
+}
+
+.btn-cart{
+    width: 40px;
+    height: 40px;
+}
+
+.section-main{
+    background-color: #030634;
+    width: 100vw;
+    height: 268px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: relative;
+    top: 64px;
+}
+
+.img-principal-div{
+    margin: 0;
+    width: 360px;
+    height: 116px;
+}
+
+.principal-img{
+    width: 100%;
+    height: 100%;
+}
+
+.principal-header{
+    font-weight: 500;
+    font-style: normal;
+    font-size: 16px;
+    margin-top: 8px;
+    margin-bottom: 4px;
+    margin-right: 4.44%;
+    margin-left: 4.44%;
+}
+
+.principal-p{
+    color: #C4C4C4;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 14px;
+    margin-top: 4px;
+    margin-bottom: 8px;
+    margin-right: 4.44%;
+    margin-left: 4.44%;
+}
+
+.btns-principal{
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+}
+
+.btn-log-in{
+    font-weight: 500;
+    font-size: 14px;
+    width: 148px;
+    height: 32px;
+    border-radius: 8px;
+    border: #25C998 solid 1px;
+    color: #25C998;
+    background-color: #030634;
+}
+
+.btn-register{
+    font-weight: 500;
+    font-size: 14px;
+    width: 148px;
+    height: 32px;
+    border-radius: 8px;
+    border: #25C998 solid 1px;
+    color: #030634;
+    background-color: #25C998;
+}
+
+/*                  Courses                */
+
+.Courses{
+    position: relative;
+    top:64px;
+    background-color: #030634;
+}
+
+.CoursesCategories{
+    overflow-x: auto;
+    display: flex;
+    align-items: center;
+}
+
+.CoursesCategories div{
+    min-width: 130px;
+    background-color: #1A1D53;
+    height: 68px;
+    text-align: center;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+}
+
+#programming{
+    background-color: #5157B5;
+}
+
+.CarouselName{
+    margin: 8px 16px 16px 8px;
+}
+
+.CarouselContainer{
+    overflow-x:auto;
+    position: relative;
+    padding-top: 30px;
+    background-color: #5157B5;
+    font-weight: 500;
+}
+#popular{
+    top:64px;
+}
+.Carousel{
+    overflow-x:auto;
+    min-height: 212px;
+    margin:0 16px 16px 0;
+    display: flex;
+}
+.CourseCard{
+    width:300px !important;
+    min-height: 212px;
+    margin: 0 16px 0px;
+    flex-shrink: 0;
+}
+.CourseCardImage{
+    width:100%;
+    height:140px;
+}
+.CourseCardTitle{
+    margin: 9px 16px 16px 5px;
+    color:var(--White);
+}
+img{
+    display:block;
+}
+.CourseCard > .CourseRating{
+    margin:0;
+}
+.CourseCardPrice{
+    margin: 0;
+    margin-top:8px;
+}
+.CourseCardCreator{
+    margin: 5px 16px 16px 4px;
+}
+.CourseGrade{
+    margin: 0;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+.CourseReviews{
+    margin: 0;
+}
+.CourseRating{
+    width: 232px;   
+    color:var(--secondaryColor);
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/*          Footer          */
+footer{
+    background-color:#1A1D53;
+    position: relative;
+    top:64px;
+}
+.FooterContainer{
+    padding-top: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: 16px;
+    margin-left: 16px;
+    justify-content: center;
+}
+.FooterTitle{
+    font-size: 16px;
+    color:var(--White);
+    margin: 4px;
+}
+.FooterItem{
+    font-size: 14px;
+    color:var(--White);
+    font-weight: 400;
+    margin: 4px;
+}
+.Empresa{
+    min-width: 136px;
+    padding-bottom: 12px;
+}
+.Legal{
+    width:140px;
+    order:2;
+}
+.Contactanos{
+    order:1;
+    margin-left:36px;
+    min-width: 116px;
+    padding-bottom: 32px;
+}
+.Social{
+    order:4;
+    display: flex;
+    margin-left: 32px;
+    justify-content: center;
+}
+.InstagramLogo{
+    margin-left: 8px;
+    margin-right: 8px;
+}
+.Logo{
+    order:5;
+    margin-top:4px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+small{
+    color:var(--secondaryColor);
+    font-size: 14px;
+    font-weight: 400;
+    display: flex;
+    margin-right: 16px;
+    margin-left: 16px;
+    text-align: center;
+    justify-content: center;
+    padding-bottom: 16px;
+}
+@media (min-width:532px) {
+    .Social{
+        margin:0;
+        justify-self: center;
+    }
+    .Legal{
+        margin-right: 0;
+    }
+    .section-main{
+        position: relative;
+        display: block;
+        min-height: 50.37vw;
+    }
+    .img-principal-div{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+    .main-article{
+        position: absolute;
+        bottom: 6.01vw;
+        z-index: 1;
+    }
+
+    .principal-p{
+        font-weight: bold;
+        color: #030634;
+    }
+
+    .principal-header{
+        font-weight: bold;
+        color: #25C998;
+    }
+}
+/*DESKTOP*/
+@media (min-width:950px){
+
+    .section-main{
+        min-height: 558px;
+    }
+
+    .principal-p{
+        font-size: 1.5rem;
+    }
+
+    .principal-header{
+        font-size: 2rem;
+    }
+    .FooterContainer{
+        padding-top: 52px;
+        padding-left: 4%;
+        padding-right: 4%;
+        justify-content: flex-start;
+        margin:0;
+    }
+    .Logo{
+        order: 0;
+        width: 124px;
+        height: 92px;
+    }
+    .Empresa{
+        order:1;
+        margin-right: 4%;
+        margin-left: 4%;
+        width: 180px !important;
+    }
+    .Legal{
+        order:2;
+        min-width: 180px !important;
+        margin-right: 0;
+    }
+    .Contactanos{
+        order: 3;
+        padding:0;
+        margin:0 4% 0 4%;
+    }
+    .Social{
+        order:4;
+        flex-direction: column;
+        margin:auto;
+    }
+    .InstagramLogo{
+        margin:0;
+    }
+    .FooterContainer > div > h5.FooterTitle{
+        font-size: 24px;
+    }
+    .FooterContainer > div > h6.FooterItem{
+        font-size: 20px;
+    }
+    .Social > img{
+        width:48px;
+        height: 48px;
+        margin-bottom: 16px;
+    }
+    small{
+        padding-top:40px;
+        font-size: 16px;
+        justify-content: flex-end;
+        padding-right: 72px;
+        padding-bottom: 32px;
+        margin:0;
+    }
+}
+@media (min-width:1236px) {
+
+    .FooterContainer{
+        padding-left: 5%;
+        padding-right: 5%;
+        justify-content: center;
+    }
+    .Empresa{
+        margin-right: 5%;
+        margin-left: 5%;
+        width: 192px;
+    }
+    .Legal{
+        min-width: 180px !important;
+    }
+    .Contactanos{
+        order: 3;
+        padding:0;
+        margin:0 5% 0 5%;
+    }
+    .Social{    
+        flex-direction: row;
+        align-self:flex-start;
+        margin:0;
+    }
+    .Social > img{
+        width:48px;
+        height: 48px;
+        margin: 0 16px 0 16px;
+    }
+}
