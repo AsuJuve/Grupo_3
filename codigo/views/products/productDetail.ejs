@@ -1,0 +1,241 @@
+<%- include("../partials/head.ejs")%>
+<body>
+    <!--Navbar-->
+    <%- include("../partials/header.ejs")%>
+    <section class="adminView">
+        <h3>Vista previa del curso</h3>
+        <a href="/createCourse" target="_parent"><button class = "botonesSuperiores">Agregar nuevo</button></a>
+        <a href="/editCourse" target="_parent"><button class = "botonesSuperiores">Editar curso</button></a>
+        <a href="/#" target="_parent"><button class = "botonesSuperiores">Borrar curso</button></a>
+    </section>
+    <h5 class="Breadcrumb">
+        <a href="#">Inicio</a> > <a href="#">Programación</a> > <a href="#"> Python</a>
+    </h5>
+    <article class="ProductBasicInfo">
+        <div class="DesktopFirstHalf">
+            <div class="DesktopSecondCuadrant">
+                <div class="VideoPlayer">
+                    <img class = "CourseNameVideo" src="/images/courses/pythonCourse.jpeg" alt="Código en Python" width="device-width">
+                    <img class="PlayButton" src="/images/icons/Play.svg" alt="Botón de play" width="48px" height="48px">
+                </div>
+                <div class=DesktopBuyInfoVisible>
+                    <h3 class="CoursePrice">$ 249.00 MXN</h3>
+                    <div class="ButtonsContainer">
+                        <a href="#" target="_parent"><button class="Btn-AgregarCarrito">Agregar al carrito</button></a>
+                        <a href="/productCart" target="_parent"><button class="Btn-Comprar">Comprar ahora</button></a>
+                    </div>
+                    <div class="CourseBenefits">
+                        <h5>ESTE CURSO INCLUYE:</h5>
+                            <ul>
+                                <li>54,5 horas de vídeo bajo demanda</li>
+                                <li>13 recursos descargables</li>
+                                <li>1 ejercicio de codificación</li>
+                                <li>Acceso de por vida</li>
+                                <li>Acceso en dispositivos móviles y TV</li>
+                                <li>Tareas</li>
+                                <li>Certificado de finalización</li>
+                            </ul>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="DesktopFirstCuadrant">
+                <h3 class="CourseName">Curso completo de Python 3 de la A a la Z - 2021 +50 horas</h3>
+                <h5 class="CreadorInfo">Creado por: Universidad Nacional Autónoma de México</h5>
+                <h4 class="ShortCourseDescription">Aprende Python 3 como un profesional empezando por las bases
+                    hasta programar tus propios algoritmos o juegos completos</h4>
+                <section class="CourseRating">
+                    <h4 class="CourseGrade">4.8</h4>
+                    <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
+                    <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
+                    <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
+                    <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
+                    <img src="/images/icons/EstrellaMitad.svg" alt="Estrella" width="24Xpx" height="24px">
+                    <h5 class="CourseReviews">(99,000)</h5>
+                    <h5 class="CourseStudents">4,200 estudiantes</h5>
+                </section>
+                <section class="DesktopCourseDetailsVisible">
+                    <h3 class="DetailsTitle">Sobre el curso</h3>
+                    <h4 class="DetailsSubtitle">Requisitos</h4>
+                    <ul class="RequirementsList">
+                        <li>No es necesario ningún tipo de conocimiento en programación. Este curso es realmente te enseñará a programar desde cero.</li>
+                        <li>Un ordenador con conexión a internet para poder descargar y ejecutar los notebooks de Python que te daremos durante el curso.</li>
+                        <li>Muchas ganas de aprender Python desde cero para seguir creciendo en las ramas de Inteligencia Artificial, Data Science y Machine Learning.</li>
+                    </ul>
+                    <h4 class="DetailsSubtitle2">Descripción</h4>
+                    <h5 class="LongCourseDescription">¡Conviértete hoy mismo en un programador de Python y aprende una de las habilidades más solicitadas por las empresas que buscan empleados bien cualificados en este 2021!<br>
+                        <br>Los Data Scientist ganan en promedio más de $100,000 USD al año ya sea trabajando en empresas o como consultores externos. Sus portfolios de trabajos previos son su mejor arma para captar nuevos clientes y destacar como analistas de datos. Sin embargo, los datos no se analizan a mano, y el lenguaje de programación de Python se ha convertido en un requisito indispensable para aplicar algoritmos de Machine Learning o de Inteligencia Artificial como los que vemos en los cursos más avanzados. La programación con Python 3 se ha convertido en una habilidad importantísima para conseguir mejores trabajos en el siglo XXI.<br>
+                        <br>¡Este es el curso más completo, pero manteniendo la simplicidad para que aprender una tecnología como Python sea accesible para todos los estudiantes, para el lenguaje de programación Python en Keep Learning!. Ya sea que nunca hayas programado antes, o bien ya conozcas la sintaxis básica o tal vez quieras aprender sobre las funciones avanzadas de Python, ¡este curso es sin duda para ti! En este curso te enseñaremos Python 3 desde lo más básico hasta convertirte en un experto capaz de programar lo que quieras.
+                    </h5>
+                </section>
+            </div>
+            <div class=DesktopBuyInfoHidden>
+                <h3 class="CoursePrice">$ 249.00 MXN</h3>
+                <div class="ButtonsContainer">
+                    <a href="#" target="_parent"><button class="Btn-AgregarCarrito">Agregar al carrito</button></a>
+                    <a href="/productCart" target="_parent"><button class="Btn-Comprar">Comprar ahora</button></a>
+                </div>
+            </div>
+        </div>
+        <section class="DesktopCourseDetailsHidden">
+            <h3 class="DetailsTitle">Sobre el curso</h3>
+            <h4 class="DetailsSubtitle">Requisitos</h4>
+            <ul class="RequirementsList">
+                <li>No es necesario ningún tipo de conocimiento en programación. Este curso es realmente te enseñará a programar desde cero.</li>
+                <li>Un ordenador con conexión a internet para poder descargar y ejecutar los notebooks de Python que te daremos durante el curso.</li>
+                <li>Muchas ganas de aprender Python desde cero para seguir creciendo en las ramas de Inteligencia Artificial, Data Science y Machine Learning.</li>
+            </ul>
+            <h4 class="DetailsSubtitle2">Descripción</h4>
+            <h5 class="LongCourseDescription">¡Conviértete hoy mismo en un programador de Python y aprende una de las habilidades más solicitadas por las empresas que buscan empleados bien cualificados en este 2021!<br>
+                <br>Los Data Scientist ganan en promedio más de $100,000 USD al año ya sea trabajando en empresas o como consultores externos. Sus portfolios de trabajos previos son su mejor arma para captar nuevos clientes y destacar como analistas de datos. Sin embargo, los datos no se analizan a mano, y el lenguaje de programación de Python se ha convertido en un requisito indispensable para aplicar algoritmos de Machine Learning o de Inteligencia Artificial como los que vemos en los cursos más avanzados. La programación con Python 3 se ha convertido en una habilidad importantísima para conseguir mejores trabajos en el siglo XXI.<br>
+                <br>¡Este es el curso más completo, pero manteniendo la simplicidad para que aprender una tecnología como Python sea accesible para todos los estudiantes, para el lenguaje de programación Python en Keep Learning!. Ya sea que nunca hayas programado antes, o bien ya conozcas la sintaxis básica o tal vez quieras aprender sobre las funciones avanzadas de Python, ¡este curso es sin duda para ti! En este curso te enseñaremos Python 3 desde lo más básico hasta convertirte en un experto capaz de programar lo que quieras.
+            </h5>
+        </section>
+    </article>
+    <article class="CourseContents">
+        <h3 class="SectionTitle">Contenido del curso</h3>
+        <div class="CourseLessonsContainer">
+            <div class="CourseLesson">
+                <h4 class="CourseLessonName">Tema 1: Introducción a la programación con Python 3</h4>
+                <h4 class="CourseLessonTime">60 min</h4>
+                <h5 class="CourseLessonExplained">Veremos el concepto de variable, así como palabras reservadas en Python. Posteriormente, veremos cómo declarar múltiples variables y llegaremos a hacer operaciones con ellas. Finalmente, veremos cuestiones importantes sobre el cómo hacer comentarios y la función import.</h5>
+                <img class="DesktopLessonVideoVisible" src="/images/courses/LessonThumbnail.jpeg" alt="Preview de video del curso, lección 1">
+            </div>
+            <div class="CourseLesson">
+                <h4 class="CourseLessonName">Tema 2: Números en Python 3</h4>
+                <h4 class="CourseLessonTime">120 min</h4>
+                <h5 class="CourseLessonExplained">Primero veremos cuales son los tipos de números disponibles en este lenguaje de programación, posteriormente abordaremos más a detalle las operaciones aritméticas, la jerarquía de operaciones y finalmente, veremos un poco de números complejos en Python.</h5> 
+                <img class="DesktopLessonVideoVisible" src="/images/courses/LessonThumbnail2.jpeg" alt="Preview de video del curso, lección 2">
+            </div>
+            <button class="Btn-SeeMore">Ver más</button>
+        </div>
+    </article>   
+    <article class="AboutUniversity">
+        <h3 class="SectionTitle">Sobre la universidad</h3>
+        <h4 class="UniversityInfo">La Universidad Nacional Autónoma de México (cuya siglas son UNAM) es una universidad pública mexicana. Destaca como una de las mejores universidades de América Latina y de las más activas en materia artística, tecnológica y de investigación.</h4>
+        <h3 class="SectionTitle">Otros cursos de la Universidad Nacional Autónoma de México</h3>
+        <div class="CarouselContainer">
+            <div class="Carousel">
+                <a href="#" target="_parent">
+                    <article class="CourseCard">
+                        <img class="CourseCardImage" src="/images/courses/PowerBICourse.jpeg" alt="Thumbnail de curso de Power BI">
+                        <h5 class="CourseCardTitle">Curso Power BI – Análisis de Datos y Business Intelligence</h5>
+                        <h6 class="CourseCardCreator">Creado por: Universidad Nacional Autónoma de México</h6>
+                        <section class="CourseRating">
+                            <h5 class="CourseGrade">4.0</h5>
+                            <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
+                            <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
+                            <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
+                            <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
+                            <img src="/images/icons/EstrellaVacia.svg" alt="Estrella" width="24px" height="24px">
+                            <h6 class="CourseReviews">(1,240)</h6>
+                        </section>
+                        <h4 class="CourseCardPrice">$ 199 MXN</h4>
+                    </article>
+                </a>
+                <a href="#" target="_parent">
+                    <article class="CourseCard">
+                        <img class="CourseCardImage" src="/images/courses/reactCourse.jpeg" alt="Thumbnail de curso de React">
+                        <h5 class="CourseCardTitle">Aprende React y Firebase, curso de 2021</h5>
+                        <h6 class="CourseCardCreator">Creado por: Universidad Nacional Autónoma de México</h6>
+                        <section class="CourseRating">
+                            <h5 class="CourseGrade">4.5</h5>
+                            <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
+                            <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
+                            <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
+                            <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
+                            <img src="/images/icons/EstrellaMitad.svg" alt="Estrella" width="24px" height="24px">
+                            <h6 class="CourseReviews">(67,640)</h6>
+                        </section>
+                        <h4 class="CourseCardPrice">$ 279 MXN</h4>
+                    </article>
+                </a>
+                <a href="#" target="_parent">
+                    <article class="CourseCard">
+                        <img class="CourseCardImage" src="/images/courses/typescriptCourse.jpeg" alt="Thumbnail de curso de TypeScript">
+                        <h5 class="CourseCardTitle">Aprende Typescript de 0 a 100</h5>
+                        <h6 class="CourseCardCreator">Creado por: Universidad Nacional Autónoma de México</h6>
+                        <section class="CourseRating">
+                            <h5 class="CourseGrade">3.9</h5>
+                            <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
+                            <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
+                            <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
+                            <img src="/images/icons/EstrellaMitad.svg" alt="Estrella" width="24px" height="24px">
+                            <img src="/images/icons/EstrellaVacia.svg" alt="Estrella" width="24px" height="24px">
+                            <h6 class="CourseReviews">(3,195)</h6>
+                        </section>
+                        <h4 class="CourseCardPrice">$ 179 MXN</h4>
+                    </article>
+                </a>
+                <a href="#" target="_parent">
+                    <article class="CourseCard">
+                        <img class="CourseCardImage" src="/images/courses/gitCourse.jpeg" alt="Thumbnail de curso de Git y Github">
+                        <h5 class="CourseCardTitle">GIT+GitHub: Todo un sistema de control de versiones de cero</h5>
+                        <h6 class="CourseCardCreator">Creado por: Universidad Nacional Autónoma de México</h6>
+                        <section class="CourseRating">
+                            <h5 class="CourseGrade">5.0</h5>
+                            <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
+                            <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
+                            <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
+                            <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
+                            <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
+                            <h6 class="CourseReviews">(30,195)</h6>
+                        </section>
+                        <h4 class="CourseCardPrice">$ 259 MXN</h4>
+                    </article>
+                </a>
+            </div>
+        </div>
+    </article>
+    <section class="CourseReviewsSection">
+        <h3 class="CourseReviewsSectionTitle">Reseñas de otros estudiantes</h3>
+        <article class="ReviewContainer">
+            <div class="ReviewerInfo">
+                <div class="ReviewerPictureContainer">
+                    <img class="ReviewerPhoto" src="/images/courses/ReviewerPhoto.jpeg" alt="Reviewer photo">
+                </div>
+                <div class="ReviewerNameNRating">
+                    <h4 class="ReviewerName">Juan Fernando Rodríguez Ramírez</h4><br>
+                    <div class="ReviewerRating">
+                        <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
+                        <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
+                        <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
+                        <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
+                        <img src="/images/icons/EstrellaMitad.svg" alt="Estrella" width="24Xpx" height="24px">
+                        <h5 class="CourseGrade">4.5</h5>
+                    </div>
+                </div>
+            </div>
+            <h5 class="CourseReviewContent">
+                La verdad muy buen curso el instructor se nota que tiene muy buen dominio del tema, yo era una persona que nunca había usado Python y sé que ahora tengo las bases para manejar esta tecnología y defenderme a nivel laboral.
+                <br>Lo MALO del curso es que la mayoría de las preguntas que realice nunca me las respondieron por eso no coloco las 5 estrellas y ojala resuelvan este inconveniente.
+            </h5>
+        </article>
+        <article class="ReviewContainer">
+            <div class="ReviewerInfo">
+                <div class="ReviewerPictureContainer">
+                    AL
+                </div>
+                <div class="ReviewerNameNRating">
+                    <h4 class="ReviewerName">Alondra López Corrales</h4><br>
+                    <div class="ReviewerRating">
+                        <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
+                        <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
+                        <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
+                        <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
+                        <img src="/images/icons/EstrellaMitad.svg" alt="Estrella" width="24Xpx" height="24px">
+                        <h5 class="CourseGrade">4.6</h5>
+                    </div>
+                </div>
+            </div>
+            <h5 class="CourseReviewContent">
+                En general es buen curso, sin embargo el ejemplo de los superhéroes para explicar el curso no me parece profesional, teniendo el instructor tanta experiencia pudiera mejorar y poner ejemplos más reales y aplicables
+            </h5>
+        </article>
+        <div class="ButtonContainer">
+            <button class="Btn-SeeMore">Ver más</button>
+        </div>
+    </section>
+    <%- include("../partials/footer.ejs")%>
+</body>
+</html>

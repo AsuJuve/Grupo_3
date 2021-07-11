@@ -18,5 +18,5 @@
     - Crehana
     - Skillshare
 
-### Link del tablero de Trello
-https://trello.com/invite/b/Qb2XIOlT/bc9c0896df5b7c5923430d2bcca283e3/digital-house-web-fullstack-proyecto
+### Link del tablero en Notion
+https://www.notion.so/f37510105ad543ba93de0d536a480f86?v=bb6b94463b3c4481817d1200546e2512

@@ -1,0 +1,27 @@
+<%- include("../partials/head.ejs")%>
+<body>
+    <!--Navbar-->
+    <%- include("../partials/header.ejs")%>
+    <main>
+        <h1>Regístrate y mantente aprendiendo</h1>
+        <form action="/home.html" method="POST" name="home">
+
+            <label for="nombre">Nombre completo</label>
+            <input type="text" name="nombre" id="nombre"><br>
+
+            <label for="correo">Correo electrónico</label>
+            <input type="email" name="correo" id="correo"><br>
+
+            <label for="contraseña">Contraseña</label>
+            <input type="password" name="contraseña" id="contraseña" required pattern=".{8,72}">
+            <p class="contraseña">Debe contener entre 8 y 72 caracteres</p><br>
+
+            <input name="enviar" id="enviar" type="submit" value="Regístrate">
+            <p class="condiciones">Al registrarte aceptas nuestras <a href="">Condiciones
+                de uso y Política de privacidad</a></p>
+            <p class="iniciar-sesion">¿Ya tienes una cuenta? <a href="/login">Inicia sesión</a></p>
+        </form>
+    </main>
+    <%- include("../partials/footer.ejs")%>
+</body>
+</html>
