@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const PORT = process.env.PORT || 80;
-
+const breadcrumbs = require("./data/categories.js")
 app.set("view engine","ejs");
 
 app.use(express.static(path.resolve(__dirname,"./public")));
@@ -15,7 +15,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended: false})); 
 
 app.get("/editCourse",(req,res) => {
-    res.render(path.resolve(__dirname,"./views/products/formProducts.ejs"),{title:"Editar Curso"})
+    res.render(path.resolve(__dirname,"./views/products/formProducts.ejs"),{title:"Editar Curso",categories:breadcrumbs})
 });
 app.get("/createCourse",(req,res) => {
     res.render(path.resolve(__dirname,"./views/products/formProducts.ejs"),{title:"Crear Curso"})
