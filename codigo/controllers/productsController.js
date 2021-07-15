@@ -10,7 +10,7 @@ module.exports={
         res.render('products/allCourses',{title: 'Todos los cursos','courses':coursestxt})
     },
     detail:(req,res)=>{
-        curso= req.params.id;
+        const curso= req.params.id;
         res.render('products/productDetail',{title: 'Detalle de producto','courses':coursestxt,curso})
     },
     create: (req,res)=>{

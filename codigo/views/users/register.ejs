@@ -23,17 +23,14 @@
             <input type="password" name="confirm" id="confirm" required pattern=".{8,72}">
             <p class="confirm"></p><br>
 
-            <label for="category">Categoría de usuario</label>
-            <select name="category" id="category">
-                <option value="universidad">Universidad</option>
+            <label for="tipo">Tipo de usuario</label>
+            <select name="tipo" id="tipo" required>
+                <option value="admin">Administrador</option>
                 <option value="estudiante">Estudiante</option>
-            </select><br>
+            </select>
 
             <label for="imgUsuario">Imagen de usuario</label><br>
-            
-input type="image" name="imgUsuario" id="imgUsuario" alt="Imagen de usuario"><br>
-
-            
+            <input type="imagen" name="imgUsuario" id="imgUsuario" alt="Imagen de usuario"><br>
 
             <input name="enviar" id="enviar" type="submit" value="Regístrate">
 
