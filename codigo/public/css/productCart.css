@@ -32,42 +32,43 @@ body{
     position: fixed;
     z-index: 10;
 }
+
+#boton{
+    margin-left: 5%;
+}
+
 .div-btn-menu{
     display: block;
     width: 40px;
     height: 40px;
-    margin-left: 5.55%;
     border-radius: 8px;
     border: 1px solid #5156B5;
     background-color: #363A84;
 }
+
 .menu-options{
     display: none;
-    margin: 0;
-    padding: 0;
+    margin: 0px;
+    list-style: none;
+    background-color: #1A1D53;     
+    padding: 20px;
 }
-.menu-options > a{
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-    display: block;
-    position: relative;
+.menu-options li{
+    padding: 15px;
 }
-.menu-options > li:hover {
-    background-color: dimgray;
-    position: relative;
-}
-.menu-options > li a, .menu-options > li label {
+.menu-options li a{
+    font-size: 18px;
     text-decoration: none;
     color: #fff;
-    width: 100%;
-    display: block;
-    min-height: inherit;
-    padding: 8px;
+}
+.menu-options > li:hover {
+    background-color: rgba(105, 105, 105, 0.329) ;
 }
 input[type="checkbox"]:checked + .menu-options{
-    display: block;
+    display:block;
+    position: absolute;
 }
+
 .logo-container{
     margin-left: 21.11%;
     margin-right: 5.55%;
@@ -105,9 +106,10 @@ input[type="checkbox"]:checked + .menu-options{
     padding: 20px;
 }
 .titulo{
-    margin-bottom: 50px;
     font-weight:400;
     font-size: 34px;
+    padding: 100px 0 20px 20px;
+    
 }
 .cursoAComprar{
     display: flex;
@@ -209,22 +211,26 @@ input[type="checkbox"]:checked + .menu-options{
     min-height: 212px;
     margin: 0 16px 0px;
     flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
 }
 .CourseCardImage{
     width:100%;
     height:140px;
 }
 .CourseCardTitle{
-    margin: 8px 0 4px;
+    margin: 9px 16px 16px 5px;
     color:var(--White);
 }
 img{
     display:block;
 }
 .CourseRating{
-    padding: 0 16px 12px;
+    width: 232px;   
     color:var(--secondaryColor);
     display:flex;
+    justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
 }
@@ -252,7 +258,7 @@ img{
     margin-top:8px;
 }
 .CourseCardCreator{
-    margin-bottom: 4px;
+    margin: 5px 16px 16px 4px;
 }
 .CourseReviewsSection{
     background-color: var(--BrandPurpleDark);
@@ -547,5 +553,9 @@ small{
         width:48px;
         height: 48px;
         margin: 0 16px 0 16px;
+    }
+    .CarouselContainer{
+        display: flex;
+        justify-content: space-around;
     }
 }

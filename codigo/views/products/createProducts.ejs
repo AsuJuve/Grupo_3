@@ -1,0 +1,75 @@
+<%- include("../partials/head.ejs")%> 
+<body>
+    <%- include("../partials/header.ejs")%>
+    <main>
+        <h1><%= title%> </h1>
+        <form action="/products" method= "POST" enctype="multipart/form-data">
+            <label for="nombreCurso">Nombre del Curso*</label>
+            <input type="text" id='nombreCurso' name='nombreCurso'>
+            <label for="categorizacion">Categorización (Breadcrumb)* </label>
+            <div class="categorizacion">  
+                <select name='select' class="select" id="categorizacion">
+                    <option value="programacion" >Programación</option>
+                </select>
+                <select name='curso' class="select" id="categorizacion">
+                    <option value="python" >Python</option>
+                </select>
+                <select name= "categoria" class="select" id="categorizacion">
+                    <option value="categoria" >Selecciona una categoría</option>
+                </select>
+            </div>
+            <label for="descripcionCorta">Descripción corta*</label>
+            <textarea id="descripcionCorta" name="descripcionCorta"></textarea>
+            <label for="requisitos">Requisitos del curso</label>
+            <textarea id="requisitos" name="requisitos"></textarea>
+            <label for="descripcionLarga">Descripción larga*</label>
+            <textarea id="descripcionLarga" name="descripcionLarga"></textarea>
+            <div class="precio">
+                <div class="bloque">
+                    <label for="precio">Precio*</label>
+                    <input type="text" id="precio" name="precio" value="$">
+                </div>
+                <div class="bloque">
+                    <label for="moneda">Unidad monetaria*</label>
+                    <select class="select" name= "moneda" id="moneda"> 
+                        <option value="mxn" selected>MXN Peso Mexicano</option>
+                        <option value="dollar">USD Dólar Estadounidense</option>
+                    </select>                      
+                </div>
+            </div>
+            <label for="imagenDelCurso">Imagen de previsualización del curso*</label>
+            <input type="file" name="imagenDelCurso" id="imagenDelCurso" class="archivo">
+            <label for="videoDelCurso">Video de previsualización del curso (opcional)</label>
+            <input type="file" name="videoDelCurso" id="videoDelCurso" class="archivo"> 
+            <label for="universidad">Agrega una breve descripción de la iniversidad*</label>
+            <textarea id="universidad"></textarea>
+            <label for="contenido"><h3>Contenido del curso*</h2></label>
+            <p>Lista de lecciones actuales(selecciona la lección que quieres editar o agregar una nueva)</p>
+            <select class="select" id="contenido">
+                <option value="tema1">Tema 1: Introducción a la programación con Python 3</option>
+            </select>
+            <label for="titulo">Título de lección</label>
+            <input type="text" id="titulo" name="tituloL">
+            <label for="descripcion">Descripción de lección</label>
+            <textarea id="descripcion"></textarea>
+            <label for="previsualizacion">Previsualización de lección</label>
+            <input type="file" name="previsualizacion" id="previsualizacion" class="archivo">
+            <label for="videoDeLeccion">Video de la lección*</label>
+            <input type="file" name="videoDeLeccion" id="videoDeLeccion" class="archivo">
+            <label for="extraDeLeccion">Material extra de la lección</label>
+            <input type="file" name="extraDeLeccion" id="extraDeLeccion" class="archivo">
+            <div class="botonesL">
+                <button type="button" name="agregarL" class="agregarL" value="agregarLeccion">Agregar nueva lección</button>
+                <button type="submit" name="guardarL" class="guardarL" value="guaradarCambiosL">Guardar cambios en la lección</button>
+                <button type="reset" name="eliminarL" class="eliminarL" value="eliminarLeccion">Eliminar lección</button>
+            </div>
+            <div class="botones">
+                <button type="submit" class="guardar" name="guardar" value="Guardar"><img src="/images/icons/save.svg"> Guardar cambios</button>
+            </div>
+            <p>Los espacios marcados con * son obligatorios.</p>
+        </form>
+    </main>
+    <%- include("../partials/footer.ejs") %>
+</body>
+</html>
+ 

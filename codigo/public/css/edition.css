@@ -133,7 +133,9 @@ textarea{
     opacity: .8;
     border-color: blue;
 }
-
+footer{
+    top:0;
+}
 @media (min-width:780px) {
     .categorizacion{
         display: flex;

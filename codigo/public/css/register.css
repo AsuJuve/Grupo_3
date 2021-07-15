@@ -35,42 +35,43 @@ main{
     position: fixed;
     z-index: 10;
 }
+
+#boton{
+    margin-left: 5%;
+}
+
 .div-btn-menu{
     display: block;
     width: 40px;
     height: 40px;
-    margin-left: 5.55%;
     border-radius: 8px;
     border: 1px solid #5156B5;
     background-color: #363A84;
 }
+
 .menu-options{
     display: none;
-    margin: 0;
-    padding: 0;
+    margin: 0px;
+    list-style: none;
+    background-color: #1A1D53;     
+    padding: 20px;
 }
-.menu-options > a{
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-    display: block;
-    position: relative;
+.menu-options li{
+    padding: 15px;
 }
-.menu-options > li:hover {
-    background-color: dimgray;
-    position: relative;
-}
-.menu-options > li a, .menu-options > li label {
+.menu-options li a{
+    font-size: 18px;
     text-decoration: none;
     color: #fff;
-    width: 100%;
-    display: block;
-    min-height: inherit;
-    padding: 8px;
+}
+.menu-options > li:hover {
+    background-color: rgba(105, 105, 105, 0.329) ;
 }
 input[type="checkbox"]:checked + .menu-options{
-    display: block;
+    display:block;
+    position: absolute;
 }
+
 .logo-container{
     margin-left: 21.11%;
     margin-right: 5.55%;
@@ -138,6 +139,10 @@ form{
     font-weight: 900;
     border: 1px solid #25C998;
     padding:0px;
+}
+#enviar:hover{
+    background-color: #6bddbb;
+    border: 1px solid black;
 }
 .condiciones{
     font-size: 14px;

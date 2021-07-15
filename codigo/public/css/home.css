@@ -7,6 +7,9 @@ body{
     font-family: 'Roboto';
     color: white;
 }
+main{
+    background-color: #5157B5;
+}
 
 .header-not-logged-in{
     width: 100vw;
@@ -19,11 +22,14 @@ body{
     z-index: 10;
 }
 
+#boton{
+    margin-left: 5%;
+}
+
 .div-btn-menu{
     display: block;
     width: 40px;
     height: 40px;
-    margin-left: 5.55%;
     border-radius: 8px;
     border: 1px solid #5156B5;
     background-color: #363A84;
@@ -31,34 +37,25 @@ body{
 
 .menu-options{
     display: none;
-    margin: 0;
-    padding: 0;
+    margin: 0px;
+    list-style: none;
+    background-color: #1A1D53;     
+    padding: 20px;
 }
-
-.menu-options > a{
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-    display: block;
-    position: relative;
+.menu-options li{
+    padding: 15px;
 }
-
-.menu-options > li:hover {
-    background-color: dimgray;
-    position: relative;
-}
-
-.menu-options > li a, .menu-options > li label {
+.menu-options li a{
+    font-size: 18px;
     text-decoration: none;
     color: #fff;
-    width: 100%;
-    display: block;
-    min-height: inherit;
-    padding: 8px;
 }
-
+.menu-options > li:hover {
+    background-color: rgba(105, 105, 105, 0.329) ;
+}
 input[type="checkbox"]:checked + .menu-options{
-    display: block;
+    display:block;
+    position: absolute;
 }
 
 .logo-container{
@@ -84,7 +81,7 @@ input[type="checkbox"]:checked + .menu-options{
     width: 40px;
     height: 40px;
     border-radius: 8px;
-    margin-right: 5.55%;
+    margin-right: 5%;
     border: 1px solid #5156B5;
     background-color: #363A84;
 }
@@ -107,8 +104,9 @@ input[type="checkbox"]:checked + .menu-options{
 
 .img-principal-div{
     margin: 0;
-    width: 360px;
-    height: 116px;
+    width: 100%;
+    height: 50%;
+    object-fit: cover
 }
 
 .principal-img{
@@ -141,12 +139,11 @@ input[type="checkbox"]:checked + .menu-options{
     display: flex;
     justify-content: space-around;
     align-content: center;
-}
 
+}
 .btn-log-in{
     font-weight: 500;
     font-size: 14px;
-    width: 148px;
     height: 32px;
     border-radius: 8px;
     border: #25C998 solid 1px;
@@ -157,16 +154,26 @@ input[type="checkbox"]:checked + .menu-options{
 .btn-register{
     font-weight: 500;
     font-size: 14px;
-    width: 148px;
     height: 32px;
     border-radius: 8px;
-    border: #25C998 solid 1px;
+    border: #030634 solid 1px;
+    color: #030634;
+    background-color: #25C998;
+}
+.btn-nuevoCurso{
+    font-weight: 500;
+    font-size: 14px;
+    height: 32px;
+    border-radius: 8px;
+    border: #030634 solid 1px;
     color: #030634;
     background-color: #25C998;
 }
 
 /*                  Courses                */
-
+a{
+    color: white;
+}
 .Courses{
     position: relative;
     top:64px;
@@ -202,6 +209,7 @@ input[type="checkbox"]:checked + .menu-options{
     padding-top: 30px;
     background-color: #5157B5;
     font-weight: 500;
+    display: flex;
 }
 #popular{
     top:64px;
@@ -210,13 +218,16 @@ input[type="checkbox"]:checked + .menu-options{
     overflow-x:auto;
     min-height: 212px;
     margin:0 16px 16px 0;
-    display: flex;
 }
+
 .CourseCard{
-    width:300px !important;
+    width:280px !important;
     min-height: 212px;
     margin: 0 16px 0px;
     flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
 }
 .CourseCardImage{
     width:100%;
@@ -345,6 +356,7 @@ small{
         position: absolute;
         bottom: 6.01vw;
         z-index: 1;
+        width: 100%;
     }
 
     .principal-p{
@@ -355,6 +367,10 @@ small{
     .principal-header{
         font-weight: bold;
         color: #25C998;
+        -webkit-text-stroke: .1px #2b6856;
+    }
+    .btn-log-in,.btn-register{
+        width: 148px;
     }
 }
 /*DESKTOP*/

@@ -20,10 +20,11 @@
   "homepage": "https://github.com/AsuJuve/grupo_3_keep-learning#readme",
   "dependencies": {
     "ejs": "^3.1.6",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "method-override": "^3.0.0"
   },
   "engines": {
     "node": "14.16.1",
     "npm": "6.14.12"
-  } 
+  }
 }

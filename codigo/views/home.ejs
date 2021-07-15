@@ -2,184 +2,100 @@
 <body>
     <!--Navbar-->
     <%- include("./partials/header.ejs") %>
-    <!--Seccion Principal-->
-    <section class="section-main">
-        <div class="img-principal-div">
-            <img src="images/principal-img.jpeg" alt="Imagen principal" class="principal-img">
-        </div>
-        <article class="main-article">
-                <header class="principal-header">
-                    Continuar aprendiendo, nunca está de más!
-                </header>
-                <p class="principal-p">
-                    Bienvenido a Keep Learning, una de las plataformas de educación en línea más eficacez actualmente.
-                </p>
-                <div class="btns-principal">
-                    <a href="/login">
-                    <button class="btn-log-in">Iniciar Sesion</button>
-                    </a>
-                    <a href="/register">
-                        <button class="btn-register">Registrate</button>
-                    </a>
+    <main>
+        <!--Seccion Principal-->
+        <section class="section-main">
+            <div class="img-principal-div">
+                <img src="/images/principal-img.jpeg" alt="Imagen principal" class="principal-img">
+            </div>
+            <article class="main-article">
+                    <header class="principal-header">
+                        Continuar aprendiendo, nunca está de más!
+                    </header>
+                    <p class="principal-p">
+                        Bienvenido a Keep Learning, una de las plataformas de educación en línea más eficacez actualmente.
+                    </p>
+                    <div class="btns-principal">
+                        <a href="/login">
+                        <button class="btn-log-in">Iniciar Sesion</button>
+                        </a>
+                        <a href="/register">
+                            <button class="btn-register">Registrate</button>
+                        </a>
+                        <a href="products/createCourse" target="_parent">
+                            <button class = "btn-nuevoCurso">Agregar un nuevo Curso</button>
+                        </a>
+                    </div>
+            </article>
+        </section>
+
+        <section class="Courses">
+            <div class="CoursesCategories">
+                <div id="programming">
+                    <h3 class="CarouselName">Programación</h3>
                 </div>
-        </article>
-    </section>
-
-    <section class="Courses">
-        <div class="CoursesCategories">
-            <div id="programming">
-                <h3 class="CarouselName">Programación</h3>
+                <div id="web">
+                    <h3 class="CarouselName">Desarrollo Web</h3>
+                </div>
+                <div id="data-science">
+                    <h3 class="CarouselName">Ciencia de Datos</h3>
+                </div>
+                <div id="mobile">
+                    <h3 class="CarouselName">Desarrollo Móvil</h3>
+                </div>
             </div>
-            <div id="web">
-                <h3 class="CarouselName">Desarrollo Web</h3>
-            </div>
-            <div id="data-science">
-                <h3 class="CarouselName">Ciencia de Datos</h3>
-            </div>
-            <div id="mobile">
-                <h3 class="CarouselName">Desarrollo Móvil</h3>
-            </div>
-        </div>
-        <!--Programacion-->
-        <section class="CarouselContainer" >
-            <section class="Carousel">
-                <a href="/productDetail">
-                <article class="CourseCard">
-                    <img class="CourseCardImage" src="/images/courses/course1.jpg" alt="Thumbnail de curso de Redes Neuronales">
-                    <h4 class="CourseCardTitle">Introducción a Redes Neuronales</h4>
-                    <h5 class="CourseCardCreator">Creado por: Universidad Nacional Autónoma de México</h5>
-                    <section class="CourseRating">
-                        <h5 class="CourseGrade">4.0</h5>
-                        <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
-                        <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
-                        <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
-                        <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
-                        <img src="/images/icons/EstrellaVacia.svg" alt="Estrella" width="24px" height="24px">
-                        <h6 class="CourseReviews">(1,240)</h6>
-                    </section>
-                    <h4 class="CourseCardPrice">$ 199 MXN</h4>
-                </article>
-                </a>
-                <article class="CourseCard">
-                    <img class="CourseCardImage" src="/images/courses/course2.jpg" alt="Thumbnail de curso de Python">
-                    <h4 class="CourseCardTitle">Curso Python Completo</h4>
-                    <h5 class="CourseCardCreator">Creado por: Universidad Nacional Autónoma de México</h5>
-                    <section class="CourseRating">
-                        <h5 class="CourseGrade">4.5</h5>
-                        <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
-                        <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
-                        <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
-                        <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
-                        <img src="/images/icons/EstrellaMitad.svg" alt="Estrella" width="24px" height="24px">
-                        <h6 class="CourseReviews">(67,640)</h6>
-                    </section>
-                    <h4 class="CourseCardPrice">$ 279 MXN</h4>
-                </article>
-
-                <article class="CourseCard">
-                    <img class="CourseCardImage" src="/images/courses/course3.jpg" alt="Thumbnail de curso de C++">
-                    <h4 class="CourseCardTitle">C++ para Principiantes</h4>
-                    <h5 class="CourseCardCreator">Creado por: Universidad Nacional Autónoma de México</h5>
-                    <section class="CourseRating">
-                        <h5 class="CourseGrade">3.9</h5>
-                        <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
-                        <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
-                        <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
-                        <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
-                        <img src="/images/icons/EstrellaVacia.svg" alt="Estrella" width="24px" height="24px">
-                        <h6 class="CourseReviews">(3,195)</h6>
-                    </section>
-                    <h4 class="CourseCardPrice">$ 179 MXN</h4>
-                </article>
-
-                <article class="CourseCard">
-                    <img class="CourseCardImage" src="/images/courses/course4.jpg" alt="Thumbnail de curso de Java">
-                    <h4 class="CourseCardTitle">Java desde cero</h4>
-                    <h5 class="CourseCardCreator">Creado por: Universidad Nacional Autónoma de México</h5>
-                    <section class="CourseRating">
-                        <h5 class="CourseGrade">5.0</h5>
-                        <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
-                        <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
-                        <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
-                        <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
-                        <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
-                        <h6 class="CourseReviews">(30,195)</h6>
-                    </section>
-                    <h4 class="CourseCardPrice">$ 259 MXN</h4>
-                </article>
-            </section>
+            <!--Programacion-->
+            <div class="CarouselContainer" >
+                <% for(let course of courses){ %>
+                    <div class="Carousel">
+                        <a href="products/<%= course.id%>">
+                            <article class="CourseCard">
+                                <img class="CourseCardImage" src=<%= course.image %>alt="Imagen representativa del curso">
+                                <h5 class="CourseCardTitle"><%= course.name %></h5>
+                                <h6 class="CourseCardCreator"><%= course.creator %></h6>
+                                <section class="CourseRating">
+                                    <h5 class="CourseGrade"><%= course.courseRating %></h5>
+                                    <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
+                                    <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
+                                    <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
+                                    <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
+                                    <img src="/images/icons/EstrellaVacia.svg" alt="Estrella" width="24px" height="24px">
+                                    <h6 class="CourseReviews"><%= course.totalReviews %></h6>
+                                </section>
+                                <h4 class="CourseCardPrice"><%= course.price %></h4>
+                            </article>
+                        </a>
+                    </div>
+                    <%}%>
+                </div>
+                
         </section>
-
-    </section>
         <!--Cursos Populares-->
+        <h2 class="CarouselName">Cursos Populares</h2>
         <section class="CarouselContainer" id="popular">
-            <h2 class="CarouselName">Cursos Populares</h2>
-            <section class="Carousel">
-                <article class="CourseCard">
-                    <img class="CourseCardImage" src="/images/courses/course5.jpg" alt="Thumbnail de curso de Javascript">
-                    <h4 class="CourseCardTitle">Javascript Profesional</h4>
-                    <h5 class="CourseCardCreator">Creado por: Universidad Autónoma de Zacatecas</h5>
-                    <section class="CourseRating">
-                        <h5 class="CourseGrade">4.0</h5>
-                        <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
-                        <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
-                        <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
-                        <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
-                        <img src="/images/icons/EstrellaVacia.svg" alt="Estrella" width="24px" height="24px">
-                        <h6 class="CourseReviews">(1,240)</h6>
-                    </section>
-                    <h4 class="CourseCardPrice">$ 199 MXN</h4>
-                </article>
-
-                <article class="CourseCard">
-                    <img class="CourseCardImage" src="/images/courses/course6.jpg" alt="Thumbnail de curso de React">
-                    <h4 class="CourseCardTitle">React Básico</h4>
-                    <h5 class="CourseCardCreator">Creado por: Universidad Autónoma de Zacatecas</h5>
-                    <section class="CourseRating">
-                        <h5 class="CourseGrade">4.5</h5>
-                        <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
-                        <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
-                        <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
-                        <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
-                        <img src="/images/icons/EstrellaMitad.svg" alt="Estrella" width="24px" height="24px">
-                        <h6 class="CourseReviews">(67,640)</h6>
-                    </section>
-                    <h4 class="CourseCardPrice">$ 279 MXN</h4>
-                </article>
-
-                <article class="CourseCard">
-                    <img class="CourseCardImage" src="/images/courses/course7.jpg" alt="Thumbnail de curso de Angular">
-                    <h4 class="CourseCardTitle">Angular para Principiantes</h4>
-                    <h5 class="CourseCardCreator">Creado por: Universidad Autónoma de Zacatecas</h5>
-                    <section class="CourseRating">
-                        <h5 class="CourseGrade">3.9</h5>
-                        <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
-                        <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
-                        <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
-                        <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
-                        <img src="/images/icons/EstrellaVacia.svg" alt="Estrella" width="24px" height="24px">
-                        <h6 class="CourseReviews">(3,195)</h6>
-                    </section>
-                    <h4 class="CourseCardPrice">$ 179 MXN</h4>
-                </article>
-
-                <article class="CourseCard">
-                    <img class="CourseCardImage" src="/images/courses/course8.jpg" alt="Thumbnail de curso de Vue">
-                    <h4 class="CourseCardTitle">Vue.js desde cero</h4>
-                    <h5 class="CourseCardCreator">Creado por: Universidad Autónoma de Zacatecas</h5>
-                    <section class="CourseRating">
-                        <h5 class="CourseGrade">5.0</h5>
-                        <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
-                        <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
-                        <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
-                        <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
-                        <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
-                        <h6 class="CourseReviews">(30,195)</h6>
-                    </section>
-                    <h4 class="CourseCardPrice">$ 259 MXN</h4>
-                </article>
-            </section>
+            <% for(let course of courses){ %>
+                <section class="Carousel">
+                    <a href="products/<%= course.id%>">
+                        <article class="CourseCard">
+                            <img class="CourseCardImage" src=<%= course.image %>alt="Imagen representativa del curso">
+                            <h5 class="CourseCardTitle"><%= course.name %></h5>
+                            <h6 class="CourseCardCreator"><%= course.creator %></h6>
+                            <section class="CourseRating">
+                                <h5 class="CourseGrade"><%= course.courseRating %></h5>
+                                <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
+                                <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
+                                <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
+                                <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
+                                <img src="/images/icons/EstrellaVacia.svg" alt="Estrella" width="24px" height="24px">
+                                <h6 class="CourseReviews"><%= course.totalReviews %></h6>
+                            </section>
+                            <h4 class="CourseCardPrice"><%= course.price %></h4>
+                        </article>
+                    </a>
+                </section>
+            <%}%>
         </section>
-        <%- include("./partials/footer.ejs") %>
+    </main>
+    <%- include("./partials/footer.ejs") %>
 </body>
 </html>
