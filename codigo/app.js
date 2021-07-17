@@ -23,12 +23,4 @@ app.use(express.urlencoded({extended: false}));
 app.use('/products', productsRouter)
 app.use('/', mainRouter)
 
-app.get("/productCart",(req,res) => {
-    res.render(path.resolve(__dirname,"./views/products/productCart.ejs"),{title:"Carrito de compras"});
-});
-app.get("/register",(req,res) => {
-    res.render(path.resolve(__dirname,"./views/users/register.ejs"),{title:"Registro"});
-});
-app.get("/login",(req,res) => {
-    res.render(path.resolve(__dirname,"./views/users/login.ejs"),{title:"Inicia Sesión"});
-});
+
