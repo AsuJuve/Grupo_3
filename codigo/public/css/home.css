@@ -111,7 +111,7 @@ input[type="checkbox"]:checked + .menu-options{
 
 .principal-img{
     width: 100%;
-    height: 100%;
+    aspect-ratio: 2;
 }
 
 .principal-header{
@@ -139,7 +139,7 @@ input[type="checkbox"]:checked + .menu-options{
     display: flex;
     justify-content: space-around;
     align-content: center;
-
+    flex-wrap: wrap;
 }
 .btn-log-in{
     font-weight: 500;
@@ -197,16 +197,22 @@ a{
 
 #programming{
     background-color: #5157B5;
+    margin-left: 20px;
 }
 
 .CarouselName{
     margin: 8px 16px 16px 8px;
 }
-
+.CarouselTitle{
+    position:relative;
+    top:30px;
+    padding-left: 16px;
+    margin-top: 40px;
+}
 .CarouselContainer{
     overflow-x:auto;
-    position: relative;
-    padding-top: 30px;
+    position: static;
+    padding-top: 40px;
     background-color: #5157B5;
     font-weight: 500;
     display: flex;
@@ -265,12 +271,12 @@ img{
     align-items: center;
     flex-wrap: wrap;
 }
-
+a{
+    text-decoration: none;
+}
 /*          Footer          */
 footer{
     background-color:#1A1D53;
-    position: relative;
-    top:64px;
 }
 .FooterContainer{
     padding-top: 16px;
@@ -356,17 +362,22 @@ small{
         bottom: 6.01vw;
         z-index: 1;
         width: 100%;
+        background-color: rgba(255, 255, 255, 0.2);
+        padding-top: 16px;
+        padding-bottom: 16px;
     }
 
     .principal-p{
         font-weight: bold;
         color: #030634;
+        font-size: 20px;
     }
 
     .principal-header{
         font-weight: bold;
         color: #25C998;
-        -webkit-text-stroke: .1px #2b6856;
+        -webkit-text-stroke: .2px #2b6856;
+        font-size: 24px;
     }
     .btn-log-in,.btn-register{
         width: 148px;
@@ -443,7 +454,7 @@ small{
     }
 }
 @media (max-width:650px){
-    .CoursesCategories{
+    div.CoursesCategories{
         display: none;
     }
 }
