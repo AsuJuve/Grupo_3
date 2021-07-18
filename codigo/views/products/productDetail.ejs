@@ -2,9 +2,7 @@
 <body>
     <!--Navbar-->
     <%- include("../partials/header.ejs")%>
-
     <h3>Vista previa del curso</h3>
-
         <section class="adminView">
             <a href="/products/<% curso %>/editCourse" target="_parent"><button class = "botonesSuperiores">Editar curso</button></a>
             <form action="/products/:id?_method=DELETE" method= "POST" enctype="multipart/form-data">

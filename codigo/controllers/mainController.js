@@ -8,11 +8,10 @@ module.exports={
         res.status(200).render('home',{title: 'Inicio','courses':coursestxt})
     },
     showCart: (req,res) => {
-        console.log("aaaaa");
         res.render('products/productCart',{title:"Carrito"});
     },
     showDetail: (req,res)=>{
-        let id= req.params;
-        res.render('products/productDetail',{title: 'Detalle de producto',courses:coursestxt,curso:id})
+        let id= req.params.id;
+        res.render('products/productDetail',{title: 'Detalle de producto',courses:coursestxt,curso:parseInt(id)})
     }
 }
