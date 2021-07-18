@@ -2,16 +2,14 @@
 <body>
     <%- include ('../partials/header.ejs') %>
     <main>
-
         <h1 class="titulo" >Todos los cursos</h1></br>
         <div class="CarouselContainer">
-            <% for(let course of courses){ %>
                 <div class="Carousel">
+                    <% for(let course of courses){ %>
                     <a href="products/<%= course.id%>" target="_parent">
                         <article class="CourseCard">
                             <img class="CourseCardImage" src=<%= course.image %>alt="Imagen representativa del curso">
                             <h5 class="CourseCardTitle"><%= course.name %></h5>
-                            <h6 class="CourseCardCreator"><%= course.creator %></h6>
                             <section class="CourseRating">
                                 <h5 class="CourseGrade"><%= course.courseRating %></h5>
                                 <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
@@ -24,8 +22,8 @@
                             <h4 class="CourseCardPrice">$<%= course.price[0] %> <%= course.price[1] %></h4>
                         </article>
                     </a>
+                    <%}%>
                 </div>
-            <%}%>
         </div>
     </main>
     <%- include ('../partials/footer.ejs') %>

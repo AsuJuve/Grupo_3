@@ -313,7 +313,6 @@ article.AboutUniversity{
     top:0;
     background-color: var(--Black);
     width: 100%;
-    min-height: 460px;
     margin:0;
 }
 .UniversityInfo{
