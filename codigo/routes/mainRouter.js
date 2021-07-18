@@ -3,17 +3,14 @@ const router= express.Router();
 const mainController= require('../controllers/mainController')
 
 router.get("/", mainController.home);
-router.get("/:id", mainController.cursoid);
+router.get("/productDetail/:id", mainController.showDetail)
+router.get("/productCart",mainController.showCart);
 
-
-router.get("/productCart",(req,res) => {
-    res.render(path.resolve(__dirname,"./views/products/productCart.ejs"),{title:"Carrito de compras"});
-});
 router.get("/register",(req,res) => {
-    res.render(path.resolve(__dirname,"./views/users/register.ejs"),{title:"Registro"});
+    res.render("users/register",{title:"Registro"});
 });
 router.get("/login",(req,res) => {
-    res.render(path.resolve(__dirname,"./views/users/login.ejs"),{title:"Inicia Sesión"});
+    res.render("users/login",{title:"Inicia Sesión"});
 });
 
 module.exports= router;

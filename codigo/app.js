@@ -22,5 +22,3 @@ app.use(express.urlencoded({extended: false}));
 
 app.use('/products', productsRouter)
 app.use('/', mainRouter)
-
-

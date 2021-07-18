@@ -3,17 +3,16 @@ const path= require('path')
 const coursesFilePath= path.join(__dirname, "../data/products.json")
 const coursestxt= JSON.parse(fs.readFileSync(coursesFilePath,'utf-8'));
 
-
-
 module.exports={
     home: (req,res)=>{
         res.status(200).render('home',{title: 'Inicio','courses':coursestxt})
-        
     },
-    cursoid:(req,res)=>{
+    showCart: (req,res) => {
+        console.log("aaaaa");
+        res.render('products/productCart',{title:"Carrito"});
+    },
+    showDetail: (req,res)=>{
         let id= req.params;
-        res.send(id)
-        res.render('productDetail',{title: 'Detalle de producto','courses':coursestxt,id})
-
+        res.render('products/productDetail',{title: 'Detalle de producto',courses:coursestxt,curso:id})
     }
 }

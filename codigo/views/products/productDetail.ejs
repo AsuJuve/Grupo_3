@@ -6,7 +6,7 @@
     <h3>Vista previa del curso</h3>
 
         <section class="adminView">
-            <a href="/products/<%= curso %>/editCourse" target="_parent"><button class = "botonesSuperiores">Editar curso</button></a>
+            <a href="/products/<% curso %>/editCourse" target="_parent"><button class = "botonesSuperiores">Editar curso</button></a>
             <form action="/products/:id?_method=DELETE" method= "POST" enctype="multipart/form-data">
                 <div target="_parent"><button type="submit" class= "botonesSuperiores"name="eliminar" value= "Eliminar">Borrar curso</button></div>
             </form>

@@ -3,15 +3,9 @@ const path= require('path')
 const coursesFilePath= path.join(__dirname, "../data/products.json")
 const coursestxt= JSON.parse(fs.readFileSync(coursesFilePath,'utf-8'));
 
-
-
 module.exports={
     index: (req,res)=>{
         res.render('products/allCourses',{title: 'Todos los cursos','courses':coursestxt})
-    },
-    detail:(req,res)=>{
-        const curso= req.params.id;
-        res.render('products/productDetail',{title: 'Detalle de producto','courses':coursestxt,curso})
     },
     create: (req,res)=>{
         res.render("products/createProducts",{title: 'Crear Curso'})
@@ -43,6 +37,6 @@ module.exports={
         const index = coursestxt.findIndex(course => course.id == req.params.id);
         delete coursestxt[index];
         res.redirect('/')
-    },
+    }
     
 }
