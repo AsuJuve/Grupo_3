@@ -559,3 +559,7 @@ small{
         justify-content: space-around;
     }
 }
+
+a{
+    text-decoration: none;
+}

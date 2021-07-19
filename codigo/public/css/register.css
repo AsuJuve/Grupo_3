@@ -48,7 +48,9 @@ main{
     border: 1px solid #5156B5;
     background-color: #363A84;
 }
-
+.password{
+    margin-bottom: 4px;
+}
 .menu-options{
     display: none;
     margin: 0px;
@@ -387,20 +389,20 @@ small{
         width: 48%;
     }
     h1{
-        font-size: 48px;
+        font-size: 32px;
         font-weight: 400;
         line-height: 48px;
     }
     label{
-        font-size: 34px;
+        font-size: 24px;
         line-height: 40px;
         font-weight: 400;
         margin-bottom: 12px;
     }
     input, #enviar{
-        height: 56px;
+        height: 48px;
         margin-bottom: 12px;
-        font-size: 24px;
+        font-size: 20px;
     }
     .contraseña{
         font-size: 16px;
@@ -409,14 +411,22 @@ small{
         margin-bottom: 20px;
     }
     .condiciones{
-        font-size: 16px;
+        font-size: 14px;
         line-height: 19px;
         padding-bottom: 20px;
         margin-bottom: 12px;
     }
     .iniciar-sesion{
-        font-size: 20px;
+        font-size: 18px;
         line-height: 24px;
         margin-bottom: 64px;
     }
+}
+input#imgUsuario{
+    border: 0;
+    background-color: transparent;
+    display: flex;
+    padding:0;
+    height:28px;
+    margin-top:4px;
 }

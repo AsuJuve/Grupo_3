@@ -193,6 +193,7 @@ a{
     text-align: center;
     border-top-left-radius: 7px;
     border-top-right-radius: 7px;
+    margin-top:8px;
 }
 
 #programming{
@@ -239,7 +240,7 @@ a{
     height:140px;
 }
 .CourseCardTitle{
-    margin: 9px 16px 16px 5px;
+    margin: 8px 16px 16px 8px;
     color:var(--White);
 }
 img{
@@ -247,10 +248,12 @@ img{
 }
 .CourseCard > .CourseRating{
     margin:0;
+    margin-left: 8px;
 }
 .CourseCardPrice{
     margin: 0;
     margin-top:8px;
+    margin-left:8px;
 }
 .CourseCardCreator{
     margin: 5px 16px 16px 4px;
@@ -287,12 +290,12 @@ footer{
     justify-content: center;
 }
 .FooterTitle{
-    font-size: 16px;
+    font-size: 14px;
     color:var(--White);
     margin: 4px;
 }
 .FooterItem{
-    font-size: 14px;
+    font-size: 12px;
     color:var(--White);
     font-weight: 400;
     margin: 4px;
@@ -434,10 +437,10 @@ small{
         margin:0;
     }
     .FooterContainer > div > h5.FooterTitle{
-        font-size: 24px;
+        font-size: 16px;
     }
     .FooterContainer > div > h6.FooterItem{
-        font-size: 20px;
+        font-size: 14px;
     }
     .Social > img{
         width:48px;
