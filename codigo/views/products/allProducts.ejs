@@ -2,7 +2,12 @@
 <body>
     <%- include ('../partials/header.ejs') %>
     <main>
-        <h1 class="titulo" >Todos los cursos</h1></br>
+        <div class="pageHeader">
+            <h1 class="titulo" >Todos los cursos</h1><a href="/products/create" target="_parent">
+                <button class = "btn-Add">Agregar curso</button>
+            </a>
+        </br>
+        </div>
         <div class="CarouselContainer">
                 <div class="Carousel">
                     <% for(let course of courses){ %>

@@ -1,11 +1,12 @@
 const fs= require('fs');
-const path= require('path')
+const path= require('path');
+const { showDetail } = require('./mainController');
 const coursesFilePath= path.join(__dirname, "../data/products.json")
 const coursestxt= JSON.parse(fs.readFileSync(coursesFilePath,'utf-8'));
 
 module.exports={
     index: (req,res)=>{
-        res.render('products/allCourses',{title: 'Todos los cursos','courses':coursestxt})
+        res.render('products/allProducts',{title: 'Todos los cursos','courses':coursestxt})
     },
     create: (req,res)=>{
         res.render("products/createProducts",{title: 'Crear Curso'})
@@ -14,7 +15,7 @@ module.exports={
         res.render('products/editProducts',{title: 'Editar Curso','courses':coursestxt})
     },
     edited: (req,res)=>{
-        res.render('products/productDetail', {title: 'Detalle de producto','courses':coursestxt})
+        res.render('products/productDetailAdmin', {title: 'Detalle de producto','courses':coursestxt})
     },
     store: (req,res)=>{
         let nuevo = coursestxt.length + 1;
@@ -37,6 +38,9 @@ module.exports={
         const index = coursestxt.findIndex(course => course.id == req.params.id);
         delete coursestxt[index];
         res.redirect('/')
+    },
+    showDetail:(req,res)=>{
+        let id= req.params.id;
+        res.render("products/productDetailAdmin",{title: 'Detalle de producto',courses:coursestxt,curso:parseInt(id)})
     }
-    
 }

@@ -1,9 +1,10 @@
 *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;    
-    font-family: 'Roboto';    
-   }
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;    
+ font-family:"Roboto";
+ color: white;
+}
 :root{
     /*FUENTE*/
     --font:"Roboto";
@@ -17,14 +18,10 @@
     --White:#FFFFFF;
     --Black:#000000;
 }
-main{
-    background-color: #363A84;    
-    color: white;
-    font-weight: 500;
-    display: flex;
-    flex-direction: column;
-    padding-top: 15vh;
+body{
+    background-color: #363A84;
 }
+
 .header-not-logged-in{
     width: 100vw;
     margin: 0;
@@ -48,9 +45,7 @@ main{
     border: 1px solid #5156B5;
     background-color: #363A84;
 }
-.password{
-    margin-bottom: 4px;
-}
+
 .menu-options{
     display: none;
     margin: 0px;
@@ -102,68 +97,193 @@ input[type="checkbox"]:checked + .menu-options{
     width: 40px;
     height: 40px;
 }
-h1{
-    margin:16px;
-    text-align: center;
-    font-size: 24px;
-    font-weight: 700;
-    line-height: 28px;
+.cursoAComprar img{
+    width: 30%;
+    margin-bottom: 20px;  
+    object-fit: cover;  
 }
-input{
-    background-color: #030634; 
-    border-radius: 8px;
-    border: 1px #5157B5 solid;
-    height: 40px;
+.main{
+    padding: 20px;
+}
+.titulo{
+    font-weight:400;
+    font-size: 34px;
+    padding: 100px 0 20px 20px;
+}
+.cursoAComprar{
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    flex-direction: row;
+    border-bottom: 1px solid white;
+    margin-top: 10px;
+}
+.descripcion{
+    width: 70%;
+    padding-left: 20px;
+}
+.eliminar:hover{
+    color: #25C998;
+    cursor: pointer;   
+}
+.nombre-creador{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+.nombre{
+    font-size: 16px;
+    line-height: 18px;
+    font-weight:500;
+}
+.creador{
+    font-size: 14px;
+    line-height: 16px;
+    margin-top: 10px;
+    font-weight:500;
+}
+.precio-eliminar{    
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;    
+    align-items: flex-end;
+    width:100%;
+    margin-bottom: 15px;
+}
+.eliminar{
     color: white;
-    padding:8px;
-    margin: 4px 0 4px;
+    font-size: 14px;    
+    font-weight: 500;
 }
-label{
+.precio{
     font-size: 20px;
-    line-height: 23.5px;
+    font-weight:500;
 }
-form{
-    padding: 16px;     
+.totalAPagar{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    line-height: 7vh;
+    margin-top: 10px;
+}
+.totalAPagar h3{
+    font-size: 24px;
+    font-weight:500;
+}
+.total{
+    font-size: 34px;
+    font-weight:500;
+}
+.boton{
+    background-color: #25C998;
+    width: 100%;
+    text-align: center;
+    border-radius: 8px;
+    border: 1px #25C998 solid;
+    color: black;
+    font-size: 24px; 
+    font-weight: bold;
+}
+.boton:hover{
+    background-color: salmon;
+}
+.subtitulo{    
+    font-weight: 500;
+    font-size: 26px;
+    margin: 10px 0 20px 0;
+    padding-left: 20px;
+}
+.CarouselContainer{
+    overflow-x:auto;
+    margin-right: 16px;
+}
+.Carousel{
+    min-height: 212px;
+    margin:0 0 16px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.CourseCard{
+    width:280px !important;
+    min-height: 212px;
+    margin: 0 16px 0px;
+    flex-shrink: 0;
     display: flex;
     flex-direction: column;
+    justify-content:space-between;
 }
-.contraseña{
-    font-size: 14px;
-    line-height: 16.5px;
-    padding-top: 4px;
-    padding-bottom: 8px;
+.CourseCardImage{
+    width:100%;
+    height:140px;
 }
-#enviar{
-    background-color: #25C998;
-    color: black;
-    font-size: 20px;
-    border-radius: 8px;
-    height: 36px;
-    font-weight: 900;
-    border: 1px solid #25C998;
-    padding:0px;
+.CourseCardTitle{
+    margin: 9px 16px 16px 5px;
+    color:var(--White);
 }
-#enviar:hover{
-    background-color: #6bddbb;
-    border: 1px solid black;
+img{
+    display:block;
 }
-.condiciones{
-    font-size: 14px;
-    line-height: 16.5px;
-    border-bottom: white 1px solid;
-    padding-bottom: 12px;
-    padding-top: 8px;
+.CourseRating{
+    width: 232px;   
+    color:var(--secondaryColor);
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
 }
-a{
-    color: white;
+.CourseCard > .CourseRating{
+    margin:0;
 }
-.iniciar-sesion{
-    font-size: 16px;
-    line-height: 19px;
-    text-align: center;
-    padding-top: 12px;
+.CourseLessonName, article.CourseCard > section.CourseRating > .CourseGrade{
+    color:var(--secondaryColor);
+    margin-right: 4px;
+    min-width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: flex-end;
 }
-
+.CourseLessonName, article.CourseCard > section.CourseRating > img{
+    margin-right: 4px;
+}
+.CourseLessonName{
+    color:var(--White);
+}
+.LongCourseDescription{
+    margin-bottom: 16px;
+}
+.CourseCardPrice{
+    margin-top:8px;
+    margin-bottom: 16px;
+}
+.CourseCardCreator{
+    margin: 5px 16px 16px 4px;
+}
+.CourseReviewsSection{
+    background-color: var(--BrandPurpleDark);
+    width:100vw;
+    min-height: 200px;
+}
+.CourseReviewsSectionTitle{
+    padding-top: 16px;
+    padding-left: 16px;
+}
+.ReviewContainer{
+    padding: 12px 16px 0;
+    width: 100vw;
+}
+article.ReviewContainer:last-of-type{
+    padding-bottom: 16px;
+}
+.ReviewerRating{
+    display: inline-flex;
+}
+h5.CourseGrade{
+    margin-left: 8px;
+}
 footer{
     background-color:var(--darkBlueLogo);
 }
@@ -217,6 +337,7 @@ footer{
 }
 small{
     color:var(--secondaryColor);
+
     font-weight: 400;
     display: flex;
     margin-right: 16px;
@@ -248,10 +369,6 @@ small{
     }
 }
 @media (min-width:460px) {
-    form{
-        width: 60%;
-        align-self: center;
-    }
     .Contactanos{
         margin-right: 36px;
     }
@@ -285,9 +402,75 @@ small{
     .Logo{
         margin-top:0;
     }
+    .descripcion{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .nombre{
+        font-size: 24px;
+        line-height: 30px;
+    }
+    .precio{
+        font-size: 24px;
+    }
+    .creador{
+        font-size: 18px;
+    }
 }
 /*DESKTOP*/
 @media (min-width:950px){
+    .articulos{
+        width:65%;
+        height: 100%;
+        margin-right: 30px;
+    }
+    .nombre-creador{
+        margin-bottom: 10px;
+        align-self: flex-start;
+        width: 70%;
+    }
+    .descripcion{
+        width: 85%;
+    }
+    .precio-eliminar{
+        flex-direction: column;
+        width:28%;
+        align-items: flex-end;
+        margin-bottom: 10px;
+    }
+    .precio-eliminar .eliminar{
+        order: 1;
+    }
+    .eliminar{
+        text-align: center;
+    }
+    .main{
+        display: flex;
+    }
+    .cursoAComprar{
+        height: 30%;
+        justify-content: space-between ;
+    }
+    .cursoAComprar img{
+        width: 15%;
+        margin-bottom: 8px;
+    }
+    .totalAPagar{
+        background-color: #030634;
+        border-radius: 8px;
+        border:1px solid #030634;
+        width: 32%;
+        align-self: center;
+        padding: 8px;
+        line-height: 8vh;
+    }
+    .totalAPagar h2{
+        font-size: 2em;
+    }
+    .boton{
+        margin-top: 6%;
+        margin-bottom: 15px;
+    }
     .FooterContainer{
         padding-top: 52px;
         padding-left: 4%;
@@ -325,10 +508,10 @@ small{
         margin:0;
     }
     .FooterContainer > div > h5.FooterTitle{
-        font-size: 24px;
+        font-size: 20px;
     }
     .FooterContainer > div > h6.FooterItem{
-        font-size: 20px;
+        font-size: 16px;
     }
     .Social > img{
         width:48px;
@@ -373,61 +556,26 @@ small{
         height: 48px;
         margin: 0 16px 0 16px;
     }
+    .CarouselContainer{
+        display: flex;
+        justify-content: space-around;
+    }
 }
-@media (min-width:769px){
-    form{
-        width: 40%
-    }
-    h1{
-        font-size: 35px;
-        font-weight: 400;
-        line-height: 48px;
-    }
 
+a{
+    text-decoration: none;
 }
-@media (min-width:1280px){
-    form{
-        width: 48%;
-    }
-    h1{
-        font-size: 32px;
-        font-weight: 400;
-        line-height: 48px;
-    }
-    label{
-        font-size: 24px;
-        line-height: 40px;
-        font-weight: 400;
-        margin-bottom: 12px;
-    }
-    input, #enviar{
-        height: 48px;
-        margin-bottom: 12px;
-        font-size: 20px;
-    }
-    .contraseña{
-        font-size: 16px;
-        line-height: 19px;
-        font-weight: 500;
-        margin-bottom: 20px;
-    }
-    .condiciones{
-        font-size: 14px;
-        line-height: 19px;
-        padding-bottom: 20px;
-        margin-bottom: 12px;
-    }
-    .iniciar-sesion{
-        font-size: 18px;
-        line-height: 24px;
-        margin-bottom: 64px;
-    }
+
+.btn-Add{
+    margin-bottom: 20px;
+    color:black;
+    font-size: 14px;
+    min-width: 100px;
+    min-height: 32px;
 }
-input#imgUsuario{
-    border: 0;
-    background-color: transparent;
+.pageHeader{
     display: flex;
-    padding:0;
-    height:28px;
-    margin-top:4px;
+    justify-content: space-around;
+    align-items: flex-end;
+    margin-right: 20px;
 }
