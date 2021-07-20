@@ -93,7 +93,6 @@ input[type="checkbox"]:checked + .menu-options{
 
 .section-main{
     background-color: #030634;
-    width: 100vw;
     height: 268px;
     display: flex;
     flex-wrap: wrap;
@@ -217,6 +216,7 @@ a{
     background-color: #5157B5;
     font-weight: 500;
     display: flex;
+    justify-content: center;
 }
 #popular{
     top:64px;
