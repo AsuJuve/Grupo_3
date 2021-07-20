@@ -12,22 +12,24 @@ module.exports={
         res.render("products/createProducts",{title: 'Crear Curso','courses':coursestxt})
     },
     edit: (req,res)=>{
-        res.render('products/editProducts',{title: 'Editar Curso','courses':coursestxt})
+        let id = req.params.id;
+        res.render('products/editProducts',{title: 'Editar Curso','courses':coursestxt,'id':id});
     },
     edited: (req,res)=>{
+        let id = parseInt(req.url.substring(1).split("?")[0]);
 		let data = req.body;
 		let newCourse = {
 			"name": data.nombreCurso,
-            "categorization":data.curso,
             "shortDescription":data.descripcionCorta,
             "requirements":data.requisitos,
             "longDescription":data.descripcionLarga,
             "image":data.imagenDelCurso,
 			"price": data.precio
 		}
-		coursestxt.push(newCourse);
+        let courseIndex = coursestxt.findIndex(l=>l["id"]==id)
+        coursestxt[courseIndex] = {...newCourse}
         fs.writeFileSync(coursesFilePath,JSON.stringify(coursestxt));
-        res.render('products/productDetailAdmin', {title: 'Detalle de producto','courses':coursestxt})
+        res.render('products/productDetailAdmin', {title: 'Detalle de producto','courses':coursestxt,curso:id})
     },
     store: (req,res)=>{
         let nuevo = coursestxt.length + 1;

@@ -3,52 +3,30 @@
     <%- include("../partials/header.ejs")%>
     <main>
         <h1><%= title%> </h1>
-        <form action="/products/:id?_method=PUT" method= "POST" enctype="multipart/form-data">
+        <form action="/products/<%=id%>?_method=PUT" method= "POST" enctype="multipart/form-data">
             <label for="nombreCurso">Nombre del Curso*</label>
-            <input type="text" id='nombreCurso' name='nombreCurso'>
-            <label for="categorizacion">Categorización (Breadcrumb)* </label>
-            <div class="categorizacion">  
-                <select name='select' class="select" id="categorizacion">
-                    <option value="programacion" >Programación</option>
-                </select>
-                <select name='curso' class="select" id="categorizacion">
-                    <option value="python" >Python</option>
-                </select>
-                <select name= "categoria" class="select" id="categorizacion">
-                    <option value="categoria" >Selecciona una categoría</option>
-                </select>
-            </div>
+            <input type="text" id='nombreCurso' name='nombreCurso' value= "<%= courses.find((l)=>{return l['id'] == parseInt(id)}).name%>" >
             <label for="descripcionCorta">Descripción corta*</label>
-            <textarea id="descripcionCorta"></textarea>
+            <textarea id="descripcionCorta"><%= courses.find((l)=>{return l['id'] == parseInt(id)}).shortDescription%></textarea>
             <label for="requisitos">Requisitos del curso</label>
-            <textarea id="requisitos"></textarea>
+            <textarea id="requisitos"><%= courses.find((l)=>{return l['id'] == parseInt(id)}).requirements%></textarea>
             <label for="descripcionLarga">Descripción larga*</label>
-            <textarea id="descripcionLarga"></textarea>
+            <textarea id="descripcionLarga"><%= courses.find((l)=>{return l['id'] == parseInt(id)}).longDescription%></textarea>
             <div class="precio">
                 <div class="bloque">
                     <label for="precio">Precio*</label>
-                    <input type="text" id="precio" name="precio" value="$">
+                    <input type="text" id="precio" name="precio" value= "$ <%= courses.find((l)=>{return l['id'] == parseInt(id)}).price[0]%>">
                 </div>
                 <div class="bloque">
                     <label for="moneda">Unidad monetaria*</label>
                     <select class="select" name= "moneda" id="moneda"> 
-                        <option value="mxn" selected>MXN Peso Mexicano</option>
-                        <option value="dollar">USD Dólar Estadounidense</option>
+                        <option value="MXN" <%=courses.find((l)=>{return l['id'] == parseInt(id)}).price[1]=="MXN"?"selected":""%>>MXN Peso Mexicano</option>
+                        <option value="USD" <%=courses.find((l)=>{return l['id'] == parseInt(id)}).price[1]=="USD"?"selected":""%>>USD Dólar Estadounidense</option>
                     </select>                      
                 </div>
             </div>
             <label for="imagenDelCurso">Imagen de previsualización del curso*</label>
             <input type="file" name="imagenDelCurso" id="imagenDelCurso" class="archivo">
-            <label for="contenido"><h3>Contenido del curso*</h2></label>
-            <p>Lista de lecciones actuales(selecciona la lección que quieres editar o agregar una nueva)</p>
-            <select class="select" id="contenido">
-                <option value="tema1">Tema 1: Introducción a la programación con Python 3</option>
-            </select>
-            <div class="botonesL">
-                <button type="button" name="agregarL" class="agregarL" value="agregarLeccion">Agregar nueva lección</button>
-                <button type="submit" name="guardarL" class="guardarL" value="guaradarCambiosL">Guardar cambios en la lección</button>
-                <button type="reset" name="eliminarL" class="eliminarL" value="eliminarLeccion">Eliminar lección</button>
-            </div>
             <div class="botones">
                 <button type="submit" class="guardar" name="guardar" value="Guardar"><img src="/images/icons/save.svg"> Guardar cambios</button>
             </div>        
