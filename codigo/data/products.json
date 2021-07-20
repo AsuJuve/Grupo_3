@@ -2,10 +2,6 @@
     {
         "id": 1,
         "name": "Curso completo de Python 3 de la A a la Z - 2021 +50 horas",
-        "categorization": [
-            "Programación",
-            "Python"
-        ],
         "shortDescription": "Aprende Python 3 como un profesional empezando por las bases hasta programar tus propios algoritmos o juegos completos",
         "requirements": [
             "No es necesario ningún tipo de conocimiento en programación. Este curso es realmente te enseñará a programar desde cero.",
@@ -31,7 +27,7 @@
             {
                 "reviewerName": "Alondra López Corrales",
                 "reviewContent": "En general es buen curso, sin embargo el ejemplo de los superhéroes para explicar el curso no me parece profesional, teniendo el instructor tanta experiencia pudiera mejorar y poner ejemplos más reales y aplicables",
-                "reviewerPhoto": "",
+                "reviewerPhoto": "https://i.ibb.co/N93NJwc/profile-42914-960-720.png",
                 "reviewGrade": 4.6
             }
         ]
@@ -39,11 +35,6 @@
     {
         "id": 2,
         "name": "Aprende React + Firebase | 2021 Actualizado",
-        "categorization": [
-            "Programación",
-            "Desarrollo web",
-            "React"
-        ],
         "shortDescription": "JavaScript + React + Firebase todo lo que necesitas saber",
         "requirements": [
             "El unico requisito es tener muchas ganas de aprender da igual si no sabes JavaScript en el curso tendras los conceptos básicos."
@@ -67,116 +58,70 @@
             {
                 "reviewerName": "René López Gallegos",
                 "reviewContent": "Este curso deja mucho que desear está un poco desactualizado",
-                "reviewerPhoto": "",
+                "reviewerPhoto": "https://i.ibb.co/N93NJwc/profile-42914-960-720.png",
                 "reviewGrade": 3.4
             }
         ]
     },
     {
         "id": 3,
-        "name": "Aprende React + Firebase | 2021 Actualizado",
-        "categorization": [
-            "Programación",
-            "Desarrollo web",
-            "React"
-        ],
-        "shortDescription": "JavaScript + React + Firebase todo lo que necesitas saber",
+        "name": "Curso de PowerBI para principiantes",
+        "shortDescription": "Aprende a usar PowerBi para hacer dashboards",
         "requirements": [
-            "El unico requisito es tener muchas ganas de aprender da igual si no sabes JavaScript en el curso tendras los conceptos básicos."
+            "Conocimientos básicos de excel"
         ],
-        "longDescription": "En este curso aprenderás todo lo necesario para poder encontrar tu primer trabajo dentro del mundo TI JavaScript. \nAprenderás todo lo necesario en JavaScript para poder adentrarte en el mundo de la programación con sus librerías y frameworks.\nTambién aprenderás todo lo necesario sobre react y como se puede llevar esta librería a otro nivel.\nPor ultimo y como toque final aprenderás Firebase el servicio de Google en la nube para gestión de usuarios, data y mucho mas.",
-        "image": "https://i.ibb.co/7n5dnCq/react-Course.jpg",
+        "longDescription": "En este curso de Power BI en español vas a aprender como hacer informes y reportes con dashboards en distintos proyectos, ejercicios y prácticas.",
+        "image": "https://i.ibb.co/qB83zC9/proyecto2-2.png",
         "price": [
-            7.99,
+            10,
             "USD"
         ],
-        "courseRating": 4.6,
-        "totalReviews": 251,
-        "enrolledStudents": 396,
+        "courseRating": 4.7,
+        "totalReviews": 563,
+        "enrolledStudents": 1206,
         "reviews": [
             {
-                "reviewerName": "Ana Romero Sánchez",
-                "reviewContent": "Mi primer acercamiento a la programación y le he entendido perfectamente, muy bien explicado los temas.",
-                "reviewerPhoto": "https://i.ibb.co/J324VcL/Photo-of-satisfied-brunette-woman-with-dark-hair-has-pleasant-smile-being-in-good-mood-wears-red-cas.jpg",
+                "reviewerName": "Veronica Figueroa Robledo",
+                "reviewContent": "Excelente curso, muy bien explicado todo",
+                "reviewerPhoto": "https://i.ibb.co/MNn65q3/woman-icon-for-user-profile-female-icon-human-or-people-sign-and-symbol-free-vector.jpg",
                 "reviewGrade": 5
             },
             {
-                "reviewerName": "René López Gallegos",
-                "reviewContent": "Este curso deja mucho que desear está un poco desactualizado",
-                "reviewerPhoto": "",
-                "reviewGrade": 3.4
+                "reviewerName": "Alfonso Cuellar Gamez",
+                "reviewContent": "Me gustó mucho la forma en la que da las clases, buen curso",
+                "reviewerPhoto": "https://i.ibb.co/N93NJwc/profile-42914-960-720.png",
+                "reviewGrade": 4.8
             }
         ]
     },
     {
         "id": 4,
-        "name": "Aprende React + Firebase | 2021 Actualizado",
-        "categorization": [
-            "Programación",
-            "Desarrollo web",
-            "React"
-        ],
-        "shortDescription": "JavaScript + React + Firebase todo lo que necesitas saber",
+        "name": "Curso de Inteligencia Artificial con python",
+        "shortDescription": "Combina el poder de los datos, Reinforcement Learning, Q-Learning y Deep Learning para crear IA en contextos reales",
         "requirements": [
-            "El unico requisito es tener muchas ganas de aprender da igual si no sabes JavaScript en el curso tendras los conceptos básicos."
+            "Conocimientos medios de matemáticas, sobretodo de estadística y de álgebra lineal y avanzados del lenguaje de programación Python."
         ],
-        "longDescription": "En este curso aprenderás todo lo necesario para poder encontrar tu primer trabajo dentro del mundo TI JavaScript. \nAprenderás todo lo necesario en JavaScript para poder adentrarte en el mundo de la programación con sus librerías y frameworks.\nTambién aprenderás todo lo necesario sobre react y como se puede llevar esta librería a otro nivel.\nPor ultimo y como toque final aprenderás Firebase el servicio de Google en la nube para gestión de usuarios, data y mucho mas.",
-        "image": "https://i.ibb.co/7n5dnCq/react-Course.jpg",
+        "longDescription": "Bienvenido Curso completo de Inteligencia Artificial de cero a experto, donde aprenderás conceptos claves del mundo de la IAy el aprendizaje automatizado tanto desde el punto de visto teórico como implementaciones prácticas con Python.",
+        "image": "https://i.ibb.co/qsD6b7T/artificial-intelligence.jpg",
         "price": [
-            7.99,
-            "USD"
+            999,
+            "MXN"
         ],
-        "courseRating": 4.6,
-        "totalReviews": 251,
-        "enrolledStudents": 396,
+        "courseRating": 4.5,
+        "totalReviews": 478,
+        "enrolledStudents": 532,
         "reviews": [
             {
-                "reviewerName": "Ana Romero Sánchez",
-                "reviewContent": "Mi primer acercamiento a la programación y le he entendido perfectamente, muy bien explicado los temas.",
-                "reviewerPhoto": "https://i.ibb.co/J324VcL/Photo-of-satisfied-brunette-woman-with-dark-hair-has-pleasant-smile-being-in-good-mood-wears-red-cas.jpg",
-                "reviewGrade": 5
+                "reviewerName": "Alan Torres Montemorelos",
+                "reviewContent": "Bueno, realmente para el que no tiene experiencia alguna en Inteligencia Artificial, es un buen curso.",
+                "reviewerPhoto": "https://i.ibb.co/xJ4890t/images.png",
+                "reviewGrade": 4.9
             },
             {
-                "reviewerName": "René López Gallegos",
-                "reviewContent": "Este curso deja mucho que desear está un poco desactualizado",
-                "reviewerPhoto": "",
-                "reviewGrade": 3.4
-            }
-        ]
-    },
-    {
-        "id": 5,
-        "name": "Aprende React + Firebase | 2021 Actualizado",
-        "categorization": [
-            "Programación",
-            "Desarrollo web",
-            "React"
-        ],
-        "shortDescription": "JavaScript + React + Firebase todo lo que necesitas saber",
-        "requirements": [
-            "El unico requisito es tener muchas ganas de aprender da igual si no sabes JavaScript en el curso tendras los conceptos básicos."
-        ],
-        "longDescription": "En este curso aprenderás todo lo necesario para poder encontrar tu primer trabajo dentro del mundo TI JavaScript. \nAprenderás todo lo necesario en JavaScript para poder adentrarte en el mundo de la programación con sus librerías y frameworks.\nTambién aprenderás todo lo necesario sobre react y como se puede llevar esta librería a otro nivel.\nPor ultimo y como toque final aprenderás Firebase el servicio de Google en la nube para gestión de usuarios, data y mucho mas.",
-        "image": "https://i.ibb.co/7n5dnCq/react-Course.jpg",
-        "price": [
-            7.99,
-            "USD"
-        ],
-        "courseRating": 4.6,
-        "totalReviews": 251,
-        "enrolledStudents": 396,
-        "reviews": [
-            {
-                "reviewerName": "Ana Romero Sánchez",
-                "reviewContent": "Mi primer acercamiento a la programación y le he entendido perfectamente, muy bien explicado los temas.",
-                "reviewerPhoto": "https://i.ibb.co/J324VcL/Photo-of-satisfied-brunette-woman-with-dark-hair-has-pleasant-smile-being-in-good-mood-wears-red-cas.jpg",
+                "reviewerName": "Fabian Garza Saucedo",
+                "reviewContent": "Curso super-super completo, lleno de muchos temas y proyectos divertidos, recomendado casi diría yo obligado si te gusta y quieres seguir con este tema.",
+                "reviewerPhoto": "https://i.ibb.co/N93NJwc/profile-42914-960-720.png",
                 "reviewGrade": 5
-            },
-            {
-                "reviewerName": "René López Gallegos",
-                "reviewContent": "Este curso deja mucho que desear está un poco desactualizado",
-                "reviewerPhoto": "",
-                "reviewGrade": 3.4
             }
         ]
     }
