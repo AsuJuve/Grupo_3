@@ -18,39 +18,45 @@ module.exports={
     edited: (req,res)=>{
         let id = parseInt(req.url.substring(1).split("?")[0]);
 		let data = req.body;
+        let courseIndex = coursestxt.findIndex(l=>l["id"]==id);
 		let newCourse = {
+            ...coursestxt[courseIndex],
+            "id":id,
 			"name": data.nombreCurso,
             "shortDescription":data.descripcionCorta,
-            "requirements":data.requisitos,
+            "requirements":data.requisitos.split("."),
             "longDescription":data.descripcionLarga,
             "image":data.imagenDelCurso,
-			"price": data.precio
+			"price": [data.precio,data.moneda]
 		}
-        let courseIndex = coursestxt.findIndex(l=>l["id"]==id)
-        coursestxt[courseIndex] = {...newCourse}
+        coursestxt[courseIndex] = newCourse;
         fs.writeFileSync(coursesFilePath,JSON.stringify(coursestxt));
-        res.render('products/productDetailAdmin', {title: 'Detalle de producto','courses':coursestxt,curso:id})
+        res.render('products/editProducts', {title: 'Editar Curso','courses':coursestxt,curso:id,id})
     },
     store: (req,res)=>{
         let nuevo = coursestxt.length + 1;
 		let data = req.body;
 		let newCourse = {
-			"id": nuevo,
+            "id":nuevo,
 			"name": data.nombreCurso,
-            "categorization":data.curso,
             "shortDescription":data.descripcionCorta,
-            "requirements":data.requisitos,
+            "requirements":data.requisitos.split("."),
             "longDescription":data.descripcionLarga,
-            "image":data.imagenDelCurso,
-			"price": data.precio
+			"price": [data.precio,data.moneda],
+            "courseRating":0.0,
+            "totalReviews": 0,
+            "enrolledStudents": 0,
+            "reviews": []
 		}
-		coursestxt.push(newCourse);
+        coursestxt.push(newCourse);
         fs.writeFileSync(coursesFilePath,JSON.stringify(coursestxt));
+        res.status(200).render('home',{title: 'Inicio','courses':coursestxt})
     },
     delete: (req,res)=>{
-        const index = coursestxt.findIndex(course => course.id == req.params.id);
-        delete coursestxt[index];
-        res.redirect('/')
+        const index = coursestxt.findIndex(course => course.id == parseInt(req.params.id));
+        coursestxt.splice(index,1);
+        fs.writeFileSync(coursesFilePath,JSON.stringify(coursestxt));
+        res.status(200).render('home',{title: 'Inicio','courses':coursestxt})
     },
     showDetail:(req,res)=>{
         let id= req.params.id;

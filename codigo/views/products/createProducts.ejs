@@ -3,7 +3,7 @@
     <%- include("../partials/header.ejs")%>
     <main>
         <h1><%= title%> </h1>
-        <form action="/products" method= "POST" enctype="multipart/form-data">
+        <form action="/products" method= "POST">
             <label for="nombreCurso">Nombre del Curso*</label>
             <input type="text" id='nombreCurso' name='nombreCurso'>
             <label for="descripcionCorta">Descripción corta*</label>
@@ -15,7 +15,7 @@
             <div class="precio">
                 <div class="bloque">
                     <label for="precio">Precio*</label>
-                    <input type="text" id="precio" name="precio" value="$">
+                    <input type="text" id="precio" name="precio">
                 </div>
                 <div class="bloque">
                     <label for="moneda">Unidad monetaria*</label>
@@ -25,28 +25,8 @@
                     </select>                      
                 </div>
             </div>
-            <label for="imagenDelCurso">Imagen de previsualización del curso*</label>
-            <input type="file" name="imagenDelCurso" id="imagenDelCurso" class="archivo"> 
-            <label for="universidad">Agrega una breve descripción de la iniversidad*</label>
-            <textarea id="universidad"></textarea>
-            <label for="contenido"><h3>Contenido del curso*</h2></label>
-            <p>Lista de lecciones actuales(selecciona la lección que quieres editar o agregar una nueva)</p>
-            <select class="select" id="contenido">
-                <option value="tema1">Tema 1: Introducción a la programación con Python 3</option>
-            </select>
-            <label for="titulo">Título de lección</label>
-            <input type="text" id="titulo" name="tituloL">
-            <label for="descripcion">Descripción de lección</label>
-            <textarea id="descripcion"></textarea>
-            <label for="previsualizacion">Previsualización de lección</label>
-            <input type="file" name="previsualizacion" id="previsualizacion" class="archivo">
-            <div class="botonesL">
-                <button type="button" name="agregarL" class="agregarL" value="agregarLeccion">Agregar nueva lección</button>
-                <button type="submit" name="guardarL" class="guardarL" value="guaradarCambiosL">Guardar cambios en la lección</button>
-                <button type="reset" name="eliminarL" class="eliminarL" value="eliminarLeccion">Eliminar lección</button>
-            </div>
             <div class="botones">
-                <button type="submit" class="guardar" name="guardar" value="Guardar"><img src="/images/icons/save.svg"> Guardar cambios</button>
+                <button type="submit" class="guardar" value="Guardar"><img src="/images/icons/save.svg"> Guardar cambios</button>
             </div>
             <p>Los espacios marcados con * son obligatorios.</p>
         </form>
