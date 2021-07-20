@@ -4,9 +4,10 @@ const productsController= require('../controllers/productsController')
 
 
 router.get('/', productsController.index);
-router.post("/",productsController.store)
+//router.post("/",productsController.store)
 
 router.get('/create', productsController.create);
+router.post('/create', productsController.store);
 
 router.get("/:id", productsController.showDetail)
 router.put("/:id", productsController.edited)

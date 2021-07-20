@@ -2,6 +2,7 @@
 <body>
     <!--Navbar-->
     <%- include("../partials/header.ejs")%>
+
         <% for(let course of courses){ %>
             <%if(course.id == curso){%>
                 <h5 class="Breadcrumb">
@@ -37,6 +38,7 @@
                         </div>
                         <div class="DesktopFirstCuadrant">
                             <h3 class="CourseName"><%= course.name %></h3>
+                            <h5 class="CreadorInfo">Creado por: <%= course.creator %></h5>
                             <h4 class="ShortCourseDescription"><%= course.shortDescription %></h4>
                             <section class="CourseRating">
                                 <h4 class="CourseGrade"><%= course.courseRating %></h4>
@@ -80,24 +82,6 @@
                         <h5 class="LongCourseDescription"><%= course.longDescription%> </h5>
                     </section>
                 </article>
-                <article class="CourseContents">
-                    <h3 class="SectionTitle">Contenido del curso</h3>
-                    <div class="CourseLessonsContainer">
-                        <div class="CourseLesson">
-                            <h4 class="CourseLessonName"><%= course.lessons[0].lessonName%></h4>
-                            <h4 class="CourseLessonTime"><%= course.lessons[0].lessonDuration%></h4>
-                            <h5 class="CourseLessonExplained"><%= course.lessons[0].lessonDescription%></h5>
-                            <img class="DesktopLessonVideoVisible" src="<%= course.lessons[0].lessonPreview%>" alt="Preview de video del curso, lección 1">
-                        </div>
-                        <div class="CourseLesson">
-                            <h4 class="CourseLessonName"><%= course.lessons[1].lessonName%></h4>
-                            <h4 class="CourseLessonTime"><%= course.lessons[1].lessonDuration%></h4>
-                            <h5 class="CourseLessonExplained"><%= course.lessons[1].lessonDescription%></h5> 
-                            <img class="DesktopLessonVideoVisible" src="<%= course.lessons[1].lessonPreview%>" alt="Preview de video del curso, lección 2">
-                        </div>
-                        <button class="Btn-SeeMore">Ver más</button>
-                    </div>
-                </article>   
                 <article class="AboutUniversity">
                     <h3 class="SectionTitle">Otros cursos que te podrían interesar</h3>
                     <div class="CarouselContainer">
@@ -107,6 +91,7 @@
                                     <article class="CourseCard">
                                         <img class="CourseCardImage" src=<%= course.image %>alt="Imagen representativa del curso">
                                         <h5 class="CourseCardTitle"><%= course.name %></h5>
+                                        <h6 class="CourseCardCreator"><%= course.creator %></h6>
                                         <section class="CourseRating">
                                             <h5 class="CourseGrade"><%= course.courseRating %></h5>
                                             <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">

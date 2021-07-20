@@ -9,12 +9,24 @@ module.exports={
         res.render('products/allProducts',{title: 'Todos los cursos','courses':coursestxt})
     },
     create: (req,res)=>{
-        res.render("products/createProducts",{title: 'Crear Curso'})
+        res.render("products/createProducts",{title: 'Crear Curso','courses':coursestxt})
     },
     edit: (req,res)=>{
         res.render('products/editProducts',{title: 'Editar Curso','courses':coursestxt})
     },
     edited: (req,res)=>{
+		let data = req.body;
+		let newCourse = {
+			"name": data.nombreCurso,
+            "categorization":data.curso,
+            "shortDescription":data.descripcionCorta,
+            "requirements":data.requisitos,
+            "longDescription":data.descripcionLarga,
+            "image":data.imagenDelCurso,
+			"price": data.precio
+		}
+		coursestxt.push(newCourse);
+        fs.writeFileSync(coursesFilePath,JSON.stringify(coursestxt));
         res.render('products/productDetailAdmin', {title: 'Detalle de producto','courses':coursestxt})
     },
     store: (req,res)=>{
@@ -30,9 +42,8 @@ module.exports={
             "image":data.imagenDelCurso,
 			"price": data.precio
 		}
-        fs.writeFileSync(coursesFilePath,JSON.stringify(coursestxt))
 		coursestxt.push(newCourse);
-		res.redirect('/')
+        fs.writeFileSync(coursesFilePath,JSON.stringify(coursestxt));
     },
     delete: (req,res)=>{
         const index = coursestxt.findIndex(course => course.id == req.params.id);

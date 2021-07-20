@@ -21,20 +21,6 @@
         "courseRating": 4.8,
         "totalReviews": 99000,
         "enrolledStudents": 4200,
-        "lessons": [
-            {
-                "lessonName": "Tema 1: Introducción a la programación con Python 3",
-                "lessonDescription": "Veremos el concepto de variable, así como palabras reservadas en Python. Posteriormente, veremos cómo declarar múltiples variables y llegaremos a hacer operaciones con ellas. Finalmente, veremos cuestiones importantes sobre el cómo hacer comentarios y la función import.",
-                "lessonDuration": "60 min",
-                "lessonPreview": "https://i.ibb.co/SyCTP4b/Lesson-Thumbnail.jpg"
-            },
-            {
-                "lessonName": "Tema 2: Números en Python 3",
-                "lessonDescription": "Primero veremos cuales son los tipos de números disponibles en este lenguaje de programación, posteriormente abordaremos más a detalle las operaciones aritméticas, la jerarquía de operaciones y finalmente, veremos un poco de números complejos en Python.",
-                "lessonDuration": "120 min",
-                "lessonPreview": "https://i.ibb.co/6RVdSQH/Lesson-Thumbnail2.jpg"
-            }
-        ],
         "reviews": [
             {
                 "reviewerName": "Juan Fernando Rodríguez Ramírez",
@@ -71,20 +57,6 @@
         "courseRating": 4.6,
         "totalReviews": 251,
         "enrolledStudents": 396,
-        "lessons": [
-            {
-                "lessonName": "Tema 1: Instalación de programas",
-                "lessonDescription": "Veremos paso por paso todo lo referente a la instalación de programas para poder utilizar javascript y react",
-                "lessonDuration": "10 min",
-                "lessonPreview": "https://i.ibb.co/7N97xk0/install-software-laptop.jpg"
-            },
-            {
-                "lessonName": "Tema 2: Variables en JavaScript",
-                "lessonDescription": "Veremos como tema introductorio a la programación el concepto de JavaScript, aplicado a variables y mostraremos los usos que tienen.",
-                "lessonDuration": "33 min",
-                "lessonPreview": "https://i.ibb.co/10zzncw/Creative-abstract-PHP-web-design-internet-programming-HTML-language-and-digital-computer-technology.jpg"
-            }
-        ],
         "reviews": [
             {
                 "reviewerName": "Ana Romero Sánchez",
@@ -121,32 +93,18 @@
         "courseRating": 4.6,
         "totalReviews": 251,
         "enrolledStudents": 396,
-        "lessons": [
-            {
-                "lessonName": "Tema 1: Instalación de programas",
-                "lessonDescription": "Veremos paso por paso todo lo referente a la instalación de programas para poder utilizar javascript y react",
-                "lessonDuration": "10 min",
-                "lessonPreview": "https://i.ibb.co/7N97xk0/install-software-laptop.jpg"
-            },
-            {
-                "lessonName": "Tema 2: Variables en JavaScript",
-                "lessonDescription": "Veremos como tema introductorio a la programación el concepto de JavaScript, aplicado a variables y mostraremos los usos que tienen.",
-                "lessonDuration": "33 min",
-                "lessonPreview": "https://i.ibb.co/10zzncw/Creative-abstract-PHP-web-design-internet-programming-HTML-language-and-digital-computer-technology.jpg"
-            }
-        ],
         "reviews": [
-            {
-                "reviewerName": "René López Gallegos",
-                "reviewContent": "Este curso deja mucho que desear está un poco desactualizado",
-                "reviewerPhoto": "",
-                "reviewGrade": 3.4
-            },
             {
                 "reviewerName": "Ana Romero Sánchez",
                 "reviewContent": "Mi primer acercamiento a la programación y le he entendido perfectamente, muy bien explicado los temas.",
                 "reviewerPhoto": "https://i.ibb.co/J324VcL/Photo-of-satisfied-brunette-woman-with-dark-hair-has-pleasant-smile-being-in-good-mood-wears-red-cas.jpg",
                 "reviewGrade": 5
+            },
+            {
+                "reviewerName": "René López Gallegos",
+                "reviewContent": "Este curso deja mucho que desear está un poco desactualizado",
+                "reviewerPhoto": "",
+                "reviewGrade": 3.4
             }
         ]
     },
@@ -171,32 +129,54 @@
         "courseRating": 4.6,
         "totalReviews": 251,
         "enrolledStudents": 396,
-        "lessons": [
-            {
-                "lessonName": "Tema 1: Instalación de programas",
-                "lessonDescription": "Veremos paso por paso todo lo referente a la instalación de programas para poder utilizar javascript y react",
-                "lessonDuration": "10 min",
-                "lessonPreview": "https://i.ibb.co/7N97xk0/install-software-laptop.jpg"
-            },
-            {
-                "lessonName": "Tema 2: Variables en JavaScript",
-                "lessonDescription": "Veremos como tema introductorio a la programación el concepto de JavaScript, aplicado a variables y mostraremos los usos que tienen.",
-                "lessonDuration": "33 min",
-                "lessonPreview": "https://i.ibb.co/10zzncw/Creative-abstract-PHP-web-design-internet-programming-HTML-language-and-digital-computer-technology.jpg"
-            }
-        ],
         "reviews": [
-            {
-                "reviewerName": "René López Gallegos",
-                "reviewContent": "Este curso deja mucho que desear está un poco desactualizado",
-                "reviewerPhoto": "",
-                "reviewGrade": 3.4
-            },
             {
                 "reviewerName": "Ana Romero Sánchez",
                 "reviewContent": "Mi primer acercamiento a la programación y le he entendido perfectamente, muy bien explicado los temas.",
                 "reviewerPhoto": "https://i.ibb.co/J324VcL/Photo-of-satisfied-brunette-woman-with-dark-hair-has-pleasant-smile-being-in-good-mood-wears-red-cas.jpg",
                 "reviewGrade": 5
+            },
+            {
+                "reviewerName": "René López Gallegos",
+                "reviewContent": "Este curso deja mucho que desear está un poco desactualizado",
+                "reviewerPhoto": "",
+                "reviewGrade": 3.4
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "name": "Aprende React + Firebase | 2021 Actualizado",
+        "categorization": [
+            "Programación",
+            "Desarrollo web",
+            "React"
+        ],
+        "shortDescription": "JavaScript + React + Firebase todo lo que necesitas saber",
+        "requirements": [
+            "El unico requisito es tener muchas ganas de aprender da igual si no sabes JavaScript en el curso tendras los conceptos básicos."
+        ],
+        "longDescription": "En este curso aprenderás todo lo necesario para poder encontrar tu primer trabajo dentro del mundo TI JavaScript. \nAprenderás todo lo necesario en JavaScript para poder adentrarte en el mundo de la programación con sus librerías y frameworks.\nTambién aprenderás todo lo necesario sobre react y como se puede llevar esta librería a otro nivel.\nPor ultimo y como toque final aprenderás Firebase el servicio de Google en la nube para gestión de usuarios, data y mucho mas.",
+        "image": "https://i.ibb.co/7n5dnCq/react-Course.jpg",
+        "price": [
+            7.99,
+            "USD"
+        ],
+        "courseRating": 4.6,
+        "totalReviews": 251,
+        "enrolledStudents": 396,
+        "reviews": [
+            {
+                "reviewerName": "Ana Romero Sánchez",
+                "reviewContent": "Mi primer acercamiento a la programación y le he entendido perfectamente, muy bien explicado los temas.",
+                "reviewerPhoto": "https://i.ibb.co/J324VcL/Photo-of-satisfied-brunette-woman-with-dark-hair-has-pleasant-smile-being-in-good-mood-wears-red-cas.jpg",
+                "reviewGrade": 5
+            },
+            {
+                "reviewerName": "René López Gallegos",
+                "reviewContent": "Este curso deja mucho que desear está un poco desactualizado",
+                "reviewerPhoto": "",
+                "reviewGrade": 3.4
             }
         ]
     }

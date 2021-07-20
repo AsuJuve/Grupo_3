@@ -4,7 +4,7 @@
     <%- include("../partials/header.ejs")%>
     <h3>Vista previa del curso</h3>
     <section class="adminView">
-        <a href="../products/<% curso %>/editCourse" target="_parent"><button class = "botonesSuperiores">Editar curso</button></a>
+        <a href="<%= curso %>/editCourse" target="_parent"><button class = "botonesSuperiores">Editar curso</button></a>
         <form action="/products/:id?_method=DELETE" method= "POST" enctype="multipart/form-data">
             <div target="_parent"><button type="submit" class= "botonesSuperiores"name="eliminar" value= "Eliminar">Borrar curso</button></div>
         </form>
@@ -87,24 +87,6 @@
                         <h5 class="LongCourseDescription"><%= course.longDescription%> </h5>
                     </section>
                 </article>
-                <article class="CourseContents">
-                    <h3 class="SectionTitle">Contenido del curso</h3>
-                    <div class="CourseLessonsContainer">
-                        <div class="CourseLesson">
-                            <h4 class="CourseLessonName"><%= course.lessons[0].lessonName%></h4>
-                            <h4 class="CourseLessonTime"><%= course.lessons[0].lessonDuration%></h4>
-                            <h5 class="CourseLessonExplained"><%= course.lessons[0].lessonDescription%></h5>
-                            <img class="DesktopLessonVideoVisible" src="<%= course.lessons[0].lessonPreview%>" alt="Preview de video del curso, lección 1">
-                        </div>
-                        <div class="CourseLesson">
-                            <h4 class="CourseLessonName"><%= course.lessons[1].lessonName%></h4>
-                            <h4 class="CourseLessonTime"><%= course.lessons[1].lessonDuration%></h4>
-                            <h5 class="CourseLessonExplained"><%= course.lessons[1].lessonDescription%></h5> 
-                            <img class="DesktopLessonVideoVisible" src="<%= course.lessons[1].lessonPreview%>" alt="Preview de video del curso, lección 2">
-                        </div>
-                        <button class="Btn-SeeMore">Ver más</button>
-                    </div>
-                </article>   
                 <article class="AboutUniversity">
                     <h3 class="SectionTitle">Otros cursos que te podrían interesar</h3>
                     <div class="CarouselContainer">
