@@ -3,7 +3,7 @@
     <%- include("../partials/header.ejs")%>
     <main>
         <h1><%= title%> </h1>
-        <form action="/products/<%=id%>?_method=PUT" method= "POST">
+        <form action="/products/<%=id%>?_method=PUT" method= "POST" >
             <label for="nombreCurso">Nombre del Curso*</label>
             <input type="text" id='nombreCurso' name='nombreCurso' value= "<%= courses.find((l)=>{return l['id'] == parseInt(id)}).name%>" >
             <label for="descripcionCorta">Descripción corta*</label>
@@ -27,12 +27,13 @@
             </div>
             <!--  
             <label for="imagenDelCurso">Imagen de previsualización del curso*</label>
-            <input type="file" name="imagenDelCurso" id="imagenDelCurso" class="archivo">-->
+            <input type="file" name="imagenDelCurso" id="imagenDelCurso" class="archivo">
+            -->
             <div class="botones">
                 <button type="submit" class="guardar" value="Guardar"><img src="/images/icons/save.svg"> Guardar cambios</button>
             </div>        
         </form>
-        
+         
             <form action="/products/<%=id%>?_method=DELETE" method= "POST">
                 <div class="botones">
                     <button type="submit" class="eliminar" name="eliminar" value= "Eliminar"><img src="/images/icons/delete.svg"> Eliminar curso</button>

@@ -24,14 +24,14 @@ module.exports={
             "id":id,
 			"name": data.nombreCurso,
             "shortDescription":data.descripcionCorta,
-            "requirements":data.requisitos.split("."),
+            "requirements":data.requisitos.split(","),
             "longDescription":data.descripcionLarga,
             "image":data.imagenDelCurso,
 			"price": [data.precio,data.moneda]
 		}
         coursestxt[courseIndex] = newCourse;
         fs.writeFileSync(coursesFilePath,JSON.stringify(coursestxt));
-        res.render('products/editProducts', {title: 'Editar Curso','courses':coursestxt,curso:id,id})
+        res.redirect('/products')
     },
     store: (req,res)=>{
         let nuevo = coursestxt.length + 1;
@@ -50,13 +50,13 @@ module.exports={
 		}
         coursestxt.push(newCourse);
         fs.writeFileSync(coursesFilePath,JSON.stringify(coursestxt));
-        res.status(200).render('home',{title: 'Inicio','courses':coursestxt})
+        res.redirect('/products')
     },
     delete: (req,res)=>{
         const index = coursestxt.findIndex(course => course.id == parseInt(req.params.id));
         coursestxt.splice(index,1);
         fs.writeFileSync(coursesFilePath,JSON.stringify(coursestxt));
-        res.status(200).render('home',{title: 'Inicio','courses':coursestxt})
+        res.redirect('/products')
     },
     showDetail:(req,res)=>{
         let id= req.params.id;
