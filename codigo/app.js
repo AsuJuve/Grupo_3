@@ -1,6 +1,9 @@
 const express = require("express");
 const app = express();
 
+//URL Encoded
+app.use(express.urlencoded({extended: false}));
+
 //Path
 const path = require("path");
 app.use(express.static(path.resolve(__dirname,"./public")));
@@ -26,6 +29,6 @@ app.listen(PORT,function(){
 app.use(express.json());
 app.use(express.urlencoded({extended: false})); 
 
-app.use('/user', userRouter);
+app.use('/users', userRouter);
 app.use('/products', productsRouter);
 app.use('/', mainRouter);

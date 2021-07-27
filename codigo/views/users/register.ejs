@@ -4,7 +4,7 @@
     <%- include("../partials/header.ejs")%>
     <main>
         <h1>Regístrate y mantente aprendiendo</h1>
-        <form action="/home.html" method="POST" name="home">
+        <form action="/users/register" method="POST" name="home">
 
             <label for="nombre">Nombre</label>
             <input type="text" name="nombre" id="nombre" required>
@@ -31,7 +31,7 @@
             <p class="condiciones">Al registrarte aceptas nuestras <a href="">Condiciones
                 de uso y Política de privacidad</a></p>
 
-            <p class="iniciar-sesion">¿Ya tienes una cuenta? <a href="/login">Inicia sesión</a></p>
+            <p class="iniciar-sesion">¿Ya tienes una cuenta? <a href="/users/login">Inicia sesión</a></p>
         </form>
     </main>
     <%- include("../partials/footer.ejs")%>
