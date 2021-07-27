@@ -4,7 +4,7 @@
     <%- include("../partials/header.ejs")%>
     <main>
         <h1>Iniciar sesión</h1>
-        <form action="/home.html" method="POST" name="home">
+        <form action="/user/login" method="POST" name="login">
             <label for="correo">Correo electrónico</label>
             <input type="email" name="correo" id="correo"><br>
 
@@ -15,7 +15,7 @@
                 <a href="" class="recordarme">¿Olvidaste la contraseña?</a></div>
 
             <input name="enviar" id="enviar" type="submit" value="Iniciar sesión">
-            <p class="registrarse">¿No tienes una cuenta? <a href="/register">Registrate ahora</a></p>
+            <p class="registrarse">¿No tienes una cuenta? <a href="/user/register">Registrate ahora</a></p>
         </form>
     </main>
     <%- include("../partials/footer.ejs")%>
