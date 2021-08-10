@@ -2,10 +2,9 @@
 
 ## Comenzar a hacer
 - Terminar consignas un día antes de la fecha de entrega
-- Sustituir Trello por Notion, para llevar un mejor control del tablero
 
 ## Continuar haciendo
 - Junta un día antes de la entrega
+- Tener buena comunicación dentro del equipo
 
 ## Dejar de hacer
-- Junta intermedia del sprint
