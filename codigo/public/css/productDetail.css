@@ -124,7 +124,7 @@ article.CourseCard > section.CourseRating > .CourseReviews{
     margin:0;
     min-width: 32px;
     min-height: 20px;
-    font-size: 20px;
+    font-size: 16px;
     display: flex;
     align-items: center;
 }
@@ -313,7 +313,6 @@ article.AboutUniversity{
     top:0;
     background-color: var(--Black);
     width: 100%;
-    min-height: 460px;
     margin:0;
 }
 .UniversityInfo{
@@ -325,6 +324,7 @@ article.AboutUniversity{
 .CarouselContainer{
     overflow-x:auto;
     margin-right: 16px;
+    display: flex;
 }
 
 .Carousel{
@@ -667,14 +667,14 @@ small{
         font-weight: 400;
     }
     h3{
-        font-size: 48px !important;
+        font-size: 32px !important;
         font-weight: 400 !important;
         line-height: 1em;
         letter-spacing: -0.05em;
     }
     h4,.DetailsSubtitle,.DetailsSubtitle2,button,.ShortCourseDescription{
         font-weight: 400 !important;
-        font-size: 34px !important;
+        font-size: 24px !important;
         line-height: 40px;
     }
     h6,.CourseCardCreator{
@@ -823,7 +823,7 @@ small{
         width: 296px !important;
     }
     article.CourseCard > section.CourseRating > h6.CourseReviews{
-        font-size: 20px !important;
+        font-size: 16px !important;
     }
     article.CourseCard > section.CourseRating > .CourseGrade{
         height: 100%;
@@ -843,7 +843,7 @@ small{
     }
     .ReviewerNameNRating > .ReviewerRating > .CourseGrade{
         height: 48px;
-        font-size: 24px !important;
+        font-size: 20px !important;
     }
     .ReviewerNameNRating{
         display: flex;
@@ -899,43 +899,43 @@ small{
     align-items: center;
     justify-content: space-between;
     position: fixed;
-    z-index: 3;
+    z-index: 10;
 }
+
+#boton{
+    margin-left: 5%;
+}
+
 .div-btn-menu{
     display: block;
     width: 40px;
     height: 40px;
-    margin-left: 5.55%;
     border-radius: 8px;
     border: 1px solid #5156B5;
     background-color: #363A84;
 }
+
 .menu-options{
     display: none;
-    margin: 0;
-    padding: 0;
+    margin: 0px;
+    list-style: none;
+    background-color: #1A1D53;     
+    padding: 20px;
 }
-.menu-options > a{
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-    display: block;
-    position: relative;
+.menu-options li{
+    padding: 15px;
 }
-.menu-options > li:hover {
-    background-color: dimgray;
-    position: relative;
-}
-.menu-options > li a, .menu-options > li label {
+.menu-options li a{
+    font-size: 16px;
     text-decoration: none;
     color: #fff;
-    width: 100%;
-    display: block;
-    min-height: inherit;
-    padding: 8px;
+}
+.menu-options > li:hover {
+    background-color: rgba(105, 105, 105, 0.329) ;
 }
 input[type="checkbox"]:checked + .menu-options{
-    display: block;
+    display:block;
+    position: absolute;
 }
 .logo-container{
     margin-left: 21.11%;

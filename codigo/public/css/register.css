@@ -35,42 +35,45 @@ main{
     position: fixed;
     z-index: 10;
 }
+
+#boton{
+    margin-left: 5%;
+}
+
 .div-btn-menu{
     display: block;
     width: 40px;
     height: 40px;
-    margin-left: 5.55%;
     border-radius: 8px;
     border: 1px solid #5156B5;
     background-color: #363A84;
 }
+.password{
+    margin-bottom: 4px;
+}
 .menu-options{
     display: none;
-    margin: 0;
-    padding: 0;
+    margin: 0px;
+    list-style: none;
+    background-color: #1A1D53;     
+    padding: 20px;
 }
-.menu-options > a{
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-    display: block;
-    position: relative;
+.menu-options li{
+    padding: 15px;
 }
-.menu-options > li:hover {
-    background-color: dimgray;
-    position: relative;
-}
-.menu-options > li a, .menu-options > li label {
+.menu-options li a{
+    font-size: 18px;
     text-decoration: none;
     color: #fff;
-    width: 100%;
-    display: block;
-    min-height: inherit;
-    padding: 8px;
+}
+.menu-options > li:hover {
+    background-color: rgba(105, 105, 105, 0.329) ;
 }
 input[type="checkbox"]:checked + .menu-options{
-    display: block;
+    display:block;
+    position: absolute;
 }
+
 .logo-container{
     margin-left: 21.11%;
     margin-right: 5.55%;
@@ -112,7 +115,8 @@ input{
     border: 1px #5157B5 solid;
     height: 40px;
     color: white;
-    padding:20px;
+    padding:8px;
+    margin: 4px 0 4px;
 }
 label{
     font-size: 20px;
@@ -138,6 +142,10 @@ form{
     font-weight: 900;
     border: 1px solid #25C998;
     padding:0px;
+}
+#enviar:hover{
+    background-color: #6bddbb;
+    border: 1px solid black;
 }
 .condiciones{
     font-size: 14px;
@@ -382,20 +390,20 @@ small{
         width: 48%;
     }
     h1{
-        font-size: 48px;
+        font-size: 32px;
         font-weight: 400;
         line-height: 48px;
     }
     label{
-        font-size: 34px;
+        font-size: 24px;
         line-height: 40px;
         font-weight: 400;
         margin-bottom: 12px;
     }
     input, #enviar{
-        height: 56px;
+        height: 48px;
         margin-bottom: 12px;
-        font-size: 24px;
+        font-size: 20px;
     }
     .contraseña{
         font-size: 16px;
@@ -404,14 +412,22 @@ small{
         margin-bottom: 20px;
     }
     .condiciones{
-        font-size: 16px;
+        font-size: 14px;
         line-height: 19px;
         padding-bottom: 20px;
         margin-bottom: 12px;
     }
     .iniciar-sesion{
-        font-size: 20px;
+        font-size: 18px;
         line-height: 24px;
         margin-bottom: 64px;
     }
+}
+input#imgUsuario{
+    border: 0;
+    background-color: transparent;
+    display: flex;
+    padding:0;
+    height:28px;
+    margin-top:4px;
 }

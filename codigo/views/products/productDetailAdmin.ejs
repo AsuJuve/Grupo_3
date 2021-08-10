@@ -2,7 +2,13 @@
 <body>
     <!--Navbar-->
     <%- include("../partials/header.ejs")%>
-
+    <h3>Vista previa del curso</h3>
+    <section class="adminView">
+        <a href="<%= curso %>/editCourse" target="_parent"><button class = "botonesSuperiores">Editar curso</button></a>
+        <form action="/products/<%=curso%>?_method=DELETE" method= "POST" enctype="multipart/form-data">
+            <div target="_parent"><button type="submit" class= "botonesSuperiores"name="eliminar" value= "Eliminar">Borrar curso</button></div>
+        </form>
+    </section>
         <% for(let course of courses){ %>
             <%if(course.id == curso){%>
                 <h5 class="Breadcrumb">
@@ -34,7 +40,6 @@
                         </div>
                         <div class="DesktopFirstCuadrant">
                             <h3 class="CourseName"><%= course.name %></h3>
-                            <h5 class="CreadorInfo">Creado por: <%= course.creator %></h5>
                             <h4 class="ShortCourseDescription"><%= course.shortDescription %></h4>
                             <section class="CourseRating">
                                 <h4 class="CourseGrade"><%= course.courseRating %></h4>
@@ -87,7 +92,6 @@
                                     <article class="CourseCard">
                                         <img class="CourseCardImage" src=<%= course.image %>alt="Imagen representativa del curso">
                                         <h5 class="CourseCardTitle"><%= course.name %></h5>
-                                        <h6 class="CourseCardCreator"><%= course.creator %></h6>
                                         <section class="CourseRating">
                                             <h5 class="CourseGrade"><%= course.courseRating %></h5>
                                             <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
