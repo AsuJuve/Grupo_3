@@ -6,7 +6,8 @@ const {validationResult} = require('express-validator');
 const coursestxt= JSON.parse(fs.readFileSync(coursesFilePath,'utf-8'));
 const usersTxt= JSON.parse(fs.readFileSync(usersFilePath,'utf-8'));
 
-const bcrypt = require("bcryptjs")
+const bcrypt = require("bcryptjs");
+const bcryptjs = require('bcryptjs');
 const controller = {
     register: (req, res) => {
         return res.render("users/register",{title:"Registro"});
@@ -35,6 +36,7 @@ const controller = {
     loginProcess: (req,res) => {
 
         //TO DO: COMPARE SYNC A LA CONTRASEÑA PARA REVISAR QUE SÍ ESTÁ BIEN :D
+        //Validacion de datos
         const result = validationResult(req);
 
         if(result.errors.length > 0){
@@ -43,6 +45,32 @@ const controller = {
                 errors: result.mapped(),
                 oldData: req.body
             });
+        }
+
+        //TODO: Modelo de User
+        let userToLoging = User.findByField('email', req.body.email);
+
+        if(userToLogin){
+            let passwordOk = bcryptjs.compareSync(req.body.password, userToLoging);
+            if(passwordOk){
+                return res.redirect('home')
+            }else{
+                return res.render('login', {
+                    noPassword: {
+                        noUser: {
+                            msg:'Credenciales invalidas'
+                        }
+                    }
+                })
+            }
+        }else{
+            return res.render('login', {
+                errors: {
+                    noUser: {
+                        msg:'NO se encuentra el email en nuestra base de datos'
+                    }
+                }
+            })
         }
 
         return res.render('home',{title: 'Inicio','courses':coursestxt});

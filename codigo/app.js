@@ -26,6 +26,9 @@ app.listen(PORT,function(){
     console.log("Servidor listo, corriendo en puerto 80");
 });
 
+//Session
+const session = require("express-session");
+
 app.use(express.json());
 app.use(express.urlencoded({extended: false})); 
 

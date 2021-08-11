@@ -17,6 +17,11 @@
                     <p><%=errors.correo.msg%></p>
                 </div>
             <%}%>
+            <%if(locals.errors && errors.noUser){%>
+                <div class="error-text">
+                    <p><%=errors.noUser.msg%></p>
+                </div>
+            <%}%>
 
             <label for="contraseña">Contraseña</label>
             <input type="password" name="contraseña" id="contraseña"><br>
