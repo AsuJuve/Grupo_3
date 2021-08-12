@@ -26,9 +26,9 @@ const mainRouter= require('./routes/mainRouter');
 app.set("view engine","ejs");
 
 //Port
-const PORT = process.env.PORT || 80;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT,function(){
-    console.log("Servidor listo, corriendo en puerto 80");
+    console.log("Servidor listo, corriendo en puerto 3000");
 });
 
 //Session

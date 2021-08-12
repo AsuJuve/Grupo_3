@@ -1,5 +1,6 @@
 const fs= require('fs');
 const path= require('path')
+const User = require('../models/User')
 const coursesFilePath= path.join(__dirname, "../data/products.json")
 const usersFilePath = path.join(__dirname,"../data/users.json")
 const {validationResult} = require('express-validator');
@@ -36,9 +37,6 @@ const controller = {
     loginProcess: (req,res) => {
 
         //TO DO: COMPARE SYNC A LA CONTRASEÑA PARA REVISAR QUE SÍ ESTÁ BIEN :D
-        if(req.body.recordarme != undefined){
-            res.cookie('recordarme', req.body.correo, {maxAge: (1000*60)*2 });
-        }
         
         const result = validationResult(req);
 
@@ -51,12 +49,15 @@ const controller = {
         }
 
         //TODO: Modelo de User
-        let userToLoging = User.findByField('email', req.body.email);
+        let userToLogin = User.findByField('email', req.body.email);
 
         if(userToLogin){
-            let passwordOk = bcryptjs.compareSync(req.body.password, userToLoging);
+            let passwordOk = bcrypt.compareSync(req.body.password, userToLogin.password);
             if(passwordOk){
-                delete userToLoging.password;
+                if(req.body.recordarme != undefined){
+                    res.cookie('recordarme', req.body.correo, {maxAge: (1000*60)*2 });
+                }
+                delete userToLogin.password;
                 req.session.userLogged = userToLogin;
                 return res.redirect('home')
             }else{
@@ -81,7 +82,10 @@ const controller = {
         return res.render('home',{title: 'Inicio','courses':coursestxt});
     },
     profile: (req,res) => {
-        return res.render('users/profile',{title: 'Crear Curso', 'users':usersTxt});
+        return res.render('users/profile',
+            {title: 'Crear Curso',
+            'users':usersTxt,
+            user: req.session.userLogged});
     }
 }
 
