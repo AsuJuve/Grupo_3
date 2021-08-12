@@ -35,6 +35,10 @@ const controller = {
     loginProcess: (req,res) => {
 
         //TO DO: COMPARE SYNC A LA CONTRASEÑA PARA REVISAR QUE SÍ ESTÁ BIEN :D
+        if(req.body.recordarme != undefined){
+            res.cookie('recordarme', req.body.correo, {maxAge: (1000*60)*2 });
+        }
+        
         const result = validationResult(req);
 
         if(result.errors.length > 0){
@@ -46,6 +50,9 @@ const controller = {
         }
 
         return res.render('home',{title: 'Inicio','courses':coursestxt});
+    },
+    profile: (req,res) => {
+        return res.render('users/profile',{title: 'Crear Curso', 'users':usersTxt});
     }
 }
 
