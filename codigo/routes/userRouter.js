@@ -35,7 +35,12 @@ router.get("/login",userController.login);
 //Procesar login
 router.post("/login",validationsLogin,userController.loginProcess);
 
+<<<<<<< HEAD
 //Perfil de usuario
 router.get('/profile/',userController.profile);
+=======
+//Perfil
+router.get("/profile",userController.profile);
+>>>>>>> 23e94f3f2baaddce796bae5e21db0def030bbff7
 
 module.exports= router;

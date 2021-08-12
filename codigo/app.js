@@ -1,6 +1,11 @@
 const express = require("express");
 const app = express();
 
+const cookieParser = require("cookie-parser")
+app.use(cookieParser())
+//const recordarmeMiddleware= require('./middlewares/recordarmeMiddleware')
+//app.use(recordarmeMiddleware())
+
 //URL Encoded
 app.use(express.urlencoded({extended: false}));
 

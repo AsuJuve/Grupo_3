@@ -36,7 +36,14 @@ const controller = {
     loginProcess: (req,res) => {
 
         //TO DO: COMPARE SYNC A LA CONTRASEÑA PARA REVISAR QUE SÍ ESTÁ BIEN :D
+<<<<<<< HEAD
         //Validacion de datos
+=======
+        if(req.body.recordarme != undefined){
+            res.cookie('recordarme', req.body.correo, {maxAge: (1000*60)*2 });
+        }
+        
+>>>>>>> 23e94f3f2baaddce796bae5e21db0def030bbff7
         const result = validationResult(req);
 
         if(result.errors.length > 0){
@@ -77,10 +84,15 @@ const controller = {
 
         return res.render('home',{title: 'Inicio','courses':coursestxt});
     },
+<<<<<<< HEAD
     profile: (req, res) => {
         return res.render('userProfile',{
             user: req.session.userLogged
         });
+=======
+    profile: (req,res) => {
+        return res.render('users/profile',{title: 'Crear Curso', 'users':usersTxt});
+>>>>>>> 23e94f3f2baaddce796bae5e21db0def030bbff7
     }
 }
 
