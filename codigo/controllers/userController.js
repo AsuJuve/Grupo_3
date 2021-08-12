@@ -53,6 +53,8 @@ const controller = {
         if(userToLogin){
             let passwordOk = bcryptjs.compareSync(req.body.password, userToLoging);
             if(passwordOk){
+                delete userToLoging.password;
+                req.session.userLogged = userToLogin;
                 return res.redirect('home')
             }else{
                 return res.render('login', {
@@ -74,6 +76,11 @@ const controller = {
         }
 
         return res.render('home',{title: 'Inicio','courses':coursestxt});
+    },
+    profile: (req, res) => {
+        return res.render('userProfile',{
+            user: req.session.userLogged
+        });
     }
 }
 

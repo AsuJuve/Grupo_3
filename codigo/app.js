@@ -27,7 +27,12 @@ app.listen(PORT,function(){
 });
 
 //Session
-const session = require("express-session");
+const session = require('express-session');
+app.use(session({
+    secret: 'Keep Learning',
+    resave: false,
+    saveUnitialized: false,
+}))
 
 app.use(express.json());
 app.use(express.urlencoded({extended: false})); 
