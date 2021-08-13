@@ -1,0 +1,14 @@
+<%- include("../partials/head.ejs")%>
+<body>
+    <!--Navbar-->
+    <%- include("../partials/header.ejs")%>
+    <main>
+          <h1>Hola <%= user.nombre %></h1>
+          <img src="/public/images/users/<%= user.imagen %>" alt="Imagen de usuario">
+          <br>
+          <br>
+          <div><%= user.correo %></div>
+    </main>
+    <%- include("../partials/footer.ejs")%>
+</body>
+</html>
