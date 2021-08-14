@@ -17,7 +17,7 @@ const upload = multer({ storage: storage });
 const {body} = require('express-validator');
 
 const validationsLogin = [
-    body('contraseña')
+    body('contra')
         .notEmpty().withMessage('La contraseña es necesaria para iniciar sesión').bail(),
     body('correo').notEmpty().withMessage('El correo electrónico es necesario para el inicio de sesión').bail()
         .isEmail().withMessage('Formato de correo electrónico no válido')

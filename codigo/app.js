@@ -7,7 +7,7 @@ app.use(cookieParser())
 //app.use(recordarmeMiddleware())
 
 //URL Encoded
-app.use(express.urlencoded({extended: false}));
+app.use(express.urlencoded({extended: true}));
 
 //Path
 const path = require("path");
@@ -36,7 +36,7 @@ const session = require('express-session');
 app.use(session({
     secret: 'Keep Learning',
     resave: false,
-    saveUnitialized: false,
+    saveUninitialized:false
 }))
 
 app.use(express.json());

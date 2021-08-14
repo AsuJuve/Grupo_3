@@ -8,14 +8,11 @@ const coursestxt= JSON.parse(fs.readFileSync(coursesFilePath,'utf-8'));
 const usersTxt= JSON.parse(fs.readFileSync(usersFilePath,'utf-8'));
 
 const bcrypt = require("bcryptjs");
-const bcryptjs = require('bcryptjs');
 const controller = {
     register: (req, res) => {
         return res.render("users/register",{title:"Registro"});
     },
     registerProcess: (req,res)=>{
-        //TO DO: validar que es un correo electronico :D
-        console.log(req.file.filename)
         let newid = usersTxt.length+1;
         let data = req.body;
         let newUser = {
@@ -23,7 +20,7 @@ const controller = {
             nombre:data.nombre,
             apellido:data.apellido,
             correo:data.correo,
-            password:bcrypt.hashSync(data.password,10),
+            password: bcrypt.hashSync(data.password,10),
             tipo:"estudiante",
             imagen:"/images/users/"+req.file.filename
         }
@@ -35,11 +32,8 @@ const controller = {
         return res.render("users/login",{title:"Inicia Sesión"});
     },
     loginProcess: (req,res) => {
-
-        //TO DO: COMPARE SYNC A LA CONTRASEÑA PARA REVISAR QUE SÍ ESTÁ BIEN :D
         
         const result = validationResult(req);
-
         if(result.errors.length > 0){
             return res.render("users/login",{
                 title: "Inicia Sesión",
@@ -47,35 +41,35 @@ const controller = {
                 oldData: req.body
             });
         }
-
-        //TODO: Modelo de User
-        let userToLogin = User.findByField('email', req.body.email);
-
+        let userToLogin = usersTxt.filter((e)=> e.correo ==req.body.correo)[0];
         if(userToLogin){
-            let passwordOk = bcrypt.compareSync(req.body.password, userToLogin.password);
+            let passwordOk = bcrypt.compareSync(req.body.contra, userToLogin.password);
             if(passwordOk){
                 if(req.body.recordarme != undefined){
                     res.cookie('recordarme', req.body.correo, {maxAge: (1000*60)*2 });
                 }
                 delete userToLogin.password;
                 req.session.userLogged = userToLogin;
-                return res.redirect('home')
+                return res.redirect('/')
             }else{
-                return res.render('login', {
+                return res.render("users/login", {
                     noPassword: {
                         noUser: {
                             msg:'Credenciales invalidas'
                         }
-                    }
+                    },
+                    title: "Inicia Sesión"
                 })
             }
-        }else{
-            return res.render('login', {
-                errors: {
+        }
+        else{
+            return res.render("users/login", {
+                noPassword: {
                     noUser: {
-                        msg:'NO se encuentra el email en nuestra base de datos'
+                        msg:'Credenciales invalidas'
                     }
-                }
+                },
+                title: "Inicia Sesión"
             })
         }
 

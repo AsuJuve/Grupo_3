@@ -55,11 +55,11 @@
   },
   {
     "id": 7,
-    "nombre": "Juventino",
-    "apellido": "Aguilar Correa",
-    "correo": "superjuve@outlook.es",
-    "password": "$2a$10$4TwrslSiQxFq/2Omc6pxB.HNSzwJav6VnfgZQz63pvnHZMgwBGvcK",
+    "nombre": "david",
+    "apellido": "garcia",
+    "correo": "a@hotmail.com",
+    "password": "$2a$10$6Bh.XnaVqDmAa66L4LxY6OFpLSgOJ2MORBG6Kq7KpsXPb0asRk0TK",
     "tipo": "estudiante",
-    "imagen": "/images/users/1628743189922_img_.jpg"
+    "imagen": "/images/users/1628917654209_img_.png"
   }
 ]
