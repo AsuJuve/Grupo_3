@@ -72,8 +72,6 @@ const controller = {
                 title: "Inicia Sesión"
             })
         }
-
-        return res.render('home',{title: 'Inicio','courses':coursestxt});
     },
     profile: (req,res) => {
         return res.render('users/profile',
