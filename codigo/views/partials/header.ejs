@@ -1,45 +1,104 @@
-<header class="header-not-logged-in">
-    <!--Boton menu-->
-    <div id="boton">
-        <div class="div-btn-menu">
-            <label for="show-menu">
-                <img src="/images/icons/Hamburguesa.svg" alt="Menu principal" class="btn-menu">
-            </label>
+<link rel="stylesheet" href="/css/header.css">
+<nav id="navBar">
+    <div class="left-side">
+        <div class="menu-icon">
+            <span class="fas fa-bars">
+                <img src="/images/icons/Hamburguesa.svg" alt="Menú Hamburguesa">
+            </span>
+         </div>
+         <div class="cart-icon">
+             <span class="invisible">
+                <img src="/images/icons/Carousel-Izquierda.svg" alt="Menú Hamburguesa">
+             </span>
+          </div>
+    </div>
+    <a href="/">
+        <div class="logo">
+            <img src="/images/icons/Logo-KeepLearning.svg" alt="Logo Keep Learning">
+            <h4 class="logoText desktopVisible">Keep Learning</h4>
         </div>
-        <input type="checkbox" id="show-menu" hidden>
-        <!--Opciones del menu-->
-        <ul class="menu-options">
-            <li><a href="users/profile">Mi Perfil</a></li>
-            <li><a href="#purchases-history">Historial de Compras</a></li>
-            <li><a href="#logout">Cerrar Sesion</a></li>
-        </ul>        
-    </div>
-
-
-    <!--Logo-->
-    <div class="logo-container">
-        <a href="/">
-            <img src="/images/icons/Logo-KeepLearning.svg" alt="logo-kl" class="logo">
-        </a>
-    </div>
-
-    <!--Botón de búsqueda-->
-    <div class="div-btn-search">
-        <label for="show-search">
-            <img src="/images/icons/Buscar.svg" alt="Botón búsqueda" class="btn-search">
-        </label>
-    </div>
-    <input type="checkbox" id="show-search" hidden>
-
-    <!--Botón carrito-->
+    </a>
     
-    <div class="div-btn-cart">
-        <label for="show-cart">
-            <a href="/productCart">
-            <img src="/images/icons/Carrito.svg" alt="Botón carrito de compras" class="btn-cart">
-        </a>
-        </label>
+    <form action="#" id="busqueda">
+        <input type="search" class="search-data" placeholder="¿Qué deseas aprender hoy?" required>
+        <button type="submit" class="buscarBtn">
+            <img src="/images/icons/Buscar.svg" alt="Buscar">
+        </button>
+     </form>
+    <div class="nav-items">
+        <li class="desktopInvisible"><a href="#">Inicia sesión</a></li>
+        <li class="desktopInvisible"><a href="#">Regístrate</a></li>
+        <li class="desktopInvisible"><a href="#">Perfil</a></li>
+       <li><a href="#">Sobre KL</a></li>
+       <li><a href="#">Trabaja en KL</a></li>
     </div>
-    <input type="checkbox" id="show-cart" hidden>
-
-</header>
+    <div class="right-side">
+        <div class="search-icon">
+            <span class="fas fa-search">
+                <img src="/images/icons/Buscar.svg" alt="Barra de búsqueda">
+            </span>
+         </div>
+         <div class="cancel-icon">
+             <span class="fas fa-times">
+                 <img src="/images/icons/cerrar.svg" alt="cerrar menú">
+             </span>
+          </div>
+          <a href="/productCart">
+              <div class="cart-icon" id="cart-icon">
+                  <img src="/images/icons/Carrito.svg" alt="Barra de búsqueda">
+                </div>
+          </a>
+         <div class="not-logged-in">
+             <a href="/users/login">
+                <button class="primaryBtn">Inicia sesión</button>
+                </a>
+             <a href="/users/register">
+                <button class="secondaryBtn">Regístrate</button>
+            </a>
+         </div>
+         <!--aquí va la foto de perfil del usuario-->
+            <!--<div class="profile-pic">
+            <img src="/images/icons/Usuario.svg" alt="Foto de perfil">
+            <h6 class="greetingUser">¡Hola Usuario!</h6>
+            <div class="dropdown-content">
+                <a href="#">Perfil</a>
+                <a href="#">Ayuda</a>
+                <a href="#">Cerrar sesión</a>
+              </div>
+            </div> -->
+    </div>
+    
+    
+ </nav>
+ <script>
+    const cartBtn = document.getElementById("cart-icon")
+    const menuBtn = document.querySelector(".menu-icon span");
+    const invisible = document.querySelector(".invisible");
+    const searchBtn = document.querySelector(".search-icon");
+    const cancelBtn = document.querySelector(".cancel-icon");
+    const items = document.querySelector(".nav-items");
+    const form = document.querySelector("form");
+    menuBtn.onclick = ()=>{
+      items.classList.add("active");
+      menuBtn.classList.add("hide");
+      searchBtn.classList.add("hide");
+      cartBtn.classList.add("hide");
+      cancelBtn.classList.add("show");
+      invisible.classList.add("hide");
+    }
+    cancelBtn.onclick = ()=>{
+      items.classList.remove("active");
+      menuBtn.classList.remove("hide");
+      searchBtn.classList.remove("hide");
+      cancelBtn.classList.remove("show");
+      form.classList.remove("active");
+      cancelBtn.style.color = "#ff3d00";
+      cartBtn.classList.remove("hide");
+      invisible.classList.remove("hide");
+    }
+    searchBtn.onclick = ()=>{
+      form.classList.add("active");
+      searchBtn.classList.add("hide");
+      cancelBtn.classList.add("show");
+    }
+ </script>
