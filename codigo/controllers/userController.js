@@ -14,7 +14,7 @@ const controller = {
     },
     registerProcess: (req,res)=>{
         let newid = usersTxt.length+1;
-        let data = req.body;
+        const data = req.body;
         let newUser = {
             id:newid,
             nombre:data.nombre,
