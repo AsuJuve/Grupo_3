@@ -8,3 +8,4 @@
 - Tener buena comunicación dentro del equipo
 
 ## Dejar de hacer
+- Posponer consignas para sprint siguientes
