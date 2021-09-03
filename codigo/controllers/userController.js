@@ -13,9 +13,9 @@ const controller = {
         return res.render("users/register",{title:"Registro"});
     },
     registerProcess: (req,res)=>{
-        let newid = usersTxt.length+1;
+        const newid = usersTxt.length+1;
         const data = req.body;
-        let newUser = {
+        const newUser = {
             id:newid,
             nombre:data.nombre,
             apellido:data.apellido,
