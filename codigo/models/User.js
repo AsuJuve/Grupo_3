@@ -9,8 +9,8 @@ const User = {
         return this.getData();
     },
     findByField: function(field, text){
-        let allUsers = this.findAll();
-        let userFound = allUsers.find(oneUser => oneUser[field] === text);
+        const allUsers = this.findAll();
+        const userFound = allUsers.find(oneUser => oneUser[field] === text);
         return userFound;
     }
 }
