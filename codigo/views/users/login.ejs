@@ -4,18 +4,38 @@
     <%- include("../partials/header.ejs")%>
     <main>
         <h1>Iniciar sesión</h1>
-        <form action="/home.html" method="POST" name="home">
+        <form action="/users/login" method="POST" name="login">
             <label for="correo">Correo electrónico</label>
-            <input type="email" name="correo" id="correo"><br>
+            <input 
+                type="text"
+                name="correo" 
+                id="correo"
+                value="<%= locals.oldData ? oldData.correo : null%>">
+                <br>
+            <%if(locals.errors && errors.correo){%>
+                <div class="error-text">
+                    <p><%=errors.correo.msg%></p>
+                </div>
+            <%}%>
+            <%if(locals.errors && errors.noUser){%>
+                <div class="error-text">
+                    <p><%=errors.noUser.msg%></p>
+                </div>
+            <%}%>
 
-            <label for="contraseña">Contraseña</label>
-            <input type="password" name="contraseña" id="contraseña" required pattern=".{8,72}"><br>
+            <label for="contra">Contraseña</label>
+            <input type="password" name="contra" id="contra"><br>
+            <%if(locals.errors && errors.contraseña){%>
+                <div class="error-text">
+                    <p><%=errors.contraseña.msg%></p>
+                </div>
+            <%}%>
 
-            <div class="recordar"><label for="recordarme" class="recordarme"><input type="checkbox" id="recordarme" value="recordarme"> Recordarme</label>
+            <div class="recordar"><label for="recordarme" class="recordarme"><input type="checkbox" id="recordarme" value="recordarme"  name="recordarme"> Recordarme</label>
                 <a href="" class="recordarme">¿Olvidaste la contraseña?</a></div>
 
             <input name="enviar" id="enviar" type="submit" value="Iniciar sesión">
-            <p class="registrarse">¿No tienes una cuenta? <a href="/register">Registrate ahora</a></p>
+            <p class="registrarse">¿No tienes una cuenta? <a href="/users/register">Registrate ahora</a></p>
         </form>
     </main>
     <%- include("../partials/footer.ejs")%>

@@ -106,7 +106,7 @@ h1{
     font-weight: 700;
     line-height: 28px;
 }
-input[type=email], [type=password]{
+input[type=text], [type=password]{
     background-color: #030634; 
     border-radius: 8px;
     border: 1px #5157B5 solid;
@@ -150,6 +150,10 @@ input[type=checkbox] {
 #enviar:hover{
     background-color: #6bddbb;
     border: 1px solid black;
+}
+.error-text{
+    color: red;
+    font-weight:800;
 }
 a{
     color: white;
@@ -406,7 +410,7 @@ small{
         font-weight: 400;
         margin-bottom: 12px;
     }
-    input[type=email],[type=password], #enviar{
+    input[type=text],[type=password], #enviar{
         height: 56px;
         margin-bottom: 12px;
         font-size: 24px;

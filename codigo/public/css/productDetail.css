@@ -32,7 +32,6 @@
     margin:0;
     padding:0;
     border:0;
-    line-height: 1.5em;
 }
 
 body{
@@ -160,7 +159,7 @@ article.CourseCard > section.CourseRating > .CourseReviews{
     align-items: center;
     justify-content: center;
 }
-button{
+.ButtonsContainer button{
     font-size: 14px;
     min-width: 328px;
     width:70vw;
@@ -229,7 +228,7 @@ li,
     font-weight: 400;
 }
 
-li {
+ul li {
     list-style-position: outside;
     margin-left: 16px;
 }
@@ -661,7 +660,7 @@ small{
         margin:0;
     }
     h5,h5.Breadcrumb a,
-    li,.CreadorInfo,.CourseReviews
+    ul li,.CreadorInfo,.CourseReviews
     {
         font-size: 24px !important;
         font-weight: 400;
@@ -672,7 +671,7 @@ small{
         line-height: 1em;
         letter-spacing: -0.05em;
     }
-    h4,.DetailsSubtitle,.DetailsSubtitle2,button,.ShortCourseDescription{
+    h4,.DetailsSubtitle,.DetailsSubtitle2,.ButtonsContainer button,.ShortCourseDescription{
         font-weight: 400 !important;
         font-size: 24px !important;
         line-height: 40px;
@@ -743,7 +742,7 @@ small{
         display: contents;
         margin-top: 20px;
     }
-    button{
+    .ButtonsContainer button{
         width: 100%;
         max-width: 356px;
         height: 52px;
