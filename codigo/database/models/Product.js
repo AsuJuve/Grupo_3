@@ -26,13 +26,17 @@ module.exports = function(sequelize,dataTypes) {
             type: dataTypes.INTEGER,
             allowNull: false
         },
-        entolled_strudents:{
+        enrolled_students:{
             type: dataTypes.INTEGER,
             allowNull: false
         },
         category_id:{
             type: dataTypes.INTEGER,
             allowNull: false
+        },
+        value_rating:{
+            type:dataTypes.DECIMAL,
+            allowNull:false
         }
     };
     let config = {

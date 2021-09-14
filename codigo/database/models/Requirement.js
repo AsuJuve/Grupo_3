@@ -4,6 +4,7 @@ module.exports = function(sequelize,dataTypes) {
         requirement_id: {
             type: dataTypes.INTEGER,
             primaryKey: true,
+            allowNull: false,
             autoIncrement: true
         },
         requirement_description: {

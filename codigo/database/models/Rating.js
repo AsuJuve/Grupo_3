@@ -1,12 +1,15 @@
 module.exports = function(sequelize,dataTypes) {
     let alias = 'Rating';
     let cols = {
-        customer_id: {
+        rating_id: {
             type: dataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true
         },
-        value: {
+        customer_id: {
+            type: dataTypes.INTEGER
+        },
+        value_rating: {
             type: dataTypes.INTEGER,
             allowNull: false
         }

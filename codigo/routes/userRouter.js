@@ -1,5 +1,5 @@
 const express= require('express');
-const userController = require('../controllers/userController');
+//const userController = require('../controllers/userController');
 const router= express.Router();
 //Requerimientos para subir archivos
 const multer = require("multer");
@@ -27,16 +27,16 @@ const validationsLogin = [
 const guestMiddlewware = require('../middlewares/guestMiddleware')
 
 //Formulario de registro
-router.get("/register",userController.register);
-router.post("/register",upload.single("imgUsuario"),userController.registerProcess);
+//router.get("/register",userController.register);
+//router.post("/register",upload.single("imgUsuario"),userController.registerProcess);
 
 //Formulario de login
-router.get("/login",userController.login);
+//router.get("/login",userController.login);
 
 //Procesar login
-router.post("/login",validationsLogin,userController.loginProcess);
+//router.post("/login",validationsLogin,userController.loginProcess);
 
 //Perfil
-router.get("/profile",userController.profile);
+//router.get("/profile",userController.profile);
 
 module.exports= router;

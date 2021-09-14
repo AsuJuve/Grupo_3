@@ -5,23 +5,20 @@
     <h3>Vista previa del curso</h3>
     <section class="adminView">
         <a href="<%= curso %>/editCourse" target="_parent"><button class = "botonesSuperiores">Editar curso</button></a>
-        <form action="/products/<%=curso%>?_method=DELETE" method= "POST" enctype="multipart/form-data">
-            <div target="_parent"><button type="submit" class= "botonesSuperiores"name="eliminar" value= "Eliminar">Borrar curso</button></div>
-        </form>
     </section>
         <% for(let course of courses){ %>
-            <%if(course.id == curso){%>
+            <%if(course.product_id == curso){%>
                 <h5 class="Breadcrumb">
                 </h5>
                 <article class="ProductBasicInfo">
                     <div class="DesktopFirstHalf">
                         <div class="DesktopSecondCuadrant">
                             <div class="VideoPlayer">
-                                <img class = "CourseNameVideo" src="<%= course.image %>" alt="Código en Python" width="device-width">
+                                <img class = "CourseNameVideo" src="<%= course.product_image %>" alt="Código en Python" width="device-width">
                                 <img class="PlayButton" src="/images/icons/Play.svg" alt="Botón de play" width="48px" height="48px">
                             </div>
                             <div class=DesktopBuyInfoVisible>
-                                <h3 class="CoursePrice">$ <%= course.price[0] %> <%= course.price[1] %></h3>
+                                <h3 class="CoursePrice">$ <%= course.product_price %></h3>
                                 <div class="ButtonsContainer">
                                     <a href="#" target="_parent"><button class="Btn-AgregarCarrito">Agregar al carrito</button></a>
                                     <a href="/productCart" target="_parent"><button class="Btn-Comprar">Comprar ahora</button></a>
@@ -39,32 +36,27 @@
                             </div>
                         </div>
                         <div class="DesktopFirstCuadrant">
-                            <h3 class="CourseName"><%= course.name %></h3>
-                            <h4 class="ShortCourseDescription"><%= course.shortDescription %></h4>
+                            <h3 class="CourseName"><%= course.product_name %></h3>
+                            <h4 class="ShortCourseDescription"><%= course.short_description %></h4>
                             <section class="CourseRating">
-                                <h4 class="CourseGrade"><%= course.courseRating %></h4>
+                                <h4 class="CourseGrade"><%= course.value_rating %></h4>
                                 <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
-                                <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
-                                <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
-                                <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
-                                <img src="/images/icons/EstrellaMitad.svg" alt="Estrella" width="24Xpx" height="24px">
-                                <h5 class="CourseReviews">(<%= course.totalReviews %>)</h5>
-                                <h5 class="CourseStudents"><%= course.enrolledStudents %> estudiantes</h5>
+                                <h5 class="CourseReviews"><%= course.enrolled_students %> estudiantes</h5>
                             </section>
                             <section class="DesktopCourseDetailsVisible">
                                 <h3 class="DetailsTitle">Sobre el curso</h3>
                                 <h4 class="DetailsSubtitle">Requisitos</h4>
                                 <ul class="RequirementsList">
-                                    <li><%= course.requirements[0]%></li>
-                                    <li><%= course.requirements[1]%></li>
-                                    <li><%= course.requirements[2]%></li>
+                                    <% for(let req of requirements){ %>
+                                    <li><%= req.requirement_description%></li>
+                                    <%}%>
                                 </ul>
                                 <h4 class="DetailsSubtitle2">Descripción</h4>
-                                <h5 class="LongCourseDescription"> <%= course.longDescription%></h5>
+                                <h5 class="LongCourseDescription"> <%= course.long_description%></h5>
                             </section>
                         </div>
                         <div class=DesktopBuyInfoHidden>
-                            <h3 class="CoursePrice">$ <%= course.price[0] %> <%= course.price[1] %></h3>
+                            <h3 class="CoursePrice">$ <%= course.product_price %></h3>
                             <div class="ButtonsContainer">
                                 <a href="#" target="_parent"><button class="Btn-AgregarCarrito">Agregar al carrito</button></a>
                                 <a href="/productCart" target="_parent"><button class="Btn-Comprar">Comprar ahora</button></a>
@@ -75,83 +67,36 @@
                         <h3 class="DetailsTitle">Sobre el curso</h3>
                         <h4 class="DetailsSubtitle">Requisitos</h4>
                         <ul class="RequirementsList">
-                            <li><%= course.requirements[0]%></li>
-                            <li><%= course.requirements[1]%></li>
-                            <li><%= course.requirements[2]%></li>
+                            <% for(let req of requirements){ %>
+                            <li><%= req.requirement_description%></li>
+                            <%}%>
                         </ul>
                         <h4 class="DetailsSubtitle2">Descripción</h4>
-                        <h5 class="LongCourseDescription"><%= course.longDescription%> </h5>
+                        <h5 class="LongCourseDescription"><%= course.long_description%> </h5>
                     </section>
                 </article>
                 <article class="AboutUniversity">
                     <h3 class="SectionTitle">Otros cursos que te podrían interesar</h3>
                     <div class="CarouselContainer">
                         <% for(let course of courses){ %>
-                            <div class="Carousel">
-                                <a href="<%= course.id%>" target="_parent">
+                            <section class="Carousel">
+                                <a href="productDetail/<%= course.product_id%>">
                                     <article class="CourseCard">
-                                        <img class="CourseCardImage" src=<%= course.image %>alt="Imagen representativa del curso">
-                                        <h5 class="CourseCardTitle"><%= course.name %></h5>
+                                        <img class="CourseCardImage" src=<%= course.product_image %>alt="Imagen representativa del curso">
+                                        <h5 class="CourseCardTitle"><%= course.product_name %></h5>
                                         <section class="CourseRating">
-                                            <h5 class="CourseGrade"><%= course.courseRating %></h5>
+                                            <h5 class="CourseGrade">Rating: <%= course.value_rating %></h5>
                                             <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
-                                            <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
-                                            <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
-                                            <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
-                                            <img src="/images/icons/EstrellaVacia.svg" alt="Estrella" width="24px" height="24px">
-                                            <h6 class="CourseReviews"><%= course.totalReviews %></h6>
+                                            <h6 class="CourseReviews">(<%= course.enrolled_students %> estudiantes)</h6>
                                         </section>
-                                        <h4 class="CourseCardPrice">$<%= course.price[0] %> <%= course.price[1] %></h4>
+                                        <h4 class="CourseCardPrice">$ <%= course.product_price%></h4>
                                     </article>
                                 </a>
-                            </div>
+                            </section>
                         <%}%>
                     </div>
                 </article>
-                <section class="CourseReviewsSection">
-                    <h3 class="CourseReviewsSectionTitle">Reseñas de otros estudiantes</h3>
-                    <article class="ReviewContainer">
-                        <div class="ReviewerInfo">
-                            <div class="ReviewerPictureContainer">
-                                <img class="ReviewerPhoto" src="<%= course.reviews[0].reviewerPhoto %>" alt="Reviewer photo">
-                            </div>
-                            <div class="ReviewerNameNRating">
-                                <h4 class="ReviewerName"><%= course.reviews[0].reviewerName %></h4><br>
-                                <div class="ReviewerRating">
-                                    <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
-                                    <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
-                                    <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
-                                    <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
-                                    <img src="/images/icons/EstrellaMitad.svg" alt="Estrella" width="24Xpx" height="24px">
-                                    <h5 class="CourseGrade"><%= course.reviews[0].reviewerGrade %></h5>
-                                </div>
-                            </div>
-                        </div>
-                        <h5 class="CourseReviewContent"><%= course.reviews[0].reviewContent %></h5>
-                    </article>
-                    <article class="ReviewContainer">
-                        <div class="ReviewerInfo">
-                            <div class="ReviewerPictureContainer">
-                                AL
-                            </div>
-                            <div class="ReviewerNameNRating">
-                                <h4 class="ReviewerName"><%= course.reviews[1].reviewerName %></h4><br>
-                                <div class="ReviewerRating">
-                                    <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
-                                    <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
-                                    <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
-                                    <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
-                                    <img src="/images/icons/EstrellaMitad.svg" alt="Estrella" width="24Xpx" height="24px">
-                                    <h5 class="CourseGrade"><%= course.reviews[1].reviewerGrade %></h5>
-                                </div>
-                            </div>
-                        </div>
-                        <h5 class="CourseReviewContent"><%= course.reviews[1].reviewContent %></h5>
-                    </article>
-                    <div class="ButtonContainer">
-                        <button class="Btn-SeeMore">Ver más</button>
-                    </div>
-                </section>
+               
             <%}%>
         <%}%>
     <%- include("../partials/footer.ejs")%>
