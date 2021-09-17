@@ -3,7 +3,7 @@ const bcrypt = require("bcryptjs");
 const db = require("../database/models")
 const controller = {
     register: async function(req, res){
-        let userLogged = null
+        let userLogged = null;
         if(req.session.userLogged){
             const customer = await db.Customer.findOne({raw:true,where:{
                 customer_email:req.session.userLogged
@@ -35,7 +35,7 @@ const controller = {
             return res.render("users/login",{
                 title: "Inicia Sesión",
                 errors: result.mapped(),
-                oldData: req.body
+                oldData: req.body,userLogged:null
             });
         }
         let userToLogin = await db.Customer.findAll({
