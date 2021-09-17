@@ -8,7 +8,7 @@
             <label for="correo">Correo electrónico</label>
             <input 
                 type="text"
-                name="correo" 
+                name="customer_email" 
                 id="correo"
                 value="<%= locals.oldData ? oldData.correo : null%>">
                 <br>
@@ -24,7 +24,7 @@
             <%}%>
 
             <label for="contra">Contraseña</label>
-            <input type="password" name="contra" id="contra"><br>
+            <input type="password" name="customer_password" id="contra"><br>
             <%if(locals.errors && errors.contraseña){%>
                 <div class="error-text">
                     <p><%=errors.contraseña.msg%></p>

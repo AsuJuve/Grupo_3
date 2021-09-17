@@ -1,18 +1,37 @@
-const fs= require('fs');
-const path= require('path');
 const { showDetail } = require('./mainController');
 const db = require("../database/models")
 
 module.exports={
     index: async function (req,res){
+        let userLogged = null
+        if(req.session.userLogged){
+            const customer = await db.Customer.findOne({raw:true,where:{
+                customer_email:req.session.userLogged
+            }});
+            userLogged = customer;
+        }
         const courses = await db.Product.findAll({raw:true});
-        res.render('products/allProducts',{title: 'Todos los cursos',courses})
+        res.render('products/allProducts',{title: 'Todos los cursos',courses,userLogged})
     },
     create: async function (req,res){
+        let userLogged = null
+        if(req.session.userLogged){
+            const customer = await db.Customer.findOne({raw:true,where:{
+                customer_email:req.session.userLogged
+            }});
+            userLogged = customer;
+        }
         const courses = await db.Product.findAll({raw:true});
-        res.render("products/createProducts",{title: 'Crear Curso',courses})
+        res.render("products/createProducts",{title: 'Crear Curso',courses,userLogged})
     },
     edit: async function(req,res){
+        let userLogged = null
+        if(req.session.userLogged){
+            const customer = await db.Customer.findOne({raw:true,where:{
+                customer_email:req.session.userLogged
+            }});
+            userLogged = customer;
+        }
         const id = req.params.id;
         const courses = await db.Product.findAll({raw:true});
         const requirements = await db.Requirement.findAll({
@@ -22,7 +41,7 @@ module.exports={
                 product_id:id
             }
         })
-        res.render('products/editProducts',{title: 'Editar Curso',courses,id,requirements});
+        res.render('products/editProducts',{title: 'Editar Curso',courses,id,requirements,userLogged});
     },
     edited: async function(req,res){
         //can't be directly updated, we don't know if new requirements were added/deleted
@@ -55,7 +74,7 @@ module.exports={
         for (let i = 0; i < newRequirements.length; i++) {
             const newElement = await db.Requirement.create(newRequirements[i]);
         }
-        res.redirect('/products')
+        res.redirect('/products');
     },
     store: async function(req,res){
 		const data = req.body;
@@ -103,6 +122,13 @@ module.exports={
         res.redirect('/products')
     },
     showDetail:async function(req,res){
+        let userLogged = null
+        if(req.session.userLogged){
+            const customer = await db.Customer.findOne({raw:true,where:{
+                customer_email:req.session.userLogged
+            }});
+            userLogged = customer;
+        }
         const id= req.params.id;
         const courses = await db.Product.findAll({raw:true});
         const requirements = await db.Requirement.findAll({
@@ -110,6 +136,6 @@ module.exports={
                 product_id:id
             }
         })
-        res.render("products/productDetailAdmin",{title: 'Detalle de producto',courses,curso:parseInt(id),requirements})
+        res.render("products/productDetailAdmin",{title: 'Detalle de producto',courses,curso:parseInt(id),requirements,userLogged})
     }
 }

@@ -34,9 +34,7 @@ app.listen(PORT,function(){
 //Session
 const session = require('express-session');
 app.use(session({
-    secret: 'Keep Learning',
-    resave: false,
-    saveUninitialized:false
+    secret: 'Keep Learning'
 }))
 
 app.use(express.json());
