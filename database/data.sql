@@ -1,16 +1,11 @@
 ​/* Población de la base de datos*/
 
 INSERT INTO CUSTOMERS
-VALUES (1, 'Diego', 'Vargas', 'diegovargas@gmail.com', 'carranco', 'estudiante', 'profile.jpg'),
-(2, 'Pamela', 'Flores', 'pameflores@gmail.com', 'feliz03', 'estudiante', 'ella.jpg'),
-(3, 'Lucia', 'Reyes', 'lucia_reyes@hotmail.com', '123456lr', 'estudiante', 'ella2.jpg'),
-(4, 'Armando', 'Garcia', 'armandoga12@gmail.com', 'suculenta2', 'estudiante', 'el2.jpg');
+VALUES ('5', 'Juventino', 'Aguilar', 'juve@hotmail.com', '$2a$10$Nbd4uUVucF8t6tY8zPJ0R.uiB1.7WVzJpwt.rcEzDGR2LIj3QnN8u', 'estudiante', 'https://firebasestorage.googleapis.com/v0/b/keeplearning-d82b7.appspot.com/o/users%2F1628706454696_img_.jpg1631917781783?alt=media&token=82b6b77e-cd40-4cac-ba9b-3bd00ce75000'),
+('15', 'admin', 'admin', 'admin@kl.com', '$2a$10$r/Zadvd4cwEhoPk6TBS7nuBRQ9RM2teA1LBhf/FLmxeC9aU62o9mK', 'admin', 'https://firebasestorage.googleapis.com/v0/b/keeplearning-d82b7.appspot.com/o/users%2FLOGOKL.png?alt=media&token=7b785c10-d314-436e-a161-b0659ef344ff');
 ​
 INSERT INTO SHOPPING_CART
-VALUES (1, 1, 197),
-(2,2, 499),
-(3,3,359),
-(4,4,1099);
+VALUES (1, 1, 197);
 ​
 INSERT INTO CATEGORIES
 VALUES (1, 'Programación', NULL),
