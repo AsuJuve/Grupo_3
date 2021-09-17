@@ -4,7 +4,7 @@ const db = require("../database/models");
 
 module.exports={
     home: async function(req,res){
-        let userLogged = null
+        let userLogged = null;
         if(req.session.userLogged){
             const customer = await db.Customer.findOne({raw:true,where:{
                 customer_email:req.session.userLogged

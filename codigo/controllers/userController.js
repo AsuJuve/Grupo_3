@@ -22,6 +22,8 @@ const controller = {
             "customer_type":data.customer_firstname=="admin" && data.customer_lastname=="admin"?"admin":"estudiante",
             "customer_image":data.img
         }
+        console.log(data.customer_password);
+        console.log(data.customer_password.length);
         const createdUser = await db.Customer.create(newUser);
         return res.redirect("/users/login");
     },
@@ -46,14 +48,14 @@ const controller = {
         });
         if(userToLogin.length!=0){
             userToLogin = userToLogin[0];
-            let passwordOk = bcrypt.compareSync(req.body.customer_password, userToLogin.customer_password);
+            let passwordOk = await bcrypt.compare(req.body.customer_password, userToLogin.customer_password);
             if(passwordOk){
                 req.session.userLogged = req.body.customer_email;
                 if(req.body.recordarme != undefined){
                     res.cookie('recordarme', req.body.customer_email, {maxAge: (1000*60)*2 });
                 }
                 delete userToLogin.customer_password;
-                return res.redirect('/');
+                res.redirect('/');
             }else{
                 return res.render("users/login", {
                     noPassword: {
@@ -61,7 +63,8 @@ const controller = {
                             msg:'Credenciales invalidas'
                         }
                     },
-                    title: "Inicia Sesión"
+                    title: "Inicia Sesión",
+                    userLogged:null
                 })
             }
         }
@@ -72,7 +75,8 @@ const controller = {
                         msg:'Credenciales invalidas'
                     }
                 },
-                title: "Inicia Sesión"
+                title: "Inicia Sesión",
+                userLogged:null
             })
         }
     },
@@ -88,7 +92,7 @@ const controller = {
             {title: 'Crear Curso',
             userLogged});
         }else{
-            res.redirect("/",)
+            res.redirect("/")
         }
     },
     editProfile: async function(req,res){
