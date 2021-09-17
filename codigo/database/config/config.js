@@ -1,24 +1,26 @@
 module.exports = {
   "development": {
-    "username": "root",
-    "password": null,
-    "database": "keep_learning",
-    "host": "127.0.0.1",
+    "username": "b1e2cda4e26af7",
+    "password": "9a9a3a81",
+    "database": "heroku_0ceec16dfd6d25c",
+    "host": "us-cdbr-east-04.cleardb.com",
     "dialect": "mysql",
-    "port":"3307"
+    "port":"3306"
   },
   "test": {
-    "username": "root",
-    "password": null,
+    "username": "b1e2cda4e26af7",
+    "password": "9a9a3a81",
     "database": "database_test",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+    "host": "us-cdbr-east-04.cleardb.com",
+    "dialect": "mysql",
+    "port":"3306"
   },
   "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+    "username": "b1e2cda4e26af7",
+    "password": "9a9a3a81",
+    "database": "heroku_0ceec16dfd6d25c",
+    "host": "us-cdbr-east-04.cleardb.com",
+    "dialect": "mysql",
+    "port":"3306"
   }
 }
