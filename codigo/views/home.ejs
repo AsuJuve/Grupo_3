@@ -50,7 +50,7 @@
             <div class="CarouselContainer" >
                 <% for(let course of courses){ %>
                     <section class="Carousel">
-                        <a href="productDetail/<%= course.product_id%>">
+                        <a href="/productDetail/<%= course.product_id%>">
                             <article class="CourseCard">
                                 <img class="CourseCardImage" src=<%= course.product_image %>alt="Imagen representativa del curso">
                                 <h5 class="CourseCardTitle"><%= course.product_name %></h5>
