@@ -1,6 +1,6 @@
 const { showDetail } = require('./mainController');
 const db = require("../database/models")
-
+const {validationResult} = require("express-validator");
 module.exports={
     index: async function (req,res){
         let userLogged = null
@@ -44,40 +44,64 @@ module.exports={
         res.render('products/editProducts',{title: 'Editar Curso',courses,id,requirements,userLogged});
     },
     edited: async function(req,res){
-        //can't be directly updated, we don't know if new requirements were added/deleted
-        const id = parseInt(req.url.substring(1).split("?")[0]);
-		const data = req.body;
-        data["product_image"]= data["img"];
-        let newRequirements = data.requirement_description;
-        const deletedReq = await db.Requirement.destroy({
-            where:{
-                product_id:id
+        const errores = validationResult(req);
+        if (errores.isEmpty()){
+            //can't be directly updated, we don't know if new requirements were added/deleted
+            const id = parseInt(req.url.substring(1).split("?")[0]);
+            const data = req.body;
+            data["product_image"]= data["img"];
+            let newRequirements = data.requirement_description;
+            const deletedReq = await db.Requirement.destroy({
+                where:{
+                    product_id:id
+                }
+            })
+            delete data.requirement_description;
+            delete data.img;
+            const updatedCourse = await db.Product.update(data, {
+                where: {
+                    product_id: id
+                }
+            })
+            newRequirements = newRequirements.split(".").map((l)=>l+". ");
+            // llega informacion rara al final.
+            newRequirements.pop();
+            newRequirements = newRequirements.map(function(value) {
+                return {
+                    requirement_description: value,
+                    product_id:id
+                };
+            });
+            //bulkcreate daba errores
+            for (let i = 0; i < newRequirements.length; i++) {
+                const newElement = await db.Requirement.create(newRequirements[i]);
             }
-        })
-        delete data.requirement_description;
-        delete data.img;
-        const updatedCourse = await db.Product.update(data, {
-            where: {
-                product_id: id
+            res.redirect('/products');
+        }else{
+            let userLogged = null
+            if(req.session.userLogged){
+                const customer = await db.Customer.findOne({raw:true,where:{
+                    customer_email:req.session.userLogged
+                }});
+                userLogged = customer;
             }
-        })
-        newRequirements = newRequirements.split(".").map((l)=>l+". ");
-        // llega informacion rara al final.
-        newRequirements.pop();
-        newRequirements = newRequirements.map(function(value) {
-            return {
-                requirement_description: value,
-                product_id:id
-            };
-        });
-        //bulkcreate daba errores
-        for (let i = 0; i < newRequirements.length; i++) {
-            const newElement = await db.Requirement.create(newRequirements[i]);
+            const id = req.params.id;
+            const courses = await db.Product.findAll({raw:true});
+            const requirements = await db.Requirement.findAll({
+                raw:true,
+                nest: true,
+                where:{
+                    product_id:id
+                }
+            })
+            res.render('products/editProducts',{title: 'Editar Curso',"errores": errores.array(),courses,id,requirements,userLogged,});
         }
-        res.redirect('/products');
+        
     },
     store: async function(req,res){
-		const data = req.body;
+        const errores = validationResult(req);
+        if (errores.isEmpty()){
+            const data = req.body;
         let requirements = data.requirement_description.split(".").map((l)=>l+".");
         requirements.pop();
 		const newCourse = {
@@ -100,7 +124,19 @@ module.exports={
         for (let i = 0; i < requirements.length; i++) {
             const newElement = await db.Requirement.create(requirements[i]);
         }
-        res.redirect('/products')
+            res.redirect('/products')
+        }else{
+            let userLogged = null
+            if(req.session.userLogged){
+                const customer = await db.Customer.findOne({raw:true,where:{
+                    customer_email:req.session.userLogged
+                }});
+                userLogged = customer;
+            }
+            const courses = await db.Product.findAll({raw:true});
+            res.render("products/createProducts",{title: 'Crear Curso',"errores": errores.array(),courses,userLogged})
+        }
+		
     },
     delete: async function(req,res){
         const id = parseInt(req.params.id);

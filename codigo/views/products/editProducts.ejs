@@ -4,6 +4,10 @@
     <main>
         <h1><%= title%> </h1>
         <form action="/products/<%=id%>?_method=PUT" method= "POST" >
+            <% if(locals.errores){
+                errores.forEach(e =>{ %>
+                    <p><%= e.msg %></p>
+                    <%})}%>
             <label for="nombreCurso">Nombre del Curso*</label>
             <input type="text" id='nombreCurso' name='product_name' value= "<%= courses.find((l)=>{return l['product_id'] == parseInt(id)}).product_name%>" >
             <label for="descripcionCorta">Descripción corta*</label>
