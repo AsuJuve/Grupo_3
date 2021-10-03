@@ -2,9 +2,9 @@
 
 ## Comenzar a hacer
 - Terminar consignas un día antes de la fecha de entrega
+- Junta un día antes de la entrega
 
 ## Continuar haciendo
-- Junta un día antes de la entrega
 - Tener buena comunicación dentro del equipo
 
 ## Dejar de hacer
