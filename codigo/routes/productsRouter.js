@@ -9,6 +9,7 @@ const validateProduct = [
     body("short_description").notEmpty().withMessage("La descripcion corta es obligatoria").bail()
     .isLength({min:20}).withMessage("El apellido debe tener minimo 20 caracteres")
 ];
+
 router.get('/', productsController.index);
 
 router.get('/create', productsController.create);
