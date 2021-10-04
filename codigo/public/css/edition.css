@@ -16,6 +16,16 @@ h1{
     margin:18px;
     font-size: 30px;
     line-height: 28px;
+    
+}
+.errores{
+    margin:10px;
+    line-height: 28px;
+    color:black;
+    margin: 0 30px;
+    text-align: center;
+    font-style: oblique;
+    font-weight: 700;
 }
 form{
     padding: 16px;     
@@ -120,6 +130,15 @@ textarea{
     padding: 10px 10px;
     margin: 12px;
 }
+.cancelar{
+    border: #25C998 1px solid; 
+    font-size: 20px;
+    background-color:black;
+    color:#25C998;
+    border-radius: 8px;
+    padding: 10px 10px;
+    margin: 12px;
+}
 .eliminar{
     border: black 1px solid; 
     font-size: 20px;
@@ -129,7 +148,7 @@ textarea{
     padding: 10px 10px;
     margin: 12px;
 }
-.agregarL:hover, .eliminarL:hover, .guardarL:hover, .guardar:hover, .eliminar:hover{
+.agregarL:hover, .eliminarL:hover, .guardarL:hover, .guardar:hover, .eliminar:hover, .cancelar:hover{
     opacity: .8;
     border-color: blue;
 }
@@ -152,7 +171,7 @@ textarea{
         justify-content: center;
         margin-bottom: 20px;
     }
-    .agregarL, .eliminarL, .guardarL, .guardar, .eliminar{
+    .agregarL, .eliminarL, .guardarL, .guardar, .eliminar, .cancelar{
         margin:12px;
         font-size: 20px;
         padding: 10px 10px;
