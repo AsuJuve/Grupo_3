@@ -4,22 +4,22 @@
     <%- include("../partials/header.ejs")%>
     <main>
         <h1>Regístrate y mantente aprendiendo</h1>
-        <form action="/users/register" method="POST" name="register">
+        <form action="/users/register" method="POST" name="home">
+            <% if(locals.errores){
+                errores.forEach(e =>{ %>
+                    <p><%= e.msg %></p>
+                    <%})}%>
             <label for="nombre">Nombre</label>
             <input type="text" name="customer_firstname" id="nombre" required>
-
             <label for="apellido">Apellido</label>
             <input type="text" name="customer_lastname" id="apellido" required>
-
             <label for="correo">Correo electrónico</label>
             <input type="email" name="customer_email" id="correo" required>
-
             <label for="password">Contraseña</label>
-            <input type="password" name="customer_password" id="password" required pattern=".{8,16}">
-            <p class="password">Debe contener entre 8 y 16 caracteres</p>
-
+            <input type="password" name="customer_password" id="password" required minlength="8">
+            <p class="password">Debe contener minimo 8 caracteres</p>
             <label for="imgUsuario">Imagen de usuario</label>
-            <input type="file" name="customer_image" id="imgUsuario" alt="Imagen de usuario" required>
+            <input type="file" name="customer_image" id="imgUsuario" alt="Imagen de usuario" required accept=".jpg, .jpeg, .png, .gif">
             <input type="text" name="img" value="my_value" id="hidden_input" hidden/>
             <input name="enviar" id="submitBtn" type="submit" value="Regístrate" disabled>
 

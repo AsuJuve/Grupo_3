@@ -4,6 +4,8 @@ const router= express.Router();
 //Requerimientos para subir archivos
 const multer = require("multer");
 const path = require("path");
+const db = require("../database/models")
+const {check} = require("express-validator");
 const storage = multer.diskStorage({ 
     destination: function (req, file, cb) { 
        cb(null, './public/images/users'); 
@@ -23,12 +25,23 @@ const validationsLogin = [
         .isEmail().withMessage('Formato de correo electrónico no válido')
 ];
 
+const validateRegister = [
+    body("customer_firstname").notEmpty().withMessage("El nombre es obligatorio").bail()
+        .isLength({min:2}).withMessage("El nombre debe tener minimo 2 caracteres"),
+    body("customer_lastname").notEmpty().withMessage("El apellido es obligatorio").bail()
+    .isLength({min:2}).withMessage("El apellido debe tener minimo 2 caracteres"),
+    body("customer_email").notEmpty().withMessage("El email es obligatorio").bail()
+        .isEmail().withMessage("El email no es válido.").bail(),
+    body("customer_password").notEmpty().withMessage("La contraseña es obligatoria").bail()
+    .isLength({min:8}).withMessage("La contraseña debe tener minimo 8 caracteres").bail()
+];
+
 //Middlewares
 const guestMiddleware = require('../middlewares/guestMiddleware')
 
 //Formulario de registro
 router.get("/register",userController.register);
-router.post("/register",userController.registerProcess);
+router.post("/register",validateRegister,userController.registerProcess);
 
 //Formulario de login
 router.get("/login",userController.login);

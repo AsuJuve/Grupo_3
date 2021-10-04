@@ -1,6 +1,7 @@
-const {validationResult} = require('express-validator');
 const bcrypt = require("bcryptjs");
 const db = require("../database/models")
+const {validationResult,body} = require("express-validator");
+
 const controller = {
     register: async function(req, res){
         let userLogged = null;
@@ -13,19 +14,33 @@ const controller = {
         return res.render("users/register",{title:"Registro",userLogged});
     },
     registerProcess: async function(req,res){
-        const data = req.body;
-        const newUser = {
-            "customer_firstname":data.customer_firstname,
-            "customer_lastname":data.customer_lastname,
-            "customer_email":data.customer_email,
-            "customer_password": bcrypt.hashSync(data.customer_password,10),
-            "customer_type":data.customer_firstname=="admin" && data.customer_lastname=="admin"?"admin":"estudiante",
-            "customer_image":data.img
+        const errores = validationResult(req);
+        let userLogged = null;
+        if(req.session.userLogged){
+            const customer = await db.Customer.findOne({raw:true,where:{
+                customer_email:req.session.userLogged
+            }});
+            userLogged = customer;
         }
-        console.log(data.customer_password);
-        console.log(data.customer_password.length);
-        const createdUser = await db.Customer.create(newUser);
-        return res.redirect("/users/login");
+        if (errores.isEmpty()) {
+          const data = req.body;
+          const newUser = {
+            customer_firstname: data.customer_firstname,
+            customer_lastname: data.customer_lastname,
+            customer_email: data.customer_email,
+            customer_password: bcrypt.hashSync(data.customer_password, 10),
+            customer_type:
+              data.customer_firstname == "admin" &&
+              data.customer_lastname == "admin"
+                ? "admin"
+                : "estudiante",
+            customer_image: data.img,
+          };
+          const createdUser = await db.Customer.create(newUser);
+          return res.redirect("/users/login");
+        }else{
+          return res.render("users/register",{"errores": errores.array(),title:"Registro",userLogged});
+        }
     },
     login: async function(req, res){
         req.session.userLogged = null;

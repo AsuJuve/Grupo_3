@@ -4,6 +4,10 @@
     <main>
         <h1><%= title%> </h1>
         <form action="/products" method= "POST" id="formulario">
+            <% if(locals.errores){
+                errores.forEach(e =>{ %>
+                    <p><%= e.msg %></p>
+                    <%})}%>
             <label for="nombreCurso">Nombre del Curso*</label>
             <input type="text" id='nombreCurso' name='product_name' required>
             <label for="descripcionCorta">Descripción corta*</label>
