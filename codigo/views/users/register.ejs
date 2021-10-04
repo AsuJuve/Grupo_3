@@ -4,7 +4,7 @@
     <%- include("../partials/header.ejs")%>
     <main>
         <h1>Regístrate y mantente aprendiendo</h1>
-        <form action="/users/register" method="POST" name="home">
+        <form action="/users/register" method="POST" name="register">
             <label for="nombre">Nombre</label>
             <input type="text" name="customer_firstname" id="nombre" required>
 
@@ -60,6 +60,8 @@
                 
             })
         })
+    </script>
+    <script src='../../middlewares/registerValidator.js' type='text/javascript'>
     </script>
 </body>
 </html>
