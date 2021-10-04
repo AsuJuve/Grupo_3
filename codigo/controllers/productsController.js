@@ -1,65 +1,141 @@
-const fs= require('fs');
-const path= require('path');
 const { showDetail } = require('./mainController');
-const coursesFilePath= path.join(__dirname, "../data/products.json")
-const coursestxt= JSON.parse(fs.readFileSync(coursesFilePath,'utf-8'));
+const db = require("../database/models")
 
 module.exports={
-    index: (req,res)=>{
-        res.render('products/allProducts',{title: 'Todos los cursos','courses':coursestxt})
+    index: async function (req,res){
+        let userLogged = null
+        if(req.session.userLogged){
+            const customer = await db.Customer.findOne({raw:true,where:{
+                customer_email:req.session.userLogged
+            }});
+            userLogged = customer;
+        }
+        const courses = await db.Product.findAll({raw:true});
+        res.render('products/allProducts',{title: 'Todos los cursos',courses,userLogged})
     },
-    create: (req,res)=>{
-        res.render("products/createProducts",{title: 'Crear Curso','courses':coursestxt})
+    create: async function (req,res){
+        let userLogged = null
+        if(req.session.userLogged){
+            const customer = await db.Customer.findOne({raw:true,where:{
+                customer_email:req.session.userLogged
+            }});
+            userLogged = customer;
+        }
+        const courses = await db.Product.findAll({raw:true});
+        res.render("products/createProducts",{title: 'Crear Curso',courses,userLogged})
     },
-    edit: (req,res)=>{
-        let id = req.params.id;
-        res.render('products/editProducts',{title: 'Editar Curso','courses':coursestxt,'id':id});
+    edit: async function(req,res){
+        let userLogged = null
+        if(req.session.userLogged){
+            const customer = await db.Customer.findOne({raw:true,where:{
+                customer_email:req.session.userLogged
+            }});
+            userLogged = customer;
+        }
+        const id = req.params.id;
+        const courses = await db.Product.findAll({raw:true});
+        const requirements = await db.Requirement.findAll({
+            raw:true,
+            nest: true,
+            where:{
+                product_id:id
+            }
+        })
+        res.render('products/editProducts',{title: 'Editar Curso',courses,id,requirements,userLogged});
     },
-    edited: (req,res)=>{
-        let id = parseInt(req.url.substring(1).split("?")[0]);
-		let data = req.body;
-        let courseIndex = coursestxt.findIndex(l=>l["id"]==id);
-		let newCourse = {
-            ...coursestxt[courseIndex],
-            "id":id,
-			"name": data.nombreCurso,
-            "shortDescription":data.descripcionCorta,
-            "requirements":data.requisitos.split(","),
-            "longDescription":data.descripcionLarga,
-            "image":data.imagenDelCurso,
-			"price": [data.precio,data.moneda]
+    edited: async function(req,res){
+        //can't be directly updated, we don't know if new requirements were added/deleted
+        const id = parseInt(req.url.substring(1).split("?")[0]);
+		const data = req.body;
+        data["product_image"]= data["img"];
+        let newRequirements = data.requirement_description;
+        const deletedReq = await db.Requirement.destroy({
+            where:{
+                product_id:id
+            }
+        })
+        delete data.requirement_description;
+        delete data.img;
+        const updatedCourse = await db.Product.update(data, {
+            where: {
+                product_id: id
+            }
+        })
+        newRequirements = newRequirements.split(".").map((l)=>l+". ");
+        // llega informacion rara al final.
+        newRequirements.pop();
+        newRequirements = newRequirements.map(function(value) {
+            return {
+                requirement_description: value,
+                product_id:id
+            };
+        });
+        //bulkcreate daba errores
+        for (let i = 0; i < newRequirements.length; i++) {
+            const newElement = await db.Requirement.create(newRequirements[i]);
+        }
+        res.redirect('/products');
+    },
+    store: async function(req,res){
+		const data = req.body;
+        let requirements = data.requirement_description.split(".").map((l)=>l+".");
+        requirements.pop();
+		const newCourse = {
+			"product_name": data.product_name,
+            "short_description":data.short_description,
+            "long_description":data.long_description,
+            "product_image":data.img,
+			"product_price": data.product_price,
+            "enrolled_students": 0,
+            "category_id":2,
+            "value_rating":0
 		}
-        coursestxt[courseIndex] = newCourse;
-        fs.writeFileSync(coursesFilePath,JSON.stringify(coursestxt));
+        const createdCourse = await db.Product.create(newCourse);
+        requirements = requirements.map(function(value) {
+            return {
+                requirement_description: value,
+                product_id:createdCourse.product_id
+            };
+        });
+        for (let i = 0; i < requirements.length; i++) {
+            const newElement = await db.Requirement.create(requirements[i]);
+        }
         res.redirect('/products')
     },
-    store: (req,res)=>{
-        let nuevo = coursestxt.length + 1;
-		let data = req.body;
-		let newCourse = {
-            "id":nuevo,
-			"name": data.nombreCurso,
-            "shortDescription":data.descripcionCorta,
-            "requirements":data.requisitos.split("."),
-            "longDescription":data.descripcionLarga,
-			"price": [data.precio,data.moneda],
-            "courseRating":0.0,
-            "totalReviews": 0,
-            "enrolledStudents": 0,
-            "reviews": []
-		}
-        coursestxt.push(newCourse);
-        fs.writeFileSync(coursesFilePath,JSON.stringify(coursestxt));
+    delete: async function(req,res){
+        const id = parseInt(req.params.id);
+        const deletedRequirements = await db.Requirement.destroy({
+            where:{
+                product_id:id
+            }
+        });
+        const deletedCarProducts = await db.Shopping_cart_products.destroy({
+            where:{
+                product_id:id
+            }
+        });
+        const deletedCourse = await db.Product.destroy({
+            where:{
+                product_id:id
+            }
+        })
         res.redirect('/products')
     },
-    delete: (req,res)=>{
-        const index = coursestxt.findIndex(course => course.id == parseInt(req.params.id));
-        coursestxt.splice(index,1);
-        fs.writeFileSync(coursesFilePath,JSON.stringify(coursestxt));
-        res.redirect('/products')
-    },
-    showDetail:(req,res)=>{
-        let id= req.params.id;
-        res.render("products/productDetailAdmin",{title: 'Detalle de producto',courses:coursestxt,curso:parseInt(id)})
+    showDetail:async function(req,res){
+        let userLogged = null
+        if(req.session.userLogged){
+            const customer = await db.Customer.findOne({raw:true,where:{
+                customer_email:req.session.userLogged
+            }});
+            userLogged = customer;
+        }
+        const id= req.params.id;
+        const courses = await db.Product.findAll({raw:true});
+        const requirements = await db.Requirement.findAll({
+            where:{
+                product_id:id
+            }
+        })
+        res.render("products/productDetailAdmin",{title: 'Detalle de producto',courses,curso:parseInt(id),requirements,userLogged})
     }
 }

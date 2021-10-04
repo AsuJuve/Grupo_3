@@ -1,0 +1,60 @@
+<%- include("../partials/head.ejs")%>
+<body>
+    <!--Navbar-->
+    <%- include("../partials/header.ejs")%>
+    <main>
+        <div style="font-size:40px;align-items:center;display:flex;flex-direction: column;flex-wrap: wrap;align-content: center;">
+            Editar perfil
+            <form action="/users/editProfile?_method=PUT" method= "POST" >
+                <label for="customer_firstname">Nombre</label>
+                <input type="text" name="customer_firstname" id="customer_firstname" value ="<%= userLogged.customer_firstname%>" required>
+                <label for="customer_lastname">Apellido</label>
+                <input type="text" name="customer_lastname" id="customer_lastname" value ="<%= userLogged.customer_lastname%>" required>
+                <label for="customer_password">Contraseña</label>
+                <input type="password" name="customer_password" id="customer_password" required>
+                <label for="imagenUsuario">Imagen de perfil</label>
+                <input type="file" name="customer_image" id="imagenUsuario" style="background-color: transparent;border: transparent;padding:0" required>
+                <input type="text" name="img" value="my_value" id="hidden_input" hidden/>
+                <button type="submit" value="abc" id="submitBtn" disabled>Actualizar información</button>
+            </form>
+        </div>
+    </main>
+    <%- include("../partials/footer.ejs")%>
+    <script type="module">
+        import "https://www.gstatic.com/firebasejs/8.0.2/firebase-app.js";
+        import "https://www.gstatic.com/firebasejs/8.0.2/firebase-storage.js";
+        firebase.initializeApp({
+            apiKey: "AIzaSyD08fS8ka33v28JWdJtIJUw0-aLPFsSg8E",
+            authDomain: "keeplearning-d82b7.firebaseapp.com",
+            projectId: "keeplearning-d82b7",
+            storageBucket: "keeplearning-d82b7.appspot.com",
+            messagingSenderId: "61916898917",
+            appId: "1:61916898917:web:50074a88245e0ee62b888c"
+        });
+        window.addEventListener("load", async function(){
+            let courseURL = "<%- userLogged.customer_image%>";
+            const file = document.getElementById("imagenUsuario");
+            const uploadBtn = document.getElementById("submitBtn");
+            const hidden = document.getElementById("hidden_input");
+            file.addEventListener("change", (e) => {
+                const file = e.target.files[0];
+                if (file) {
+                    const storageRef = firebase.storage().ref("users");
+                    const fileRef = storageRef.child(file.name+Date.now());
+                    fileRef.put(file).then((snapshot) => {
+                        snapshot.ref.getDownloadURL().then(url => {
+                            hidden.value = url;
+                            let pictureRef = firebase.storage().refFromURL(courseURL);
+                            pictureRef.delete()
+                                .then(() => {
+                                    uploadBtn.disabled = false;
+                                })
+                        })
+                    })
+                }
+
+            })
+        })
+    </script>
+</body>
+</html>

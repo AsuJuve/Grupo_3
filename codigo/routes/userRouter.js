@@ -17,18 +17,18 @@ const upload = multer({ storage: storage });
 const {body} = require('express-validator');
 
 const validationsLogin = [
-    body('contra')
+    body('customer_password')
         .notEmpty().withMessage('La contraseña es necesaria para iniciar sesión').bail(),
-    body('correo').notEmpty().withMessage('El correo electrónico es necesario para el inicio de sesión').bail()
+    body('customer_email').notEmpty().withMessage('El correo electrónico es necesario para el inicio de sesión').bail()
         .isEmail().withMessage('Formato de correo electrónico no válido')
 ];
 
 //Middlewares
-const guestMiddlewware = require('../middlewares/guestMiddleware')
+const guestMiddleware = require('../middlewares/guestMiddleware')
 
 //Formulario de registro
 router.get("/register",userController.register);
-router.post("/register",upload.single("imgUsuario"),userController.registerProcess);
+router.post("/register",userController.registerProcess);
 
 //Formulario de login
 router.get("/login",userController.login);
@@ -38,5 +38,8 @@ router.post("/login",validationsLogin,userController.loginProcess);
 
 //Perfil
 router.get("/profile",userController.profile);
+
+router.get("/editProfile",userController.editProfile);
+router.put("/editProfile",userController.editProcess);
 
 module.exports= router;

@@ -156,7 +156,7 @@ nav#navBar .search-icon {
   display: none;
   position: absolute;
   background-color: #f1f1f1;
-  min-width: 160px;
+  width:100%;
   z-index: 1;
   top: 44px;
   left: 0;
