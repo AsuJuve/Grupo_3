@@ -1,56 +1,76 @@
-const fs= require('fs');
-const path= require('path')
-const User = require('../models/User')
-const coursesFilePath= path.join(__dirname, "../data/products.json")
-const usersFilePath = path.join(__dirname,"../data/users.json")
-const {validationResult} = require('express-validator');
-const coursestxt= JSON.parse(fs.readFileSync(coursesFilePath,'utf-8'));
-const usersTxt= JSON.parse(fs.readFileSync(usersFilePath,'utf-8'));
-
 const bcrypt = require("bcryptjs");
+const db = require("../database/models")
+const {validationResult,body} = require("express-validator");
+
 const controller = {
-    register: (req, res) => {
-        return res.render("users/register",{title:"Registro"});
-    },
-    registerProcess: (req,res)=>{
-        const newid = usersTxt.length+1;
-        const data = req.body;
-        const newUser = {
-            id:newid,
-            nombre:data.nombre,
-            apellido:data.apellido,
-            correo:data.correo,
-            password: bcrypt.hashSync(data.password,10),
-            tipo:"estudiante",
-            imagen:"/images/users/"+req.file.filename
+    register: async function(req, res){
+        let userLogged = null;
+        if(req.session.userLogged){
+            const customer = await db.Customer.findOne({raw:true,where:{
+                customer_email:req.session.userLogged
+            }});
+            userLogged = customer;
         }
-        usersTxt.push(newUser);
-        fs.writeFileSync(usersFilePath,JSON.stringify(usersTxt))
-        return res.redirect("/users/login");
+        return res.render("users/register",{title:"Registro",userLogged});
     },
-    login: (req, res) => {
-        return res.render("users/login",{title:"Inicia Sesión"});
+    registerProcess: async function(req,res){
+        const errores = validationResult(req);
+        let userLogged = null;
+        if(req.session.userLogged){
+            const customer = await db.Customer.findOne({raw:true,where:{
+                customer_email:req.session.userLogged
+            }});
+            userLogged = customer;
+        }
+        if (errores.isEmpty()) {
+          const data = req.body;
+          const newUser = {
+            customer_firstname: data.customer_firstname,
+            customer_lastname: data.customer_lastname,
+            customer_email: data.customer_email,
+            customer_password: bcrypt.hashSync(data.customer_password, 10),
+            customer_type:
+              data.customer_firstname == "admin" &&
+              data.customer_lastname == "admin"
+                ? "admin"
+                : "estudiante",
+            customer_image: data.img,
+          };
+          const createdUser = await db.Customer.create(newUser);
+          return res.redirect("/users/login");
+        }else{
+          return res.render("users/register",{"errores": errores.array(),title:"Registro",userLogged});
+        }
     },
-    loginProcess: (req,res) => {
-        
+    login: async function(req, res){
+        req.session.userLogged = null;
+        return res.render("users/login",{title:"Inicia Sesión",userLogged:null});
+    },
+    loginProcess: async function(req,res){
         const result = validationResult(req);
         if(result.errors.length > 0){
             return res.render("users/login",{
                 title: "Inicia Sesión",
                 errors: result.mapped(),
-                oldData: req.body
+                oldData: req.body,userLogged:null
             });
         }
-        let userToLogin = usersTxt.filter((e)=> e.correo ==req.body.correo)[0];
-        if(userToLogin){
-            let passwordOk = bcrypt.compareSync(req.body.contra, userToLogin.password);
+        let userToLogin = await db.Customer.findAll({
+            where:{
+                "customer_email":req.body.customer_email
+            },
+            raw:true
+        });
+        if(userToLogin.length!=0){
+            userToLogin = userToLogin[0];
+            let passwordOk = await bcrypt.compare(req.body.customer_password, userToLogin.customer_password);
             if(passwordOk){
+                req.session.userLogged = req.body.customer_email;
                 if(req.body.recordarme != undefined){
-                    res.cookie('recordarme', req.body.correo, {maxAge: (1000*60)*2 });
+                    res.cookie('recordarme', req.body.customer_email, {maxAge: (1000*60)*2 });
                 }
-                delete userToLogin.password;
-                req.session.userLogged = userToLogin;
-                return res.redirect('/')
+                delete userToLogin.customer_password;
+                res.redirect('/');
             }else{
                 return res.render("users/login", {
                     noPassword: {
@@ -58,7 +78,8 @@ const controller = {
                             msg:'Credenciales invalidas'
                         }
                     },
-                    title: "Inicia Sesión"
+                    title: "Inicia Sesión",
+                    userLogged:null
                 })
             }
         }
@@ -69,15 +90,55 @@ const controller = {
                         msg:'Credenciales invalidas'
                     }
                 },
-                title: "Inicia Sesión"
+                title: "Inicia Sesión",
+                userLogged:null
             })
         }
     },
-    profile: (req,res) => {
+    profile: async function(req,res){
+        let userLogged = null;
+        if(req.session.userLogged){
+            const customer = await db.Customer.findOne({raw:true,where:{
+                customer_email:req.session.userLogged
+            }});
+            userLogged = customer;
+            
         return res.render('users/profile',
             {title: 'Crear Curso',
-            'users':usersTxt,
-            user: req.session.userLogged});
+            userLogged});
+        }else{
+            res.redirect("/")
+        }
+    },
+    editProfile: async function(req,res){
+        let userLogged = null;
+        if(req.session.userLogged){
+            const customer = await db.Customer.findOne({raw:true,where:{
+                customer_email:req.session.userLogged
+            }});
+            userLogged = customer;
+        return res.render('users/editProfile',
+            {title: 'Crear Curso',
+            userLogged});
+        }else{
+            res.redirect("/")
+        }
+    },
+    editProcess: async function(req,res){
+        const data = req.body;
+        const oldUser = await db.Customer.findOne({raw:true,where:{
+            "customer_email":req.session.userLogged
+        }});
+        const userData= {
+            "customer_firstname":data.customer_firstname,
+            "customer_lastname":data.customer_lastname,
+            "customer_email":oldUser.customer_email,
+            "customer_password":bcrypt.hashSync(data.customer_password,10),
+            "customer_type":oldUser.customer_type,
+            "customer_image":data.img
+        }
+        const updatedUser = await db.Customer.update(userData,{where:{"customer_id":oldUser.customer_id}}) 
+        res.redirect("/users/profile");
     }
 }
 

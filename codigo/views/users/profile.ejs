@@ -3,11 +3,21 @@
     <!--Navbar-->
     <%- include("../partials/header.ejs")%>
     <main>
-          <h1>Hola <%= user.nombre %></h1>
-          <img src="/public/images/users/<%= user.imagen %>" alt="Imagen de usuario">
-          <br>
-          <br>
-          <div><%= user.correo %></div>
+        <div style="font-size:40px;align-items:center;display:flex;flex-direction: column;flex-wrap: wrap;align-content: center;">
+            Perfil
+            <div style="font-size: 24px">
+                ¡Hola <%= userLogged.customer_firstname %>, nos alegra verte de nuevo!
+            </div>
+            <br style="font-size: 24px">
+            <img src="<%= userLogged.customer_image %>" alt="Imagen de usuario" width="100px">
+            <br style="font-size: 24px">
+            <div style="font-size: 24px">
+                Tu correo es: <%= userLogged.customer_email %>
+            </div>
+            <a href="/users/editProfile" target="_parent" style="cursor:pointer">
+                <button id="editProfile" style="margin:4px;padding:8px;color: white;background-color: #030634; font-size: 16px;border-radius: 8px;">Editar perfil</button>
+            </a>
+        </div>
     </main>
     <%- include("../partials/footer.ejs")%>
 </body>

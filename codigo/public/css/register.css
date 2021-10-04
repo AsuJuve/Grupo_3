@@ -73,7 +73,15 @@ input[type="checkbox"]:checked + .menu-options{
     display:block;
     position: absolute;
 }
-
+.errores{
+    margin:10px;
+    line-height: 28px;
+    color:red;
+    margin: 0 30px;
+    text-align: center;
+    font-style: oblique;
+    font-weight: 700;
+}
 .logo-container{
     margin-left: 21.11%;
     margin-right: 5.55%;

@@ -265,7 +265,7 @@ a{
     margin: 0;
 }
 .CourseRating{
-    width: 232px;   
+    width: 200px;   
     color:var(--secondaryColor);
     display:flex;
     justify-content: space-between;

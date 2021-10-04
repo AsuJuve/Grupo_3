@@ -5,12 +5,12 @@
             <span class="fas fa-bars">
                 <img src="/images/icons/Hamburguesa.svg" alt="Menú Hamburguesa">
             </span>
-         </div>
-         <div class="cart-icon">
-             <span class="invisible">
+        </div>
+        <div class="cart-icon">
+            <span class="invisible">
                 <img src="/images/icons/Carousel-Izquierda.svg" alt="Menú Hamburguesa">
-             </span>
-          </div>
+            </span>
+        </div>
     </div>
     <a href="/">
         <div class="logo">
@@ -18,59 +18,65 @@
             <h4 class="logoText desktopVisible">Keep Learning</h4>
         </div>
     </a>
-    
+
     <form action="#" id="busqueda">
         <input type="search" class="search-data" placeholder="¿Qué deseas aprender hoy?" required>
         <button type="submit" class="buscarBtn">
             <img src="/images/icons/Buscar.svg" alt="Buscar">
         </button>
-     </form>
+    </form>
     <div class="nav-items">
+        <%if(userLogged){%>
+        <li class="desktopInvisible"><a href="/users/profile">Perfil</a></li>
+        <li class = "desktopInvisible"><a href="/users/login">Cerrar sesión</a></li>
+        <%}else{%>
         <li class="desktopInvisible"><a href="#">Inicia sesión</a></li>
         <li class="desktopInvisible"><a href="#">Regístrate</a></li>
-        <li class="desktopInvisible"><a href="#">Perfil</a></li>
-       <li><a href="#">Sobre KL</a></li>
-       <li><a href="#">Trabaja en KL</a></li>
+        <%}%>
+        <li><a href="#">Sobre KL</a></li>
+        <li><a href="#">Trabaja en KL</a></li>
     </div>
     <div class="right-side">
         <div class="search-icon">
             <span class="fas fa-search">
                 <img src="/images/icons/Buscar.svg" alt="Barra de búsqueda">
             </span>
-         </div>
-         <div class="cancel-icon">
-             <span class="fas fa-times">
-                 <img src="/images/icons/cerrar.svg" alt="cerrar menú">
-             </span>
-          </div>
-          <a href="/productCart">
-              <div class="cart-icon" id="cart-icon">
-                  <img src="/images/icons/Carrito.svg" alt="Barra de búsqueda">
+        </div>
+        <div class="cancel-icon">
+            <span class="fas fa-times">
+                <img src="/images/icons/cerrar.svg" alt="cerrar menú">
+            </span>
+        </div>
+        <a href="/productCart">
+            <div class="cart-icon" id="cart-icon">
+                <img src="/images/icons/Carrito.svg" alt="Barra de búsqueda">
+            </div>
+        </a>
+        <%if(userLogged){%>
+            <div class="profile-pic">
+                <img src="<%=userLogged.customer_image%>" alt="Foto de perfil" height="48px">
+                <h6 class="greetingUser">¡Hola <%=userLogged.customer_firstname%>!</h6>
+                <div class="dropdown-content">
+                    <a href="/users/profile">Perfil</a>
+                    <a href="#">Ayuda</a>
+                    <a href="/users/login" id="logout">Cerrar sesión</a>
                 </div>
-          </a>
-         <div class="not-logged-in">
-             <a href="/users/login">
-                <button class="primaryBtn">Inicia sesión</button>
+            </div>
+        <%}else{%>
+            <div class="not-logged-in">
+                <a href="/users/login">
+                    <button class="primaryBtn">Inicia sesión</button>
                 </a>
-             <a href="/users/register">
-                <button class="secondaryBtn">Regístrate</button>
-            </a>
-         </div>
-         <!--aquí va la foto de perfil del usuario-->
-            <!--<div class="profile-pic">
-            <img src="/images/icons/Usuario.svg" alt="Foto de perfil">
-            <h6 class="greetingUser">¡Hola Usuario!</h6>
-            <div class="dropdown-content">
-                <a href="#">Perfil</a>
-                <a href="#">Ayuda</a>
-                <a href="#">Cerrar sesión</a>
-              </div>
-            </div> -->
+                <a href="/users/register">
+                    <button class="secondaryBtn">Regístrate</button>
+                </a>
+            </div>
+        <%}%>
     </div>
-    
-    
- </nav>
- <script>
+
+
+</nav>
+<script>
     const cartBtn = document.getElementById("cart-icon")
     const menuBtn = document.querySelector(".menu-icon span");
     const invisible = document.querySelector(".invisible");
@@ -78,27 +84,27 @@
     const cancelBtn = document.querySelector(".cancel-icon");
     const items = document.querySelector(".nav-items");
     const form = document.querySelector("form");
-    menuBtn.onclick = ()=>{
-      items.classList.add("active");
-      menuBtn.classList.add("hide");
-      searchBtn.classList.add("hide");
-      cartBtn.classList.add("hide");
-      cancelBtn.classList.add("show");
-      invisible.classList.add("hide");
+    menuBtn.onclick = () => {
+        items.classList.add("active");
+        menuBtn.classList.add("hide");
+        searchBtn.classList.add("hide");
+        cartBtn.classList.add("hide");
+        cancelBtn.classList.add("show");
+        invisible.classList.add("hide");
     }
-    cancelBtn.onclick = ()=>{
-      items.classList.remove("active");
-      menuBtn.classList.remove("hide");
-      searchBtn.classList.remove("hide");
-      cancelBtn.classList.remove("show");
-      form.classList.remove("active");
-      cancelBtn.style.color = "#ff3d00";
-      cartBtn.classList.remove("hide");
-      invisible.classList.remove("hide");
+    cancelBtn.onclick = () => {
+        items.classList.remove("active");
+        menuBtn.classList.remove("hide");
+        searchBtn.classList.remove("hide");
+        cancelBtn.classList.remove("show");
+        form.classList.remove("active");
+        cancelBtn.style.color = "#ff3d00";
+        cartBtn.classList.remove("hide");
+        invisible.classList.remove("hide");
     }
-    searchBtn.onclick = ()=>{
-      form.classList.add("active");
-      searchBtn.classList.add("hide");
-      cancelBtn.classList.add("show");
+    searchBtn.onclick = () => {
+        form.classList.add("active");
+        searchBtn.classList.add("hide");
+        cancelBtn.classList.add("show");
     }
- </script>
+</script>

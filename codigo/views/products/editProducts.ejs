@@ -3,40 +3,43 @@
     <%- include("../partials/header.ejs")%>
     <main>
         <h1><%= title%> </h1>
-        <form action="/products/<%=id%>?_method=PUT" method= "POST" >
+        <div class="errores">
+            <ul type= "none"> 
+
+            </ul>
+        </div>
+        <form action="/products/<%=id%>?_method=PUT" method= "POST" class= "EditarProducto" id= "formulario">            
+            <% if(locals.errores){
+                errores.forEach(e =>{ %>
+                    <p><%= e.msg %></p>
+                    <%})}%>
             <label for="nombreCurso">Nombre del Curso*</label>
-            <input type="text" id='nombreCurso' name='nombreCurso' value= "<%= courses.find((l)=>{return l['id'] == parseInt(id)}).name%>" >
+            <input type="text" id='nombreCurso' name='product_name' value= "<%= courses.find((l)=>{return l['product_id'] == parseInt(id)}).product_name%>" >
             <label for="descripcionCorta">Descripción corta*</label>
-            <textarea id="descripcionCorta" name="descripcionCorta"><%= courses.find((l)=>{return l['id'] == parseInt(id)}).shortDescription%></textarea>
+            <textarea id="descripcionCorta" name="short_description"><%= courses.find((l)=>{return l['product_id'] == parseInt(id)}).short_description%></textarea>
             <label for="requisitos">Requisitos del curso</label>
-            <textarea id="requisitos" name="requisitos"><%= courses.find((l)=>{return l['id'] == parseInt(id)}).requirements%></textarea>
+            <textarea id="requisitos" name="requirement_description"><% for(let j=0;j<requirements.length;j++){%><%= requirements[j].requirement_description %><%}%>
+            </textarea>
             <label for="descripcionLarga">Descripción larga*</label>
-            <textarea id="descripcionLarga" name="descripcionLarga"><%= courses.find((l)=>{return l['id'] == parseInt(id)}).longDescription%></textarea>
+            <textarea id="descripcionLarga" name="descripcionLarga"><%= courses.find((l)=>{return l['product_id'] == parseInt(id)}).long_description%></textarea>
             <div class="precio">
                 <div class="bloque">
                     <label for="precio">Precio*</label>
-                    <input type="text" id="precio" name="precio" value= "<%= courses.find((l)=>{return l['id'] == parseInt(id)}).price[0]%>">
-                </div>
-                <div class="bloque">
-                    <label for="moneda">Unidad monetaria*</label>
-                    <select class="select" name= "moneda" id="moneda"> 
-                        <option value="MXN" <%=courses.find((l)=>{return l['id'] == parseInt(id)}).price[1]=="MXN"?"selected":""%>>MXN Peso Mexicano</option>
-                        <option value="USD" <%=courses.find((l)=>{return l['id'] == parseInt(id)}).price[1]=="USD"?"selected":""%>>USD Dólar Estadounidense</option>
-                    </select>                      
+                    <input type="text" id="precio" name="precio" value= "<%= courses.find((l)=>{return l['product_id'] == parseInt(id)}).product_price%>">
                 </div>
             </div>
-            <!--  
             <label for="imagenDelCurso">Imagen de previsualización del curso*</label>
-            <input type="file" name="imagenDelCurso" id="imagenDelCurso" class="archivo">
-            -->
+            <input type="file" name="product_image" id="imagenDelCurso" class="archivo" required>
+            <input type="text" name="img" value="my_value" id="hidden_input" hidden/>
             <div class="botones">
-                <button type="submit" class="guardar" value="Guardar"><img src="/images/icons/save.svg"> Guardar cambios</button>
-            </div>        
+                <button type="submit" class="guardar" value="Guardar" id="submitBtn" disabled><img src="/images/icons/save.svg"> Guardar cambios</button>
+                <a href="/products" class="cancelar" value="Cancelar" id="cancelBtn" disabled> Cancelar cambios </a>
+            </div>
+
         </form>
-         
             <form action="/products/<%=id%>?_method=DELETE" method= "POST">
                 <div class="botones">
-                    <button type="submit" class="eliminar" name="eliminar" value= "Eliminar"><img src="/images/icons/delete.svg"> Eliminar curso</button>
+                    <button type="submit" class="eliminar" name="eliminar" value= "Eliminar" id="deleteBtn"><img src="/images/icons/delete.svg"> Eliminar curso</button>
                 </div>
             </form>
         
@@ -44,6 +47,125 @@
 
     </main>
     <%- include("../partials/footer.ejs") %>
+    <script type="module">
+        import "https://www.gstatic.com/firebasejs/8.0.2/firebase-app.js";
+        import "https://www.gstatic.com/firebasejs/8.0.2/firebase-storage.js";
+        firebase.initializeApp({
+            apiKey: "AIzaSyD08fS8ka33v28JWdJtIJUw0-aLPFsSg8E",
+            authDomain: "keeplearning-d82b7.firebaseapp.com",
+            projectId: "keeplearning-d82b7",
+            storageBucket: "keeplearning-d82b7.appspot.com",
+            messagingSenderId: "61916898917",
+            appId: "1:61916898917:web:50074a88245e0ee62b888c"
+        });
+        window.addEventListener("load", async function(){
+            
+            let courseURL = "<%-courses.find((l)=>{return l[`product_id`] == parseInt(id)}).product_image%>";
+            const file = document.getElementById("imagenDelCurso");
+            const uploadBtn = document.getElementById("submitBtn");
+            const hidden = document.getElementById("hidden_input");
+            file.addEventListener("change", (e) => {
+                const file = e.target.files[0];
+                if (file) {
+                    const storageRef = firebase.storage().ref("products");
+                    const fileRef = storageRef.child(file.name+Date.now());
+                    fileRef.put(file).then((snapshot) => {
+                        uploadBtn.disabled = false;
+                        snapshot.ref.getDownloadURL().then(url => {
+                            hidden.value = url;
+                            let pictureRef = firebase.storage().refFromURL(courseURL);
+                            pictureRef.delete()
+                                .then(() => {
+                                })
+                        })
+                    })
+                }
+
+            })
+            const deleteBtn = document.getElementById("deleteBtn");
+            deleteBtn.addEventListener("click",(event)=>{
+                let pictureRef = firebase.storage().refFromURL(courseURL);
+                pictureRef.delete()
+                    .then(() => {
+                    })
+            })
+
+            //Validación del formulario
+            let formulario = document.getElementById("formulario");
+
+            formulario.addEventListener("submit", function(error) {
+                const ulErrores = document.querySelector("div.errores ul");
+                ulErrores.innerHTML= ""
+                let errores = [];
+                
+                //Validación del campo del nombre
+
+                const campoNombre = document.getElementById("nombreCurso");
+
+                if (campoNombre.value == "") {
+                    errores.push("Debe completar el campo de nombre");
+                } else if (campoNombre.value.length < 5) {
+                    errores.push("El campo de nombre debe tener almenos 5 caracteres");
+                }
+
+                //Validación del campo descripción corta
+                const campoDescripcionCorta = document.getElementById("descripcionCorta");
+
+                if (campoDescripcionCorta.value == "") {
+                    errores.push("Debe completar el campo de descripción corta");
+                } else if (campoDescripcionCorta.value.length < 20) {
+                    errores.push("El campo de descripción corta debe tener almenos 20 caracteres");
+                }
+
+                //Validación del campo requisitos
+                const campoRequisitos = document.getElementById("requisitos");
+
+                if (campoRequisitos.value == "") {
+                    errores.push("Debe completar el campo de requisitos");
+                }
+
+                //Validación del campo descripción larga
+                const campoDescripcionLarga = document.getElementById("descripcionLarga");
+
+                if (campoDescripcionLarga.value == "") {
+                    errores.push("Debe completar el campo de descripción larga");
+                } else if (campoDescripcionLarga.value.length < 20) {
+                    errores.push("El campo de descripción larga debe tener almenos 20 caracteres");
+                }
+
+                //Validación del tipo del campo precio
+                const campoPrecio = document.getElementById("precio");
+                let valueInt = parseInt(campoPrecio.value)
+
+                if (campoPrecio.value == "") {
+                    errores.push("Debe completar el campo de precio");
+                }else if (isNaN(valueInt)){
+                    errores.push('El campo de precio solo debe contener numeros');
+                }
+                
+                //Validación de la extensión de la imagen 
+                const campoImagen = document.getElementById("imagenDelCurso");
+                const extensionesValidas = ['jpg','jpeg','png','gif'];
+                const extension = campoImagen.value.split('.').pop().toLowerCase() 
+                console.log(extension)
+                const validacion = extensionesValidas.includes(extension)
+
+                if (campoImagen.value == "") {
+                    errores.push("Debe subir una imagen");
+                }else if (validacion != true){
+                    errores.push('Solo se aceptan imagenes con extensión JPG, JPEG, PNG, GIF')
+                }
+                //Desplegar errores
+                if (errores.length > 0) {
+                    error.preventDefault();
+                    for (let i = 0; i < errores.length; i++) {
+                        ulErrores.innerHTML += "<li>" + errores[i] + "</li>"
+                    }
+                    
+                }
+            })
+        })
+    </script>
 </body>
 </html>
  
