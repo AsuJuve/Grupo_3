@@ -9,9 +9,6 @@ module.exports = function(sequelize,dataTypes) {
         category_name: {
             type: dataTypes.STRING,
             allowNull: false
-        },
-        parent_name:{
-            type: dataTypes.INTEGER
         }
     };
     let config = {
