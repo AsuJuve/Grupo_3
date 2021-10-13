@@ -4,50 +4,46 @@ const {validationResult} = require("express-validator");
 
 module.exports={
     index: async function (req,res){
-        let React= 0;
-        let Python = 0;
-        let Desarrorro_web= 0;
-        let Programacion = 0;
+
     let categories= await db.Category
         .findAll({raw:true})
         categories= categories.map(category=>{
             return {
                 idCategory: category.category_id,
                 nameCategory: category.category_name
-            }
-        })
+            };
+        });
 
     let products = await db.Product
         .findAll({raw:true})
+        let categoryDic=[];
+
         products= products.map(e=>{
             for(let i=0; i< categories.length; i++){
                 if(e.category_id == categories[i].idCategory){ 
-                    if ( e.category_id== 0){
-                        React += 1;
-                    }else if (e.category_id == 2){
-                        Python += 1;
-                    }else if (e.category_id == 3){
-                        Desarrorro_web += 1;
-                    }else if (e.category_id == 1){
-                        Programacion += 1;
-                    }
+                    categoryDic.push(categories[i].nameCategory)
                     return {
                         id: e.product_id,
                         name: e.product_name,
                         description: e.short_description,
                         category: categories[i].nameCategory ,
                         detail: "http://localhost:3000/api/products/"+e.product_id
-                    }
+                    };
+                } ;
+            };
+        });
 
-                } 
-            }
-        })
+        let categoryCount= categoryDic.reduce((count,name)=>{
+            count[name]= (count[name] || 0)+1;
+            return count
+        },{});
+
             return res.status(200).json({
                 count: products.length,
-                counByCategory: {React , Python, 'Desarrolllo web': Desarrorro_web, 'Programación' : Programacion },
-                products:products,
+                countByCategory: categoryCount,
+                products: products,
                 status: 200
-            })
+            });
     },
     detail: function (req,res){
         db.Product
@@ -67,9 +63,9 @@ module.exports={
                             category: categories[i].nameCategory,
                             productImage: product.product_image,
                             status: 200
-                        })
-                    }
-                }
-            })
-        }
-}
+                        });
+                    };
+                };
+            });
+        },
+};
