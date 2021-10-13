@@ -4,6 +4,10 @@ const {validationResult} = require("express-validator");
 
 module.exports={
     index: async function (req,res){
+        let React= 0;
+        let Python = 0;
+        let Desarrorro_web= 0;
+        let Programacion = 0;
     let categories= await db.Category
         .findAll({raw:true})
         categories= categories.map(category=>{
@@ -13,12 +17,20 @@ module.exports={
             }
         })
 
-        
     let products = await db.Product
         .findAll({raw:true})
         products= products.map(e=>{
             for(let i=0; i< categories.length; i++){
                 if(e.category_id == categories[i].idCategory){ 
+                    if ( e.category_id== 0){
+                        React += 1;
+                    }else if (e.category_id == 2){
+                        Python += 1;
+                    }else if (e.category_id == 3){
+                        Desarrorro_web += 1;
+                    }else if (e.category_id == 1){
+                        Programacion += 1;
+                    }
                     return {
                         id: e.product_id,
                         name: e.product_name,
@@ -26,12 +38,13 @@ module.exports={
                         category: categories[i].nameCategory ,
                         detail: "http://localhost:3000/api/products/"+e.product_id
                     }
+
                 } 
             }
         })
             return res.status(200).json({
                 count: products.length,
-                counByCategory: categories ,
+                counByCategory: {React , Python, 'Desarrolllo web': Desarrorro_web, 'Programación' : Programacion },
                 products:products,
                 status: 200
             })

@@ -18,9 +18,8 @@ module.exports={
                 return res.status(200).json({
                     count: customers.length,
                     users: customers
-                })
-                     
-        }
+                })            
+    }
     ,
     detail: function (req,res){
         db.Customer
