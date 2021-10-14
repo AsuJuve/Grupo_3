@@ -46,7 +46,6 @@ module.exports={
             });
     },
     detail: async function (req,res){
-
         let categories= await db.Category
         .findAll({raw:true})
         categories= categories.map(category=>{
@@ -55,8 +54,7 @@ module.exports={
                 nameCategory: category.category_name
             };
         });
-
-        let products = await db.Product
+        let product = await db.Product
             .findByPk(req.params.id)
             .then(product =>{
                 for(let i=0; i< categories.length; i++){
@@ -77,6 +75,6 @@ module.exports={
                     }
                 }
             })
-        return products;
-        }
+        return product;
+    },
 };
