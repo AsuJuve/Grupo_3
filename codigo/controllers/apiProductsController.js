@@ -45,12 +45,20 @@ module.exports={
                 status: 200
             });
     },
-    detail: function (req,res){
-        db.Product
+    detail: async function (req,res){
+        let categories= await db.Category
+        .findAll({raw:true})
+        categories= categories.map(category=>{
+            return {
+                idCategory: category.category_id,
+                nameCategory: category.category_name
+            };
+        });
+        let product = await db.Product
             .findByPk(req.params.id)
             .then(product =>{
                 for(let i=0; i< categories.length; i++){
-                    if(e.category_id == categories[i].idCategory){
+                    if(product.category_id == categories[i].idCategory){
                         return res.status(200).json({
                             id: product.product_id,
                             name: product.product_name,
@@ -63,9 +71,10 @@ module.exports={
                             category: categories[i].nameCategory,
                             productImage: product.product_image,
                             status: 200
-                        });
-                    };
-                };
-            });
-        },
+                        })
+                    }
+                }
+            })
+        return product;
+    },
 };
