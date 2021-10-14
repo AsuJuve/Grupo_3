@@ -168,6 +168,9 @@ input[type="checkbox"]:checked + .menu-options{
     color: #030634;
     background-color: #25C998;
 }
+.btn-log-in:hover, .btn-register:hover, .btn-nuevoCurso:hover, .primaryBtn:hover,.secondaryBtn:hover {
+    background-color: rgba(55, 39, 85, 0.692)
+}
 
 /*                  Courses                */
 a{

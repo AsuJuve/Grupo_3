@@ -38,19 +38,20 @@ const validateRegister = [
 
 //Middlewares
 const guestMiddleware = require('../middlewares/guestMiddleware')
+const authMiddleware = require('../middlewares/authMiddleware')
 
 //Formulario de registro
-router.get("/register",userController.register);
+router.get("/register", guestMiddleware, userController.register);
 router.post("/register",validateRegister,userController.registerProcess);
 
 //Formulario de login
-router.get("/login",userController.login);
+router.get("/login", guestMiddleware, userController.login);
 
 //Procesar login
 router.post("/login",validationsLogin,userController.loginProcess);
 
 //Perfil
-router.get("/profile",userController.profile);
+router.get("/profile", authMiddleware, userController.profile);
 
 router.get("/editProfile",userController.editProfile);
 router.put("/editProfile",userController.editProcess);
