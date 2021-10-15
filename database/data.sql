@@ -1,35 +1,28 @@
 ​/* Población de la base de datos*/
 
 INSERT INTO CUSTOMERS
-VALUES ('5', 'Juventino', 'Aguilar', 'juve@hotmail.com', '$2a$10$Nbd4uUVucF8t6tY8zPJ0R.uiB1.7WVzJpwt.rcEzDGR2LIj3QnN8u', 'estudiante', 'https://firebasestorage.googleapis.com/v0/b/keeplearning-d82b7.appspot.com/o/users%2F1628706454696_img_.jpg1631917781783?alt=media&token=82b6b77e-cd40-4cac-ba9b-3bd00ce75000'),
-('15', 'admin', 'admin', 'admin@kl.com', '$2a$10$r/Zadvd4cwEhoPk6TBS7nuBRQ9RM2teA1LBhf/FLmxeC9aU62o9mK', 'admin', 'https://firebasestorage.googleapis.com/v0/b/keeplearning-d82b7.appspot.com/o/users%2FLOGOKL.png?alt=media&token=7b785c10-d314-436e-a161-b0659ef344ff');
+VALUES ('1', 'Juventino', 'Aguilar', 'juve@hotmail.com', '$2a$10$Nbd4uUVucF8t6tY8zPJ0R.uiB1.7WVzJpwt.rcEzDGR2LIj3QnN8u', 'estudiante', 'https://firebasestorage.googleapis.com/v0/b/keeplearning-d82b7.appspot.com/o/users%2F1628706454696_img_.jpg1631917781783?alt=media&token=82b6b77e-cd40-4cac-ba9b-3bd00ce75000'),
+('2', 'admin', 'admin', 'admin@kl.com', '$2a$10$r/Zadvd4cwEhoPk6TBS7nuBRQ9RM2teA1LBhf/FLmxeC9aU62o9mK', 'admin', 'https://firebasestorage.googleapis.com/v0/b/keeplearning-d82b7.appspot.com/o/users%2FLOGOKL.png?alt=media&token=7b785c10-d314-436e-a161-b0659ef344ff');
 ​
 INSERT INTO SHOPPING_CART
-VALUES (1, 1, 197);
+VALUES (1, 1, 0);
 ​
 INSERT INTO CATEGORIES
-VALUES (1, 'Programación', NULL),
-(2,'Ciencia de Datos', NULL),
+VALUES (1, 'Python', NULL),
+(2,'Programación', NULL),
 (3, 'Desarrollo Web', NULL),
 (4, 'Desarrollo Móvil', NULL);
-
-INSERT INTO CATEGORIES
-VALUES (5, 'Python', 1),
-(6, 'PowerBI', 2),
-(7, 'React', 3),
-(8, 'Inteligencia Artificial',2),
-(9, 'DART', 4);
 
 INSERT INTO PRODUCTS
 VALUES (1, 'Curso completo de Python 3 de la A a la Z - 2021 +50 horas', 
 'Aprende Python 3 como un profesional empezando por las bases hasta programar tus propios algoritmos o juegos completos',
 '¡Conviértete hoy mismo en un programador de Python y aprende una de las habilidades más solicitadas por las empresas que 
-buscan empleados bien cualificados en este 2021!\nLos Data Scientist ganan en promedio más de $100,000 USD al año ya sea 
+buscan empleados bien cualificados en este 2021! Los Data Scientist ganan en promedio más de $100,000 USD al año ya sea 
 trabajando en empresas o como consultores externos. Sus portfolios de trabajos previos son su mejor arma para captar nuevos 
 clientes y destacar como analistas de datos. Sin embargo, los datos no se analizan a mano, y el lenguaje de programación de 
 Python se ha convertido en un requisito indispensable para aplicar algoritmos de Machine Learning o de Inteligencia Artificial 
 como los que vemos en los cursos más avanzados. La programación con Python 3 se ha convertido en una habilidad importantísima para 
-conseguir mejores trabajos en el siglo XXI.\n¡Este es el curso más completo, pero manteniendo la simplicidad para que aprender 
+conseguir mejores trabajos en el siglo XXI. ¡Este es el curso más completo, pero manteniendo la simplicidad para que aprender 
 una tecnología como Python sea accesible para todos los estudiantes, para el lenguaje de programación Python en Keep Learning!. 
 Ya sea que nunca hayas programado antes, o bien ya conozcas la sintaxis básica o tal vez quieras aprender sobre las funciones 
 avanzadas de Python, ¡este curso es sin duda para ti! ','https://firebasestorage.googleapis.com/v0/b/keeplearning-d82b7.appspot.com/o/products%2Fpython-Course.jpeg1631930417183?alt=media&token=24ba3b46-0b17-4a92-92ed-9da79ae15540', 249, 4200, 4.5),

@@ -23,6 +23,7 @@ app.use(methodOverride('_method'));
 const userRouter = require('./routes/userRouter');
 const productsRouter= require('./routes/productsRouter');
 const mainRouter= require('./routes/mainRouter');
+const apiRouter= require('./routes/apiRouter');
 
 //EJS
 app.set("view engine","ejs");
@@ -41,6 +42,9 @@ app.use(session({
     secret: 'Keep Learning'
 }));
 
+//CORS
+const cors = require('cors');
+app.use(cors())
 
 app.use(express.json());
 app.use(express.urlencoded({extended: false})); 
@@ -48,3 +52,4 @@ app.use(express.urlencoded({extended: false}));
 app.use('/users', userRouter);
 app.use('/products', productsRouter);
 app.use('/', mainRouter);
+app.use('/api', apiRouter);

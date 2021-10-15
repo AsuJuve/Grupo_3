@@ -4,26 +4,32 @@
     <main>
         <h1><%= title%> </h1>
         <form action="/products/create" method= "POST" id="formulario">
+        <h1 class= "titulo"><%= title%> </h1>
+        <div class="errores">
+            <ul type= "none"> 
+
+            </ul>
+        </div>
             <% if(locals.errores){
                 errores.forEach(e =>{ %>
                     <p><%= e.msg %></p>
                     <%})}%>
             <label for="nombreCurso">Nombre del Curso*</label>
-            <input type="text" id='nombreCurso' name='product_name' required>
+            <input type="text" id='nombreCurso' name='product_name'>
             <label for="descripcionCorta">Descripción corta*</label>
-            <textarea id="descripcionCorta" name="short_description" required></textarea>
+            <textarea id="descripcionCorta" name="short_description"></textarea>
             <label for="requisitos">Requisitos del curso</label>
-            <textarea id="requisitos" name="requirement_description" required></textarea>
+            <textarea id="requisitos" name="requirement_description"></textarea>
             <label for="descripcionLarga">Descripción larga*</label>
-            <textarea id="descripcionLarga" name="long_description" required></textarea>
+            <textarea id="descripcionLarga" name="long_description"></textarea>
             <div class="precio">
                 <div class="bloque">
                     <label for="precio">Precio*</label>
-                    <input type="text" id="precio" name="product_price" required>
+                    <input type="text" id="precio" name="product_price">
                 </div>
             </div>
             <label for="imagenDelCurso">Imagen de previsualización del curso*</label>
-            <input type="file" name="product_image" id="imagenDelCurso" class="archivo" required>
+            <input type="file" name="product_image" id="imagenDelCurso" class="archivo">
             <input type="text" name="img" value="my_value" id="hidden_input" hidden/>
             <div class="botones">
                 <button type="submit" class="guardar" id="submitBtn" value="Guardar" disabled><img src="/images/icons/save.svg"> Guardar cambios</button>
@@ -43,8 +49,9 @@
             storageBucket: "keeplearning-d82b7.appspot.com",
             messagingSenderId: "61916898917",
             appId: "1:61916898917:web:50074a88245e0ee62b888c"
-        });
-        window.addEventListener("load", async function(){
+        }); 
+        window.addEventListener("load", function() {
+
             const file = document.getElementById("imagenDelCurso");
             const uploadBtn = document.getElementById("submitBtn");
             const hidden = document.getElementById("hidden_input");
@@ -58,13 +65,87 @@
                     snapshot.ref.getDownloadURL().then(url => {
                     hidden.value = url;
 
-    })
-                })
+                        })
+                    })
                 }
                 
+            })
+            
+            //Validación del formulario
+            let formulario = document.getElementById("formulario");
+
+            formulario.addEventListener("submit", function(error) {
+                const ulErrores = document.querySelector("div.errores ul");
+                ulErrores.innerHTML= ""
+                let errores = [];
+                
+                //Validación del campo del nombre
+
+                const campoNombre = document.getElementById("nombreCurso");
+
+                if (campoNombre.value == "") {
+                    errores.push("Debe completar el campo de nombre");
+                } else if (campoNombre.value.length < 5) {
+                    errores.push("El campo de nombre debe tener almenos 5 caracteres");
+                }
+
+                //Validación del campo descripción corta
+                const campoDescripcionCorta = document.getElementById("descripcionCorta");
+
+                if (campoDescripcionCorta.value == "") {
+                    errores.push("Debe completar el campo de descripción corta");
+                } else if (campoDescripcionCorta.value.length < 20) {
+                    errores.push("El campo de descripción corta debe tener almenos 20 caracteres");
+                }
+
+                //Validación del campo requisitos
+                const campoRequisitos = document.getElementById("requisitos");
+
+                if (campoRequisitos.value == "") {
+                    errores.push("Debe completar el campo de requisitos");
+                }
+
+                //Validación del campo descripción larga
+                const campoDescripcionLarga = document.getElementById("descripcionLarga");
+
+                if (campoDescripcionLarga.value == "") {
+                    errores.push("Debe completar el campo de descripción larga");
+                } else if (campoDescripcionLarga.value.length < 20) {
+                    errores.push("El campo de descripción larga debe tener almenos 20 caracteres");
+                }
+
+                //Validación del tipo del campo precio
+                const campoPrecio = document.getElementById("precio");
+                let valueInt = parseInt(campoPrecio.value)
+
+                if (campoPrecio.value == "") {
+                    errores.push("Debe completar el campo de precio");
+                }else if (isNaN(valueInt)){
+                    errores.push('El campo de precio solo debe contener numeros');
+                }
+                
+                //Validación de la extensión de la imagen 
+                const campoImagen = document.getElementById("imagenDelCurso");
+                const extensionesValidas = ['jpg','jpeg','png','gif'];
+                const extension = campoImagen.value.split('.').pop().toLowerCase() 
+                console.log(extension)
+                const validacion = extensionesValidas.includes(extension)
+
+                if (campoImagen.value == "") {
+                    errores.push("Debe subir una imagen");
+                }else if (validacion != true){
+                    errores.push('Solo se aceptan imagenes con extensión JPG, JPEG, PNG, GIF')
+                }
+                //Desplegar errores
+                if (errores.length > 0) {
+                    error.preventDefault();
+                    for (let i = 0; i < errores.length; i++) {
+                        ulErrores.innerHTML += "<li>" + errores[i] + "</li>"
+                    }
+                    
+                }
             })
         })
     </script>
 </body>
 </html>
- 

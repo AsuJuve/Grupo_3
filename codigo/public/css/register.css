@@ -73,7 +73,15 @@ input[type="checkbox"]:checked + .menu-options{
     display:block;
     position: absolute;
 }
-
+.errores{
+    margin:10px;
+    line-height: 28px;
+    color:red;
+    margin: 0 30px;
+    text-align: center;
+    font-style: oblique;
+    font-weight: 700;
+}
 .logo-container{
     margin-left: 21.11%;
     margin-right: 5.55%;
@@ -101,6 +109,9 @@ input[type="checkbox"]:checked + .menu-options{
 .btn-cart{
     width: 40px;
     height: 40px;
+}
+.primaryBtn:hover,.secondaryBtn:hover {
+    background-color: rgba(55, 39, 85, 0.692)
 }
 h1{
     margin:16px;
@@ -133,7 +144,7 @@ form{
     padding-top: 4px;
     padding-bottom: 8px;
 }
-#enviar{
+#submitBtn{
     background-color: #25C998;
     color: black;
     font-size: 20px;
@@ -143,8 +154,8 @@ form{
     border: 1px solid #25C998;
     padding:0px;
 }
-#enviar:hover{
-    background-color: #6bddbb;
+#submitBtn:hover{
+    background-color: #7dddc0;
     border: 1px solid black;
 }
 .condiciones{

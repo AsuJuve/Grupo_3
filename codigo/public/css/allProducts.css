@@ -117,6 +117,9 @@ a{
     background-color: #25C998;
     margin: 100px 0 20px 20px;
 }
+.btn-Add:hover {
+    background-color: rgba(57, 42, 83, 0.521)
+}
 .pageHeader{
     display: flex;
     justify-content: space-around;
