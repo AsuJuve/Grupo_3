@@ -17,7 +17,9 @@
                             <div class=DesktopBuyInfoVisible>
                                 <h3 class="CoursePrice">$ <%= course.product_price %></h3>
                                 <div class="ButtonsContainer">
-                                    <a href="#" target="_parent"><button class="Btn-AgregarCarrito">Agregar al carrito</button></a>
+                                    <form action="/productDetail/<%=course.product_id%>" method= "POST">
+                                    <button class="Btn-AgregarCarrito" type="submit">Agregar al carrito</button></a>
+                                    </form>
                                     <a href="/productCart" target="_parent"><button class="Btn-Comprar">Comprar ahora</button></a>
                                 </div>
                                 <div class="CourseBenefits">
@@ -56,7 +58,7 @@
                         <div class=DesktopBuyInfoHidden>
                             <h3 class="CoursePrice">$ <%= course.product_price %></h3>
                             <div class="ButtonsContainer">
-                                <a href="#" target="_parent"><button class="Btn-AgregarCarrito">Agregar al carrito</button></a>
+                                <form action="/productDetail/<%=course.product_id%>" method= "POST"><button class="Btn-AgregarCarrito">Agregar al carrito</button></form>
                                 <a href="/productCart" target="_parent"><button class="Btn-Comprar">Comprar ahora</button></a>
                             </div>
                         </div>

@@ -55,8 +55,7 @@
                                 <img class="CourseCardImage" src=<%= course.product_image %>alt="Imagen representativa del curso">
                                 <h5 class="CourseCardTitle"><%= course.product_name %></h5>
                                 <section class="CourseRating">
-                                    <h5 class="CourseGrade">Rating: <%= course.value_rating %></h5>
-                                    <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
+                                    <h5 class="CourseGrade">Rating: <%= course.value_rating %> <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px" style="margin-left: 8px;"></h5>
                                     <h6 class="CourseReviews">(<%= course.enrolled_students %> estudiantes)</h6>
                                 </section>
                                 <h4 class="CourseCardPrice">$ <%= course.product_price%></h4>
@@ -68,8 +67,9 @@
                 
         </section>
         <!--Cursos Populares-->
-        <h2 class="CarouselTitle">Cursos más populares</h2>
-        <section class="CarouselContainer">
+        <div class="PopularCourses">
+            <h2 class="CarouselTitle">Cursos más populares</h2>
+            <section class="CarouselContainer">
             <% for(let course of courses){ %>
                 <section class="Carousel">
                     <a href="productDetail/<%= course.product_id%>">
@@ -77,8 +77,8 @@
                             <img class="CourseCardImage" src=<%= course.product_image %>alt="Imagen representativa del curso">
                             <h5 class="CourseCardTitle"><%= course.product_name %></h5>
                             <section class="CourseRating">
-                                <h5 class="CourseGrade">Rating: <%= course.value_rating %></h5>
-                                <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
+                                <h5 class="CourseGrade">Rating: <%= course.value_rating %> <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px" style="margin-left: 8px;"></h5>
+                                
                                 <h6 class="CourseReviews">(<%= course.enrolled_students %> estudiantes)</h6>
                             </section>
                             <h4 class="CourseCardPrice">$ <%= course.product_price%></h4>
@@ -86,7 +86,9 @@
                     </a>
                 </section>
             <%}%>
-        </section>
+            </section>
+        </div>
+        
     </main>
     <%- include("./partials/footer.ejs") %>
 </body>

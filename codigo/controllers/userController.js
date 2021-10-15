@@ -34,9 +34,13 @@ const controller = {
               data.customer_lastname == "admin"
                 ? "admin"
                 : "estudiante",
-            customer_image: data.img,
+            customer_image: data.img
           };
           const createdUser = await db.Customer.create(newUser);
+          const newCart = await db.Shopping_cart.create({
+              customer_id:createdUser.customer_id,
+              amount:0
+          })
           return res.redirect("/users/login");
         }else{
           return res.render("users/register",{"errores": errores.array(),title:"Registro",userLogged});

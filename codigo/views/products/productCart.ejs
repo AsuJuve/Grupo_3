@@ -1,102 +1,84 @@
 <%- include("../partials/head.ejs")%>
-<body>
-    <!--Navbar-->
-    <%- include("../partials/header.ejs")%>
-    <main>
-        <h1 class="titulo">Carrito</h1>
-        <div class="main">
-            <div class="articulos">
-                <article class="cursoAComprar">  
-                    <img src="/images/courses/artificial-intelligence.jpg" alt="Curso de AI">    
-                    <div class="descripcion">
-                        <div class="nombre-creador">
-                            <p class="nombre">Curso de inteligencia artificial</p>
-                            <p class="creador">Creado por: Diego Torres Morales</p>
+
+    <body>
+        <!--Navbar-->
+        <%- include("../partials/header.ejs")%>
+            <main>
+                <h1 class="titulo">Carrito</h1>
+                <div class="main">
+                    <% if(cartProducts.length==0){%>
+                        <div class="articulos">
+                            <article class="cursoAComprar">
+                                <img src="https://firebasestorage.googleapis.com/v0/b/keeplearning-d82b7.appspot.com/o/empty.png?alt=media&token=d57a0c33-6d27-4215-889e-41ed7a0bc29b"
+                                    alt="Carrito vacio">
+                                <div class="descripcion">
+                                    <div class="nombre-creador" style="width: 100%;">
+                                        <p class="nombre">Uy, parece que todavía no has agregado nada al carrito :(</p>
+                                        <p class="creador">Te recomendamos agregar los cursos al carrito primero.</p>
+                                        <a href="/" id="exploreCoursesBtn"><button id="exploreCourses">Explorar
+                                                cursos</button></a>
+                                    </div>
+                                </div>
+                            </article>
                         </div>
-                        <div class="precio-eliminar">
-                            <a class="eliminar" href=""><p>Eliminar</p></a>
-                            <h6 class="precio">$359 MXN</h6>
-                        </div>
+                        <%}else{%>
+                            <div class="articulos">
+                                <%for(let cartProduct of cartProducts){%>
+                                    <article class="cursoAComprar">
+                                        <img src="<%=cartProduct.product_image%>" alt="Curso de AI">
+                                        <div class="descripcion">
+                                            <div class="nombre-creador">
+                                                <p class="nombre">
+                                                    <%=cartProduct.product_name%>
+                                                </p>
+                                                <p class="creador">Ofrecido por Keep Learning</p>
+                                            </div>
+                                            <div class="precio-eliminar">
+                                                <h6 class="precio">$<%=cartProduct.product_price%> MXN</h6>
+                                                <form action="/productCart" method= "POST">
+                                                    <input name="courseId" type="text" hidden value="<%cartProduct.product_id%>">
+                                                    <button type="submit" id="deleteBtn"><p><u>Eliminar</u></p></button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </article>
+                                    <%}%>
+                            </div>
+                <div class="totalAPagar">
+                    <h3>Total a pagar:</h3>
+                    <h2 class="total">$<%=total%> MXN</h2>
+                    <p class="boton">Comprar ahora</p>
+                </div>
+                </div>
+                <%}%>
+                    <h2 class="subtitulo">También podría gustarte</h2>
+                    <div class="CarouselContainer">
+                        <% for(let course of courses){ %>
+                            <section class="Carousel">
+                                <a href="/productDetail/<%= course.product_id%>">
+                                    <article class="CourseCard">
+                                        <img class="CourseCardImage" src=<%=course.product_image %>alt="Imagen
+                                        representativa del curso">
+                                        <h5 class="CourseCardTitle">
+                                            <%= course.product_name %>
+                                        </h5>
+                                        <section class="CourseRating">
+                                            <h5 class="CourseGrade">Rating: <%= course.value_rating %>
+                                                    <img src="/images/icons/EstrellaRellena.svg" alt="Estrella"
+                                                        width="24px" height="24px" style="margin-left: 8px;"></h5>
+
+                                            <h6 class="CourseReviews">(<%= course.enrolled_students %> estudiantes)
+                                            </h6>
+                                        </section>
+                                        <h4 class="CourseCardPrice">$ <%= course.product_price%>
+                                        </h4>
+                                    </article>
+                                </a>
+                            </section>
+                            <%}%>
                     </div>
-                </article>
-                <article class="cursoAComprar"> 
-                    <img src="/images/courses/html.jpg" alt="Curso de HTML"  >
-                    <div class="descripcion">    
-                        <div class="nombre-creador">
-                            <p class="nombre">Curso de HTML nivel principiante</p>
-                            <p class="creador">Creado por: Rosa Ibarra</p>
-                        </div>
-                        <div class="precio-eliminar">
-                            <a class="eliminar" href=""><p>Eliminar</p></a>
-                            <h6 class="precio">$249 MXN</h6>
-                        </div>
-                    </div> 
-                </article>
-            </div>
-            <div class="totalAPagar">
-                <h3>Total a pagar:</h3>
-                <h2 class="total">$448 MXN</h2>
-                <p class="boton">Comprar ahora</p>
-            </div>
-        </div>
-        <h2 class="subtitulo">También podría gustarte</h2>
-                        <div class="CarouselContainer">
-                            <div class="Carousel">
-                                <article class="CourseCard">
-                                    <img class="CourseCardImage" src="/images/courses/PowerBICourse.jpeg" alt="Thumbnail de curso de Power BI">
-                                    <h5 class="CourseCardTitle">Curso Power BI – Análisis de Datos y Business Intelligence</h5>
-                                    <h6 class="CourseCardCreator">Creado por: Universidad Nacional Autónoma de México</h6>
-                                    <section class="CourseRating">
-                                        <h5 class="CourseGrade">4.0</h5>
-                                        <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
-                                        <h6 class="CourseReviews">(1,240)</h6>
-                                    </section>
-                                    <h4 class="CourseCardPrice">$ 199 MXN</h4>
-                                </article>
-                <article class="CourseCard">
-                    <img class="CourseCardImage" src="/images/courses/reactCourse.jpeg" alt="Thumbnail de curso de React">
-                    <h5 class="CourseCardTitle">Aprende React y Firebase, curso de 2021</h5>
-                    <h6 class="CourseCardCreator">Creado por: Universidad Nacional Autónoma de México</h6>
-                    <section class="CourseRating">
-                        <h5 class="CourseGrade">4.5</h5>
-                        <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
-                        <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
-                        <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
-                        <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
-                        <img src="/images/icons/EstrellaMitad.svg" alt="Estrella" width="24px" height="24px">
-                        <h6 class="CourseReviews">(67,640)</h6>
-                    </section>
-                    <h4 class="CourseCardPrice">$ 279 MXN</h4>
-                </article>
-                <article class="CourseCard">
-                    <img class="CourseCardImage" src="/images/courses/typescriptCourse.jpeg" alt="Thumbnail de curso de TypeScript">
-                    <h5 class="CourseCardTitle">Aprende Typescript de 0 a 100</h5>
-                    <h6 class="CourseCardCreator">Creado por: Universidad Nacional Autónoma de México</h6>
-                    <section class="CourseRating">
-                        <h5 class="CourseGrade">3.9</h5>
-                        <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
-                        <h6 class="CourseReviews">(3,195)</h6>
-                    </section>
-                    <h4 class="CourseCardPrice">$ 179 MXN</h4>
-                </article>
-                <article class="CourseCard">
-                    <img class="CourseCardImage" src="/images/courses/gitCourse.jpeg" alt="Thumbnail de curso de Git y Github">
-                    <h5 class="CourseCardTitle">GIT+GitHub: Todo un sistema de control de versiones de cero</h5>
-                    <h6 class="CourseCardCreator">Creado por: Universidad Nacional Autónoma de México</h6>
-                    <section class="CourseRating">
-                        <h5 class="CourseGrade">5.0</h5>
-                        <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
-                        <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
-                        <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
-                        <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
-                        <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
-                        <h6 class="CourseReviews">(30,195)</h6>
-                    </section>
-                    <h4 class="CourseCardPrice">$ 259 MXN</h4>
-                </article>
-            </div>
-        </div>
-    </main>
-    <%- include("../partials/footer.ejs")%>
-</body>
-</html>
+            </main>
+            <%- include("../partials/footer.ejs")%>
+    </body>
+
+    </html>

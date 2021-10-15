@@ -40,7 +40,7 @@
                 const file = e.target.files[0];
                 if (file) {
                     const storageRef = firebase.storage().ref("users");
-                    const fileRef = storageRef.child(file.name+Date.now());
+                    const fileRef = storageRef.child(Date.now()+file.name);
                     fileRef.put(file).then((snapshot) => {
                         snapshot.ref.getDownloadURL().then(url => {
                             hidden.value = url;

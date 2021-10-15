@@ -142,12 +142,14 @@ nav#navBar .search-icon {
   padding: 4px 0;
 }
 .greetingUser {
-  font-size: 16px;
+  font-size: 16px !important;
   padding-left: 8px;
+  padding-right: 8px;
   margin: 0;
   text-align: center;
   display: flex;
   align-items: center;
+  color:white;
 }
 #cart-icon {
   padding: 4px 0 0;

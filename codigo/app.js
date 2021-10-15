@@ -13,6 +13,8 @@ app.use(express.urlencoded({extended: true}));
 const path = require("path");
 app.use(express.static(path.resolve(__dirname,"./public")));
 
+
+
 //Method override
 const methodOverride= require('method-override')
 app.use(methodOverride('_method'));
@@ -33,6 +35,7 @@ app.listen(PORT,function(){
 
 //Session
 const session = require('express-session');
+const db = require("./database/models");
 app.set('trustproxy', true);
 app.use(session({
     secret: 'Keep Learning'

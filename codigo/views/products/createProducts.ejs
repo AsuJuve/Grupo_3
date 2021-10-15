@@ -3,7 +3,7 @@
     <%- include("../partials/header.ejs")%>
     <main>
         <h1><%= title%> </h1>
-        <form action="/products" method= "POST" id="formulario">
+        <form action="/products/create" method= "POST" id="formulario">
             <% if(locals.errores){
                 errores.forEach(e =>{ %>
                     <p><%= e.msg %></p>
@@ -52,11 +52,11 @@
                 const file = e.target.files[0];
                 if(file){
                     const storageRef = firebase.storage().ref("products");
-                    const fileRef = storageRef.child(file.name+Date.now());
+                    const fileRef = storageRef.child(Date.now()+file.name);
                     fileRef.put(file).then((snapshot) => {
                     uploadBtn.disabled = false;
                     snapshot.ref.getDownloadURL().then(url => {
-                        hidden.value = url;
+                    hidden.value = url;
 
     })
                 })

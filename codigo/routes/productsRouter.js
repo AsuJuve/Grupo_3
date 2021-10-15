@@ -7,7 +7,7 @@ const validateProduct = [
     body("product_name").notEmpty().withMessage("El nombre del producto es obligatorio").bail()
         .isLength({min:5}).withMessage("El nombre del producto debe tener minimo 5 caracteres"),
     body("short_description").notEmpty().withMessage("La descripcion corta es obligatoria").bail()
-    .isLength({min:20}).withMessage("El apellido debe tener minimo 20 caracteres")
+    .isLength({min:20}).withMessage("La descripcion corta debe tener minimo 20 caracteres")
 ];
 
 router.get('/', productsController.index);

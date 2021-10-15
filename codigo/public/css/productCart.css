@@ -32,11 +32,28 @@ body{
     position: fixed;
     z-index: 10;
 }
-
+#deleteBtn{
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+}
 #boton{
     margin-left: 5%;
 }
-
+#exploreCoursesBtn{
+    display: flex;
+    justify-content: center;
+}
+#exploreCourses{
+    color: white;
+    background-color: black;
+    padding:8px;
+    margin-top: 16px;
+    border-radius: 8px;
+    border-width: 1px;
+    border-color: #000000;
+    cursor: pointer;
+}
 .div-btn-menu{
     display: block;
     width: 40px;
@@ -189,17 +206,23 @@ input[type="checkbox"]:checked + .menu-options{
     font-weight: bold;
 }
 .boton:hover{
-    background-color: salmon;
+    background-color: white;
+    cursor: pointer;
 }
 .subtitulo{    
     font-weight: 500;
     font-size: 26px;
-    margin: 10px 0 20px 0;
+    padding: 10px 0 0 0;
     padding-left: 20px;
+    background-color: #5157B5;
 }
 .CarouselContainer{
     overflow-x:auto;
-    margin-right: 16px;
+    position: static;
+    padding-top: 40px;
+    background-color: #5157B5;
+    font-weight: 500;
+    display: flex;
 }
 .Carousel{
     min-height: 212px;
@@ -220,7 +243,7 @@ input[type="checkbox"]:checked + .menu-options{
     height:140px;
 }
 .CourseCardTitle{
-    margin: 9px 16px 16px 5px;
+    margin: 8px;
     color:var(--White);
 }
 img{
@@ -236,6 +259,42 @@ img{
 }
 .CourseCard > .CourseRating{
     margin:0;
+}
+.Carousel{
+    min-height: 212px;
+    margin:0 0 16px 0;
+    display: flex;
+}
+
+.CourseCard{
+    width:300px !important;
+    min-height: 212px;
+    padding: 0 8px 0px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+}
+.CourseCardImage{
+    width:100%;
+    height:140px;
+}
+.CourseCardTitle{
+    margin: 8px;
+    color:var(--White);
+}
+
+.CourseCard > .CourseRating{
+    margin:0;
+    margin-left: 8px;
+}
+.CourseCardPrice{
+    margin: 0;
+    margin-top:8px;
+    margin-left:8px;
+}
+.CourseCardCreator{
+    margin: 5px 16px 16px 4px;
 }
 .CourseLessonName, article.CourseCard > section.CourseRating > .CourseGrade{
     color:var(--secondaryColor);
@@ -278,9 +337,10 @@ article.ReviewContainer:last-of-type{
 }
 .ReviewerRating{
     display: inline-flex;
+    line-height: 24px;
 }
 h5.CourseGrade{
-    margin-left: 8px;
+    line-height: 24px;
 }
 footer{
     background-color:var(--darkBlueLogo);
@@ -556,7 +616,7 @@ small{
     }
     .CarouselContainer{
         display: flex;
-        justify-content: space-around;
+        
     }
 }
 

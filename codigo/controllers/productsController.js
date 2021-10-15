@@ -124,7 +124,7 @@ module.exports={
         for (let i = 0; i < requirements.length; i++) {
             const newElement = await db.Requirement.create(requirements[i]);
         }
-            res.redirect('/products')
+            return res.redirect('/products')
         }else{
             let userLogged = null
             if(req.session.userLogged){
@@ -134,7 +134,7 @@ module.exports={
                 userLogged = customer;
             }
             const courses = await db.Product.findAll({raw:true});
-            res.render("products/createProducts",{title: 'Crear Curso',"errores": errores.array(),courses,userLogged})
+            return res.render("products/createProducts",{title: 'Crear Curso',"errores": errores.array(),courses,userLogged})
         }
 		
     },

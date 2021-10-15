@@ -61,7 +61,7 @@
                 const file = e.target.files[0];
                 if (file) {
                     const storageRef = firebase.storage().ref("products");
-                    const fileRef = storageRef.child(file.name+Date.now());
+                    const fileRef = storageRef.child(Date.now()+file.name);
                     fileRef.put(file).then((snapshot) => {
                         uploadBtn.disabled = false;
                         snapshot.ref.getDownloadURL().then(url => {

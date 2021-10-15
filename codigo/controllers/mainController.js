@@ -22,7 +22,32 @@ module.exports={
             }});
             userLogged = customer;
         }
-        res.render('products/productCart',{title:"Carrito",userLogged});
+        const courses = await db.Product.findAll({raw:true});
+        const cartProducts = [];
+        let cart;
+        if(userLogged==null){
+            res.redirect("users/login");
+        }else{
+            cart = await db.Shopping_cart.findOne({
+                raw:true,
+                where:{
+                    customer_id:userLogged.customer_id
+                }
+            })
+            if(cart.amount!=0){
+                const products = await db.Shopping_cart_products.findAll({
+                    raw:true,
+                    where:{
+                        shopping_cart_id:cart.shopping_cart_id
+                    }
+                })
+                for(let prod of products){
+                    const productInCart = await db.Product.findByPk(parseInt(prod.product_id),{raw:true});
+                    cartProducts.push(productInCart);
+                }   
+            }
+            res.render('products/productCart',{title:"Carrito",userLogged,courses,cartProducts,total:cart.amount});
+        }
     },
     showDetail: async function (req,res){
         const id= req.params.id;
@@ -41,5 +66,49 @@ module.exports={
             }
         })
         res.render('products/productDetail',{title: 'Detalle de producto',courses,curso,requirements,userLogged})
+    },
+    addToCart: async function(req,res){
+        const id= parseInt(req.params.id);
+        const product = await db.Product.findByPk(parseInt(id),{raw:true});
+        let userLogged = null
+        if(req.session.userLogged){
+            const customer = await db.Customer.findOne({raw:true,where:{
+                customer_email:req.session.userLogged
+            }});
+            const cart = await db.Shopping_cart.findOne({
+                raw:true,
+                where:{
+                    customer_id:customer.customer_id
+                }
+            })
+            const checkProductInCart = await db.Shopping_cart_products.findOne({raw:true,where:{
+                product_id:product.product_id
+            }})
+            if(checkProductInCart==null){
+                const finalAmount = cart.amount += product.product_price;
+                const cartProduct = await db.Shopping_cart_products.create({
+                    shopping_cart_id: cart.shopping_cart_id,
+                    product_id: id
+                })
+                const updatedCart = await db.Shopping_cart.update({
+                    customer_id:customer.customer_id,
+                    amount:finalAmount
+                },{where:{
+                    customer_id:customer.customer_id
+                }})
+            }
+            res.redirect("/");
+        }else{
+            res.redirect("/users/login");
+        }
+    },
+    deleteFromCart: async function(req,res){
+        const data = req.body;
+        console.log(data);
+        const deletedCourse = await db.Shopping_cart_products.destroy({where:{
+            product_id:data.courseId
+        }});
+        const cart = await db.Shopping_cart.update()
+        res.redirect("/productCart");
     }
 }
