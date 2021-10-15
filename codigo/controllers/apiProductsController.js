@@ -27,7 +27,7 @@ module.exports={
                         name: e.product_name,
                         description: e.short_description,
                         category: categories[i].nameCategory ,
-                        detail: "http://localhost:3000/api/products/"+e.product_id
+                        detail: "https://grupo-3-keeplearning.herokuapp.com/api/products/"+e.product_id
                     };
                 } ;
             };

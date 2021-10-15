@@ -12,7 +12,7 @@ module.exports={
             id: e.customer_id ,
             name: e.customer_firstname + " " + e.customer_lastname,
             email: e.customer_email,
-            detail: "http://localhost:3000/api/users/"+ e.customer_id
+            detail: "https://grupo-3-keeplearning.herokuapp.com/api/users/"+ e.customer_id
         }
     })
                 return res.status(200).json({
