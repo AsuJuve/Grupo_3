@@ -14,7 +14,7 @@
                 <input type="password" name="customer_password" id="customer_password" required>
                 <label for="imagenUsuario">Imagen de perfil</label>
                 <input type="file" name="customer_image" id="imagenUsuario" style="background-color: transparent;border: transparent;padding:0" required>
-                <input type="text" name="img" value="my_value" id="hidden_input" hidden/>
+                <input type="text" name="img" value="" id="hidden_input" hidden/>
                 <button type="submit" value="abc" id="submitBtn" disabled>Actualizar información</button>
             </form>
         </div>
@@ -32,7 +32,7 @@
             appId: "1:61916898917:web:50074a88245e0ee62b888c"
         });
         window.addEventListener("load", async function(){
-            let courseURL = "<%- userLogged.customer_image%>";
+            let courseURL = "<%-userLogged.customer_image%>";
             const file = document.getElementById("imagenUsuario");
             const uploadBtn = document.getElementById("submitBtn");
             const hidden = document.getElementById("hidden_input");

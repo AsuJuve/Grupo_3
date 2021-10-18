@@ -7,7 +7,7 @@
                 <h1 class="titulo">Carrito</h1>
                 <div class="main">
                     <% if(cartProducts.length==0){%>
-                        <div class="articulos">
+                        <div class="articulos" styles="width:100%">
                             <article class="cursoAComprar">
                                 <img src="https://firebasestorage.googleapis.com/v0/b/keeplearning-d82b7.appspot.com/o/empty.png?alt=media&token=d57a0c33-6d27-4215-889e-41ed7a0bc29b"
                                     alt="Carrito vacio">
@@ -21,6 +21,7 @@
                                 </div>
                             </article>
                         </div>
+                </div>
                         <%}else{%>
                             <div class="articulos">
                                 <%for(let cartProduct of cartProducts){%>
@@ -35,20 +36,23 @@
                                             </div>
                                             <div class="precio-eliminar">
                                                 <h6 class="precio">$<%=cartProduct.product_price%> MXN</h6>
-                                                <form action="/productCart" method= "POST">
-                                                    <input name="courseId" type="text" hidden value="<%cartProduct.product_id%>">
-                                                    <button type="submit" id="deleteBtn"><p><u>Eliminar</u></p></button>
+                                                <form action="/productCart" method="POST">
+                                                    <input name="courseId" type="text" hidden
+                                                        value="<%=cartProduct.product_id%>">
+                                                    <button type="submit" id="deleteBtn">
+                                                        <p><u>Eliminar</u></p>
+                                                    </button>
                                                 </form>
                                             </div>
                                         </div>
                                     </article>
                                     <%}%>
                             </div>
-                <div class="totalAPagar">
-                    <h3>Total a pagar:</h3>
-                    <h2 class="total">$<%=total%> MXN</h2>
-                    <p class="boton">Comprar ahora</p>
-                </div>
+                            <div class="totalAPagar">
+                                <h3>Total a pagar:</h3>
+                                <h2 class="total">$<%=total%> MXN</h2>
+                                <p class="boton">Comprar ahora</p>
+                            </div>
                 </div>
                 <%}%>
                     <h2 class="subtitulo">También podría gustarte</h2>
@@ -80,5 +84,10 @@
             </main>
             <%- include("../partials/footer.ejs")%>
     </body>
-
+    <script>
+        const buyBtn = document.querySelector(".boton");
+        buyBtn.addEventListener("click",()=>{
+            alert("Gracias por tu compra :D");
+        });
+    </script>
     </html>
