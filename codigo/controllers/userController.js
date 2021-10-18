@@ -143,6 +143,11 @@ const controller = {
         }
         const updatedUser = await db.Customer.update(userData,{where:{"customer_id":oldUser.customer_id}}) 
         res.redirect("/users/profile");
+    },
+    logout: (req,res)=> {
+        req.session.destroy();
+        console.log(req.session);
+        return res.redirect ('/')
     }
 }
 

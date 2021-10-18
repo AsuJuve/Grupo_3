@@ -56,4 +56,6 @@ router.get("/profile", authMiddleware, userController.profile);
 router.get("/editProfile",userController.editProfile);
 router.put("/editProfile",userController.editProcess);
 
+router.get("/logout", authMiddleware,userController.logout)
+
 module.exports= router;
