@@ -77,24 +77,7 @@
                 </article>
                 <article class="AboutUniversity">
                     <h3 class="SectionTitle">Otros cursos que te podrían interesar</h3>
-                    <div class="CarouselContainer">
-                        <% for(let course of courses){ %>
-                            <section class="Carousel">
-                                <a href="/productDetail/<%= course.product_id%>" style="text-decoration: none;">
-                                    <article class="CourseCard">
-                                        <img class="CourseCardImage" src=<%= course.product_image %>alt="Imagen representativa del curso">
-                                        <h5 class="CourseCardTitle"><%= course.product_name %></h5>
-                                        <section class="CourseRating">
-                                            <h5 class="CourseGrade">Rating: <%= course.value_rating %></h5>
-                                            <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="24px" height="24px">
-                                            <h6 class="CourseReviews">(<%= course.enrolled_students %> estudiantes)</h6>
-                                        </section>
-                                        <h4 class="CourseCardPrice">$ <%= course.product_price%></h4>
-                                    </article>
-                                </a>
-                            </section>
-                        <%}%>
-                    </div>
+                    <%- include("../partials/carousel.ejs") %>
                 </article>
                 
             <%}%>

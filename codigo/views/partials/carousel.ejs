@@ -1,0 +1,20 @@
+<link rel="stylesheet" href="/css/carousel.css">
+<section class="CarouselContainer">
+    <% for(let course of courses){ %>
+        <section class="Carousel">
+            <a href="productDetail/<%= course.product_id%>">
+                <article class="CourseCard">
+                    <img class="CourseCardImage" src=<%= course.product_image %>alt="Imagen representativa del curso">
+                    <h5 class="CourseCardTitle"><%= course.product_name %></h5>
+                    <section class="CourseRating">
+                        <h5 class="CourseGrade">Rating: <%= course.value_rating %> 
+                            <img src="/images/icons/EstrellaRellena.svg" alt="Estrella" width="18px" height="18px" style="margin: 0 4px 0;">
+                        </h5>
+                        <h6 class="CourseReviews">(<%= course.enrolled_students %> estudiantes)</h6>
+                    </section>
+                    <h4 class="CourseCardPrice">$ <%= course.product_price%></h4>
+                </article>
+            </a>
+        </section>
+    <%}%>
+</section>

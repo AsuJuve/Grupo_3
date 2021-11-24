@@ -187,7 +187,6 @@ nav#navBar .search-icon {
   padding: 4px 0 0;
 }
 .dropdown-content {
-  display: none;
   position: absolute;
   background-color: #f1f1f1;
   width:100%;
@@ -195,6 +194,8 @@ nav#navBar .search-icon {
   top: 44px;
   left: 0;
   border-radius: 0 0 8px 8px;
+  height:0;
+  overflow: hidden;
 }
 .dropdown-content a {
   color: #030634;
@@ -203,12 +204,18 @@ nav#navBar .search-icon {
   display: block;
   text-align: center;
 }
+.dropdown-content a:hover{
+  color:white;
+  background-color: black;
+}
 .profile-pic:hover {
   background-color: #5156b5;
 }
 .profile-pic:hover .dropdown-content {
   background-color: #5156b5;
-  display: block;
+  height:128px;
+  transition: height .4s ease-in-out;
+  cursor: pointer;
 }
 .primaryBtn {
   background: #030634;
@@ -337,6 +344,7 @@ nav#navBar .search-icon {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+    transition: all .4s ease-in-out;
   }
   nav#navBar .menu-icon {
     display: block;

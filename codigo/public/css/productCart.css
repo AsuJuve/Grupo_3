@@ -36,6 +36,13 @@ body{
     background-color: transparent;
     border: 0;
     cursor: pointer;
+    text-align: right;
+    justify-content: flex-end;
+}
+.precio-eliminar form{
+    display:flex;
+    justify-content: flex-end;
+    align-self: flex-end;
 }
 #boton{
     margin-left: 5%;
@@ -115,7 +122,7 @@ input[type="checkbox"]:checked + .menu-options{
     height: 40px;
 }
 .cursoAComprar img{
-    width: 30%;
+    width: 100%;
     margin-bottom: 20px;  
     object-fit: cover;  
 }
@@ -422,3 +429,4 @@ h5.CourseGrade{
 a{
     text-decoration: none;
 }
+
