@@ -13,7 +13,9 @@ app.use(express.urlencoded({extended: true}));
 const path = require("path");
 app.use(express.static(path.resolve(__dirname,"./public")));
 
-
+//fav icon
+const favicon = require('express-favicon');
+app.use(favicon(__dirname + '/public/images/favicon.png'));
 
 //Method override
 const methodOverride= require('method-override')

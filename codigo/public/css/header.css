@@ -13,6 +13,10 @@ nav#navBar {
   z-index: 10;
   width: 100%;
 }
+nav button img{
+  width:28px;
+  height:28px;
+}
 nav#navBar a{
     text-decoration: none;
 }
@@ -30,34 +34,47 @@ nav#navBar .nav-items li {
 nav#navBar .nav-items li a {
   color: #fff;
   font-size: 16px;
+  overflow: hidden;
+  white-space: nowrap;
   font-weight: 500;
   text-decoration: none;
 }
 nav#navBar .nav-items li a:hover {
   color: #25c998;
+  transition: all .3s ease-in-out;
 }
+
 nav#navBar form#busqueda {
   display: flex;
   background: #030634;
   width: 300px !important;
   min-width: 300px !important;
   border-radius: 8px;
-  border: 1px solid #5157b5;
+  border:0;
   align-items: center;
   padding: 0 !important;
   flex-direction: row;
+  height:40px;
 }
 nav#navBar form#busqueda .search-data {
   width: 100%;
-  height: 100%;
-  padding: 12px 0px 12px 8px;
+  height:100%;
+  border-radius: 8px 0 0 8px;
+  padding: 0px 4px 0px 8px;
   color: #fff;
   font-size: 16px;
   font-weight: 500;
   background: none;
-  border: 0;
+  border: 1px solid #5157b5;
   margin:0;
   font-family: "Roboto";
+}
+form > input.search-data:focus-visible{
+  box-shadow: inset 0 1px 0 #FFF,
+              inset -1px 0 0 #FFF,
+              inset 0 -1px 0 #FFF,
+              inset 1px 0 0 #fff;
+  outline: none;
 }
 .search-data::-webkit-search-cancel-button {
   -webkit-appearance: none;
@@ -81,14 +98,24 @@ nav#navBar form#busqueda .search-data {
   cursor: pointer;
 }
 nav#navBar form#busqueda button {
-  border: 1px solid #030634;
-  border-radius: 0px 8px 8px 0px;
+  border-radius: 0px 7px 7px 0px;
   background: #5157b5;
   cursor: pointer;
   padding: 0;
+  margin:0;
+  height:100%;
+  width:36px;
+  border:1px solid #000;
 }
 nav#navBar form#busqueda button:hover {
-  background: #e63600;
+  background: #8088f7;
+  transition: all .3s ease-in-out;
+}
+.not-logged-in button.primaryBtn:hover,.not-logged-in button.secondaryBtn:hover{
+  background-color: #5157b5;
+  border-color: #fff;
+  color:#fff;
+  transition: all .3s ease-in-out;
 }
 nav#navBar .menu-icon,
 nav#navBar .cancel-icon,
@@ -115,15 +142,20 @@ nav#navBar .search-icon {
   display: flex;
   flex-wrap: nowrap;
 }
-.invisible img {
+.invisible svg path{
   width: 40px;
   height: 40px;
+  fill:#1a1d53;
+}
+#cart-icon:hover svg path{
+  fill:#8088f7;
+  transition: all .4s ease-in-out;
 }
 .logoText {
   font-family: Roboto;
   font-style: normal;
   font-weight: normal;
-  font-size: 24px;
+  font-size: 20px;
   margin: 0;
   display: flex;
   align-items: center;
@@ -214,7 +246,7 @@ nav#navBar .search-icon {
   font-size: 16px;
   line-height: 24px;
 }
-@media (min-width: 1024px) {
+@media (min-width: 1025px) {
   .invisible,
   .desktopInvisible {
     display: none;
@@ -226,6 +258,9 @@ nav#navBar .search-icon {
   .primaryBtn,
   .secondaryBtn {
     display: flex;
+  }
+  nav#navBar form#busqueda{
+    width:80%;
   }
 }
 @media (max-width: 1140px) {
