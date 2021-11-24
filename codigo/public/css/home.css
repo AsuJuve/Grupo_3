@@ -1,5 +1,6 @@
 *{
     box-sizing: border-box;
+    margin:0;
 }
 
 body{
@@ -284,83 +285,11 @@ a{
 a{
     text-decoration: none;
 }
-/*          Footer          */
-footer{
-    background-color:#1A1D53;
-}
-.FooterContainer{
-    padding-top: 16px;
-    display: flex;
-    flex-wrap: wrap;
-    margin-right: 16px;
-    margin-left: 16px;
-    justify-content: center;
-}
-.FooterTitle{
-    font-size: 14px;
-    color:var(--White);
-    margin: 4px;
-}
-.FooterItem{
-    font-size: 12px;
-    color:var(--White);
-    font-weight: 400;
-    margin: 4px;
-}
-.Empresa{
-    min-width: 136px;
-    padding-bottom: 12px;
-}
-.Legal{
-    width:140px;
-    order:2;
-}
-.Contactanos{
-    order:1;
-    margin-left:36px;
-    min-width: 116px;
-    padding-bottom: 32px;
-}
-.Social{
-    order:4;
-    display: flex;
-    margin-left: 32px;
-    justify-content: center;
-}
-.InstagramLogo{
-    margin-left: 8px;
-    margin-right: 8px;
-}
-.Logo{
-    order:5;
-    margin-top:4px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-small{
-    color:var(--secondaryColor);
-    font-size: 14px;
-    font-weight: 400;
-    display: flex;
-    margin-right: 16px;
-    margin-left: 16px;
-    text-align: center;
-    justify-content: center;
-    padding-bottom: 16px;
-}
 @media (min-width:532px) {
-    .Social{
-        margin:0;
-        justify-self: center;
-    }
-    .Legal{
-        margin-right: 0;
-    }
     .section-main{
         position: relative;
         display: block;
-        min-height: 50.37vw;
+        min-height: 50vw;
     }
     .img-principal-div{
         position: absolute;
@@ -407,96 +336,9 @@ small{
     .principal-header{
         font-size: 2rem;
     }
-    .FooterContainer{
-        padding-top: 52px;
-        padding-left: 4%;
-        padding-right: 4%;
-        justify-content: flex-start;
-        margin:0;
-    }
-    .Logo{
-        order: 0;
-        width: 124px;
-        height: 92px;
-    }
-    .Empresa{
-        order:1;
-        margin-right: 4%;
-        margin-left: 4%;
-        width: 180px !important;
-    }
-    .Legal{
-        order:2;
-        min-width: 180px !important;
-        margin-right: 0;
-    }
-    .Contactanos{
-        order: 3;
-        padding:0;
-        margin:0 4% 0 4%;
-    }
-    .Social{
-        order:4;
-        flex-direction: column;
-        margin:auto;
-    }
-    .InstagramLogo{
-        margin:0;
-    }
-    .FooterContainer > div > h5.FooterTitle{
-        font-size: 16px;
-    }
-    .FooterContainer > div > h6.FooterItem{
-        font-size: 14px;
-    }
-    .Social > img{
-        width:48px;
-        height: 48px;
-        margin-bottom: 16px;
-    }
-    small{
-        padding-top:40px;
-        font-size: 16px;
-        justify-content: flex-end;
-        padding-right: 72px;
-        padding-bottom: 32px;
-        margin:0;
-    }
 }
 @media (max-width:650px){
     div.CoursesCategories{
         display: none;
     }
 }
-@media (min-width:1236px) {
-
-    .FooterContainer{
-        padding-left: 5%;
-        padding-right: 5%;
-        justify-content: center;
-    }
-    .Empresa{
-        margin-right: 5%;
-        margin-left: 5%;
-        width: 192px;
-    }
-    .Legal{
-        min-width: 180px !important;
-    }
-    .Contactanos{
-        order: 3;
-        padding:0;
-        margin:0 5% 0 5%;
-    }
-    .Social{    
-        flex-direction: row;
-        align-self:flex-start;
-        margin:0;
-    }
-    .Social > img{
-        width:48px;
-        height: 48px;
-        margin: 0 16px 0 16px;
-    }
-}
-

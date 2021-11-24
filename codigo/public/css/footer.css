@@ -1,5 +1,5 @@
 footer{
-    background-color:var(--darkBlueLogo);
+    background-color:#1A1D53;
 }
 .FooterContainer{
     padding-top: 16px;
@@ -11,17 +11,17 @@ footer{
 }
 .FooterTitle{
     font-size: 16px;
-    color:var(--White);
+    color:white;
     margin-bottom: 8px;
 }
 .FooterItem{
     font-size: 14px;
     padding-bottom: 4px;
-    color:var(--White);
+    color:white;
     font-weight: 400;
 }
 .FooterItem:hover{
-    color:var(--brandColor);
+    color:#25C998;
     cursor: pointer;
     transition: all .3s ease-in-out;
 }
@@ -57,7 +57,7 @@ footer{
     justify-content: center;
 }
 small{
-    color:var(--secondaryColor);
+    color:#C4C4C4;
     font-weight: 400;
     display: flex;
     margin-right: 16px;
