@@ -1,0 +1,244 @@
+footer{
+    background-color:var(--darkBlueLogo);
+}
+.FooterContainer{
+    padding-top: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: 16px;
+    margin-left: 16px;
+    justify-content: center;
+}
+.FooterTitle{
+    font-size: 16px;
+    color:var(--White);
+    margin-bottom: 8px;
+}
+.FooterItem{
+    font-size: 14px;
+    padding-bottom: 4px;
+    color:var(--White);
+    font-weight: 400;
+}
+.FooterItem:hover{
+    color:var(--brandColor);
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+}
+.Empresa{
+    min-width: 136px;
+    padding-bottom: 12px;
+}
+.Legal{
+    width:140px;
+    order:2;
+}
+.Contactanos{
+    order:1;
+    margin-left:36px;
+    min-width: 116px;
+    padding-bottom: 32px;
+}
+.Social{
+    order:4;
+    display: flex;
+    margin-left: 32px;
+    justify-content: center;
+}
+.InstagramLogo{
+    margin-left: 8px;
+    margin-right: 8px;
+}
+.Logo{
+    order:5;
+    margin-top:4px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+small{
+    color:var(--secondaryColor);
+    font-weight: 400;
+    display: flex;
+    margin-right: 16px;
+    margin-left: 16px;
+    justify-content: center;
+    padding-bottom: 16px;
+}
+@media (max-width:359px) {
+    .Contactanos{
+        margin-left: 0;
+    }
+    .Legal{
+        padding-bottom: 12px;
+    }
+    .Social{
+        width: 100%;
+        margin-left: 0;
+        justify-self: center;
+    }
+}
+@media (max-width:283px) {
+    .Contactanos{
+        width:136px;
+    }
+}
+@media (max-width:324px) {
+    .Contactanos{
+        padding-bottom: 12px;
+    }
+}
+@media (min-width:460px) {
+    form{
+        width: 70%;
+        align-self: center;
+    }
+    .Contactanos{
+        margin-right: 36px;
+    }
+    .Legal{
+        margin-right:32px;
+    }
+    .Social{
+        margin-left:0;
+        margin-right:36px;
+    }
+}
+@media (min-width:532px) {
+    .Social{
+        margin:0;
+        justify-self: center;
+    }
+    .Legal{
+        margin-right: 0;
+    }
+}
+@media (min-width:608px) {
+    .Social{
+        align-self: center;
+    }
+    .Legal{
+        margin-right: 36px;
+    }
+    .Empresa{
+        padding-bottom: 0;
+    }
+    .Logo{
+        margin-top:0;
+    }
+}
+/*DESKTOP*/
+@media (min-width:950px){
+    .FooterContainer{
+        padding-top: 32px;
+        padding-left: 4%;
+        padding-right: 4%;
+        justify-content: flex-start;
+        margin:0;
+    }
+    .Logo{
+        order: 0;
+        width: 124px;
+        height: 92px;
+    }
+    .Empresa{
+        order:1;
+        margin-right: 4%;
+        margin-left: 4%;
+        width: 180px !important;
+    }
+    .Legal{
+        order:2;
+        min-width: 180px !important;
+        margin-right: 0;
+    }
+    .Contactanos{
+        order: 3;
+        padding:0;
+        margin:0 4% 0 4%;
+    }
+    .Social{
+        order:4;
+        flex-direction: column;
+        margin:auto;
+    }
+    .InstagramLogo{
+        margin:0;
+    }
+    .FooterContainer > div > h5.FooterTitle{
+        font-size: 18px;
+    }
+    .FooterContainer > div > h6.FooterItem{
+        font-size: 16px;
+    }
+    .Social > a > img{
+        width:36px;
+        height: 36px;
+        margin-bottom: 16px;
+    }
+    .Social > a > img:hover{
+        width:40px;
+        height:40px;
+        transition: .4s all ease-in-out;
+    }
+    small{
+        padding-top:40px;
+        font-size: 14px;
+        justify-content: flex-end;
+        padding-right: 72px;
+        padding-bottom: 32px;
+        margin:0;
+    }
+    a.recordarme{
+        font-size: 14px;
+        line-height: 20px;
+        font-weight: 500;
+    }
+    label.recordarme{
+        font-size: 14px;
+        line-height: 20px;
+        font-weight: 500;
+        margin: 0 0 0px 8px;
+        white-space: nowrap;
+    }
+    
+    input[type=checkbox] {
+        transform: scale(1.75);
+        margin: 0 8px;
+      }
+}
+@media (min-width:1236px) {
+    .FooterContainer{
+        padding-left: 20px;
+        padding-right: 20px;
+        justify-content: center;
+    }
+    .Empresa{
+        margin-right: 5%;
+        margin-left: 5%;
+        width: 192px;
+    }
+    .Legal{
+        min-width: 180px !important;
+    }
+    .Contactanos{
+        order: 3;
+        padding:0;
+        margin:0 5% 0 5%;
+    }
+    .Social{
+        flex-direction: row;
+        align-self:flex-start;
+        margin:0;
+    }
+    .Social > a > img{
+        width:36px;
+        height: 36px;
+        margin: 0 16px 0 16px;
+    }
+    .Social > a > img:hover{
+        width:40px;
+        height:40px;
+        transition: .4s all ease-in-out;
+    }
+}
