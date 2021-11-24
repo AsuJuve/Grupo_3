@@ -23,7 +23,7 @@ main{
     font-weight: 500;
     display: flex;
     flex-direction: column;
-    padding-top: 15vh;
+    padding-top: 100px;
 }
 .header-not-logged-in{
     width: 100vw;
@@ -49,7 +49,7 @@ main{
     background-color: #363A84;
 }
 .password{
-    margin-bottom: 4px;
+    margin: 4px 0 4px;
 }
 .menu-options{
     display: none;
@@ -114,7 +114,7 @@ input[type="checkbox"]:checked + .menu-options{
     background-color: rgba(55, 39, 85, 0.692)
 }
 h1{
-    margin:16px;
+    margin:0 16px 0;
     text-align: center;
     font-size: 24px;
     font-weight: 700;
@@ -127,16 +127,17 @@ input{
     height: 40px;
     color: white;
     padding:8px;
-    margin: 4px 0 4px;
+    margin: 0;
 }
 label{
     font-size: 20px;
-    line-height: 23.5px;
+    line-height: 40px;
 }
 form{
-    padding: 16px;     
+    padding: 8px 16px;     
     display: flex;
     flex-direction: column;
+    max-width:520px;
 }
 .contraseña{
     font-size: 14px;
@@ -153,10 +154,18 @@ form{
     font-weight: 900;
     border: 1px solid #25C998;
     padding:0px;
+    width:50%;
+    display:flex;
+    align-self: center;
+    justify-content: center;
 }
 #submitBtn:hover{
-    background-color: #7dddc0;
-    border: 1px solid black;
+    background-color: #5157B5;
+    border: 1px solid white;
+    color:white;
+    transition: all .3s ease-in-out;
+    cursor: pointer;
+    
 }
 .condiciones{
     font-size: 14px;
@@ -173,6 +182,7 @@ a{
     line-height: 19px;
     text-align: center;
     padding-top: 12px;
+    margin-bottom: 32px;
 }
 
 footer{
@@ -189,6 +199,7 @@ footer{
 .FooterTitle{
     font-size: 16px;
     color:var(--White);
+    margin-bottom: 8px;
 }
 .FooterItem{
     font-size: 14px;
@@ -260,7 +271,7 @@ small{
 }
 @media (min-width:460px) {
     form{
-        width: 60%;
+        width: 70%;
         align-self: center;
     }
     .Contactanos{
@@ -300,7 +311,7 @@ small{
 /*DESKTOP*/
 @media (min-width:950px){
     .FooterContainer{
-        padding-top: 52px;
+        padding-top: 32px;
         padding-left: 4%;
         padding-right: 4%;
         justify-content: flex-start;
@@ -336,29 +347,46 @@ small{
         margin:0;
     }
     .FooterContainer > div > h5.FooterTitle{
-        font-size: 24px;
+        font-size: 18px;
     }
     .FooterContainer > div > h6.FooterItem{
-        font-size: 20px;
+        font-size: 16px;
     }
     .Social > img{
-        width:48px;
-        height: 48px;
+        width:40px;
+        height: 40px;
         margin-bottom: 16px;
     }
     small{
         padding-top:40px;
-        font-size: 16px;
+        font-size: 14px;
         justify-content: flex-end;
         padding-right: 72px;
         padding-bottom: 32px;
         margin:0;
     }
+    a.recordarme{
+        font-size: 14px;
+        line-height: 20px;
+        font-weight: 500;
+    }
+    label.recordarme{
+        font-size: 14px;
+        line-height: 20px;
+        font-weight: 500;
+        margin: 0 0 0px 8px;
+        white-space: nowrap;
+    }
+    
+    input[type=checkbox] {
+        transform: scale(1.75);
+        margin: 0 8px;
+      }
 }
 @media (min-width:1236px) {
     .FooterContainer{
-        padding-left: 5%;
-        padding-right: 5%;
+        padding-left: 20px;
+        padding-right: 20px;
         justify-content: center;
     }
     .Empresa{
@@ -380,14 +408,15 @@ small{
         margin:0;
     }
     .Social > img{
-        width:48px;
-        height: 48px;
+        width:40px;
+        height: 40px;
         margin: 0 16px 0 16px;
     }
 }
 @media (min-width:769px){
     form{
-        width: 40%
+        width: 48%
+
     }
     h1{
         font-size: 35px;
@@ -399,9 +428,10 @@ small{
 @media (min-width:1280px){
     form{
         width: 48%;
+        max-width: 520px;
     }
     h1{
-        font-size: 32px;
+        font-size: 36px;
         font-weight: 400;
         line-height: 48px;
     }
@@ -409,11 +439,9 @@ small{
         font-size: 24px;
         line-height: 40px;
         font-weight: 400;
-        margin-bottom: 12px;
     }
     input, #enviar{
-        height: 48px;
-        margin-bottom: 12px;
+        height: 40px;
         font-size: 20px;
     }
     .contraseña{
@@ -425,20 +453,39 @@ small{
     .condiciones{
         font-size: 14px;
         line-height: 19px;
-        padding-bottom: 20px;
-        margin-bottom: 12px;
+        padding-bottom: 16px;
+        color:#C4C4C4;
     }
     .iniciar-sesion{
         font-size: 18px;
         line-height: 24px;
-        margin-bottom: 64px;
+    }
+    #submitBtn{
+        height:40px;
+    }
+    input#imgUsuario{
+        font-size: 16px;
     }
 }
 input#imgUsuario{
     border: 0;
     background-color: transparent;
-    display: flex;
     padding:0;
-    height:28px;
-    margin-top:4px;
+    margin:4px 0 8px;
+    height:auto;
+    font-size: 16px;
+}
+::-webkit-file-upload-button{
+    background: #030634;
+    color:white;
+    border-radius: 8px;
+    border:white 1px solid;
+    white-space: nowrap;
+    padding:4px 8px 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+::-webkit-file-upload-button:hover{
+    background: #1A1D53;
+    transition: all .3s ease-in-out;
 }
