@@ -97,7 +97,7 @@ input[type="checkbox"]:checked + .menu-options{
 .recordar .checkboxRecordar{
     display:flex;
     flex-wrap: nowrap;
-    align-items: flex-start;
+    align-items: baseline;
 }
 
 .btn-search{

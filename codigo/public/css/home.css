@@ -144,17 +144,18 @@ input[type="checkbox"]:checked + .menu-options{
 .btn-log-in{
     font-weight: 500;
     font-size: 14px;
-    height: 32px;
+    height: 36px;
     border-radius: 8px;
     border: #25C998 solid 1px;
     color: #25C998;
     background-color: #030634;
+    white-space: nowrap;
 }
 
 .btn-register{
     font-weight: 500;
     font-size: 14px;
-    height: 32px;
+    height: 36px;
     border-radius: 8px;
     border: #030634 solid 1px;
     color: #030634;
@@ -170,7 +171,11 @@ input[type="checkbox"]:checked + .menu-options{
     background-color: #25C998;
 }
 .btn-log-in:hover, .btn-register:hover, .btn-nuevoCurso:hover, .primaryBtn:hover,.secondaryBtn:hover {
-    background-color: rgba(55, 39, 85, 0.692)
+    background-color: #5156B5;
+    border:#fff 1px solid;
+    color:white;
+    cursor:pointer;
+    transition: .3s all ease-in-out;
 }
 
 /*                  Courses                */

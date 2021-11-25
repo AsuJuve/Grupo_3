@@ -75,6 +75,7 @@ h5.Breadcrumb{
     z-index: 1;
     max-width: 800px;
     max-height: 440px;
+    border-radius: 8px;
 }
 
 .PlayButton{
@@ -478,7 +479,6 @@ h4.ReviewerName{
         font-size: 24px !important;
         font-weight: 400 !important;
         line-height: 1em;
-        letter-spacing: -0.05em;
     }
     h4,.DetailsSubtitle,.DetailsSubtitle2,.ButtonsContainer button,.ShortCourseDescription{
         font-weight: 400 !important;
@@ -574,7 +574,7 @@ h4.ReviewerName{
     .CourseBenefits{
         float: right;
         max-width: 356px;
-        padding-bottom: 16px;
+        padding-bottom: 32px;
     }
     .LongCourseDescription{
         padding-bottom: 80px;

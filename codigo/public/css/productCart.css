@@ -38,11 +38,14 @@ body{
     cursor: pointer;
     text-align: right;
     justify-content: flex-end;
+    font-size: 14px;
 }
 .precio-eliminar form{
     display:flex;
     justify-content: flex-end;
     align-self: flex-end;
+    width:100%;
+    margin-top: 8px;
 }
 #boton{
     margin-left: 5%;
@@ -122,9 +125,13 @@ input[type="checkbox"]:checked + .menu-options{
     height: 40px;
 }
 .cursoAComprar img{
-    width: 100%;
     margin-bottom: 20px;  
-    object-fit: cover;  
+    object-fit: fill;  
+    border-radius: 8px;
+    min-width: 100px;
+    max-width: 220px;
+    height:50%;
+    align-self: center;
 }
 .main{
     padding: 20px;
@@ -138,7 +145,7 @@ input[type="checkbox"]:checked + .menu-options{
 .cursoAComprar{
     display: flex;
     width: 100%;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     flex-direction: row;
     border-bottom: 1px solid white;
     margin-top: 10px;
@@ -174,7 +181,7 @@ input[type="checkbox"]:checked + .menu-options{
     justify-content: space-between;    
     align-items: flex-end;
     width:100%;
-    margin-bottom: 15px;
+    margin: 0 0 16px 8px;
 }
 .eliminar{
     color: white;
@@ -184,6 +191,8 @@ input[type="checkbox"]:checked + .menu-options{
 .precio{
     font-size: 20px;
     font-weight:500;
+    text-align: right;
+    white-space: nowrap;
 }
 .totalAPagar{
     display: flex;
@@ -309,7 +318,7 @@ img{
     min-width: 24px;
     height: 24px;
     display: flex;
-    align-items: flex-end;
+    align-items: center;
 }
 .CourseLessonName, article.CourseCard > section.CourseRating > img{
     margin-right: 4px;
@@ -353,9 +362,10 @@ h5.CourseGrade{
     .descripcion{
         display: flex;
         flex-wrap: wrap;
+        justify-content: flex-start;
     }
     .nombre{
-        font-size: 24px;
+        font-size: 20px;
         line-height: 30px;
     }
     .precio{
@@ -363,6 +373,12 @@ h5.CourseGrade{
     }
     .creador{
         font-size: 18px;
+    }
+    .precio-eliminar form{
+        align-self: flex-end;
+    }
+    #deleteBtn{
+        font-size: 16px;
     }
 }
 /*DESKTOP*/
@@ -373,9 +389,9 @@ h5.CourseGrade{
         margin-right: 30px;
     }
     .nombre-creador{
-        margin-bottom: 10px;
+        margin-bottom: 16px;
         align-self: flex-start;
-        width: 70%;
+        width: 65%;
     }
     .descripcion{
         width: 85%;
@@ -384,7 +400,7 @@ h5.CourseGrade{
         flex-direction: column;
         width:28%;
         align-items: flex-end;
-        margin-bottom: 10px;
+        margin-bottom: 16px;
     }
     .precio-eliminar .eliminar{
         order: 1;
@@ -396,12 +412,10 @@ h5.CourseGrade{
         display: flex;
     }
     .cursoAComprar{
-        height: 30%;
         justify-content: space-between ;
     }
     .cursoAComprar img{
-        width: 15%;
-        margin-bottom: 8px;
+        margin-bottom: 16px;
     }
     .totalAPagar{
         background-color: #030634;
