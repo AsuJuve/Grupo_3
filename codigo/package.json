@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/AsuJuve/grupo_3_keep-learning#readme",
   "dependencies": {
+    "@scout_apm/scout-apm": "^0.2.3",
     "bcryptjs": "^2.4.3",
     "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
