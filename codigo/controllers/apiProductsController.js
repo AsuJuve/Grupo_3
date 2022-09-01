@@ -2,6 +2,7 @@ const { showDetail } = require('./mainController');
 const db = require("../database/models")
 const {validationResult} = require("express-validator");
 
+const array = []
 module.exports={
     index: async function (req,res){
 
@@ -33,6 +34,7 @@ module.exports={
             };
         });
 
+        array.push(products)
         let categoryCount= categoryDic.reduce((count,name)=>{
             count[name]= (count[name] || 0)+1;
             return count
